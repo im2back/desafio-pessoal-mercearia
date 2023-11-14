@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/css/styles-novacompra.css">
+</head>
+
+<body>		
+		<h1>Adicionar produto na conta</h1>
+		<a th:href="@{'/cliente/home'}">Pagina Inicial</a>
+		
+	<form action="/produtos/cadastrar" method="post">
+		<label for="name" >Nome do produto:</label>
+		<input type="text" id="name"  name="name" >
+		<br><br>
+		
+		<label for="preco" >Preço do produto:</label>
+		<input type="text" id="preco"  name="preco" >
+		<br><br>
+		
+		   <label for="idCliente">Identificação do cliente:</label>
+        <input type="text" id="idCliente" name="idCliente">
+		<br><br>
+		<input type="submit" value="Registrar" >
+	</form>
+
+</body>
+
+
+</html>

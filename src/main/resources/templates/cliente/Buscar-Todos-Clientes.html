@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/css/styles-listar-todos.css">
+</head>
+
+<body>		
+		<h1>Todos os clientes</h1>
+			<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
+		
+			 <table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Documento</th>
+				<th>Total</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${lista}">
+				<td th:text="${cliente.nome}"> </td> 
+				<td th:text="${cliente.documento}" > </td>
+				<td th:text="${cliente.total}" > </td>				          
+			</tr>
+		</tbody>
+	</table>
+				
+
+</body>
+
+
+</html>

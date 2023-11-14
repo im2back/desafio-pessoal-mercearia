@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/css/styles-listar-todos.css">
+</head>
+
+<body>		
+		<h1>Todos os clientes</h1>
+		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
+		
+		<form action="/cliente/buscarCliente" method="get">
+			<label for="id">ID do cliente :</label>
+			<input type="text" id="id"  name="id">
+			
+		<input type="submit" value="buscar" >
+			</form>
+		
+		
+				
+
+</body>
+
+
+</html>

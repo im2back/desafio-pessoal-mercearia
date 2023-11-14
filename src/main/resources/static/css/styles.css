@@ -1,0 +1,38 @@
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+            font-size: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 28px;
+            border: 2px solid #3498db;
+            color: #3498db;
+            border-radius: 30px;
+            transition: background-color 0.3s, color 0.3s;
+            width: 50%;
+        }
+
+
+
+        a.round:hover {
+            background-color: #267bb5;
+        }
+
+        a:not(.round) {
+            text-align: center;
+        }
+
+        a:not(.round):hover {
+            background-color: #3498db;
+            color: #fff;
+        }

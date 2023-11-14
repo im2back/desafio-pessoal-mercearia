@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/css/styles-formulario-cadastro-cliente.css">
+</head>
+
+<body>		
+		<h1>CadastrarCliente</h1>
+		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
+		
+	<form action="/cliente/cadastrar" method="post">
+		<label for="name">Nome</label>
+		<input type="text" id="name"  name="name">
+		
+		<br><br>
+		
+		<label for="documento">Documento</label>
+		<input type="text" id="documento"  name="documento">
+		
+		<br><br>
+		
+		<label for="rua">Travessa/Rua:</label>
+		<input type="text" id="rua"  name="rua" >
+		
+		<br><br>
+		
+		<label for="numero">Numero da casa:</label>
+		<input type="text" id="numero"  name="numero" >
+		
+		<br><br>
+		
+		<input type="submit" value="Cadastrar">
+	</form>
+				
+
+</body>
+
+
+</html>

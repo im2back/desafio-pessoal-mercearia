@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/css/styles-listar-todos.css">
+</head>
+
+<body>		
+		<h1>Todos os clientes</h1>
+			<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
+			<br>
+		<p>Cliente</p>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Documento</th>
+				<th>Rua/Travessa</th>
+				<th>Numero</th>
+				<th>Total da conta:</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${cliente.name}"> </td> 
+				<td th:text="${cliente.documento}" > </td>
+				<td th:text="${cliente.rua}" > </td>	
+				<td th:text="${cliente.numero}" > </td>	
+				<td th:text="${cliente.total}" > </td>			          
+			</tr>
+		</tbody>
+	</table>
+		<br>
+	<p>Produtos Comprados</p>
+		 <table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Preco</th>
+				<th>Moment</th>		
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${cliente.lista}">
+				<td th:text="${produto.name}"> </td> 
+				<td th:text="${produto.preco}" > </td>
+				<td th:text="${produto.moment}" > </td>			          
+			</tr>
+		</tbody>
+	</table>
+				
+
+</body>
+
+
+</html>
