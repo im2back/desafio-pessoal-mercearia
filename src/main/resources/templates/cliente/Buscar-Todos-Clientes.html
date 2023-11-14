@@ -24,7 +24,7 @@
 			<tr th:each="cliente : ${lista}">
 				<td th:text="${cliente.nome}"> </td> 
 				<td th:text="${cliente.documento}" > </td>
-				<td th:text="${cliente.total}" > </td>				          
+				<td th:text="'R$ 	' + ${cliente.total}" > </td>				          
 			</tr>
 		</tbody>
 	</table>

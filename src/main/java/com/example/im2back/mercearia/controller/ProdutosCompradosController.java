@@ -11,6 +11,7 @@ import com.example.im2back.mercearia.model.carrinho.ProdutoCompradoRequestDTO;
 import com.example.im2back.mercearia.service.ProdutosCompradosService;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping(value = "produtos")
@@ -26,7 +27,8 @@ public String cadastrarProduto(Model model){
 
 @PostMapping("/cadastrar")
 @Transactional
-public String salvar(ProdutoCompradoRequestDTO dtoRequest, Model model){
+public String salvar(@Valid ProdutoCompradoRequestDTO dtoRequest){
+	
 	service.salvar(dtoRequest);
 		return "produto/Adicionar-Produto-No-Carrinho";	
 	}

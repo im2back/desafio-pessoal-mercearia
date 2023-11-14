@@ -11,6 +11,7 @@ import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.service.ClienteService;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping(value = "cliente")
@@ -25,7 +26,7 @@ public class ClienteController {
 
 	@PostMapping("/cadastrar")
 	@Transactional
-	String salvar(ClienteCadastroRequestDTO clienteRequest, Model model) {
+	String salvar(@Valid ClienteCadastroRequestDTO clienteRequest, Model model) {
 		var response = service.salvar(clienteRequest);
 		model.addAttribute("cliente", response);
 		return "cliente/Response-Cliente-Cadastrado";
