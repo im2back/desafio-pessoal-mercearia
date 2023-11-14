@@ -8,9 +8,14 @@
 </head>
 
 <body>		
-		<h1>Todos os clientes</h1>
+		<h1>Cliente</h1>
 		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
 		
+		<div th:if="${errorMessages != null and errorMessages.size() > 0}">
+		    <div th:each="message : ${errorMessages}" class="error-message">
+		        <p th:text="${message}"></p>
+		    </div>
+		</div>
 		<form action="/cliente/buscarCliente" method="get">
 			<label for="id">ID do cliente :</label>
 			<input type="text" id="id"  name="id">

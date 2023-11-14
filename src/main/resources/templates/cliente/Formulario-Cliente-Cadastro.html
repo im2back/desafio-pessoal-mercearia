@@ -10,6 +10,11 @@
 
 <body>		
 		<h1>CadastrarCliente</h1>
+		<div th:if="${errorMessages != null and errorMessages.size() > 0}">
+		    <div th:each="message : ${errorMessages}" class="error-message">
+		        <p th:text="${message}"></p>
+		    </div>
+		</div>
 		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
 		
 	<form action="/cliente/cadastrar" method="post">

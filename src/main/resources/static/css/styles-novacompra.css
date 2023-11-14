@@ -57,3 +57,11 @@
             background-color: #3498db;
             color: #fff;
         }
+        
+     .error-message {
+    background-color: #ffcccc; /* Cor de fundo personalizada para mensagens de erro 'preco' */
+    border:  0px solid #ff0000; /* Borda vermelha para realçar a área de erro */
+    border-radius: 10px;
+    padding: 5px; /* Espaçamento interno para melhor legibilidade */
+    margin-bottom: 10px; /* Espaçamento inferior para separar os blocos de erro */
+}
