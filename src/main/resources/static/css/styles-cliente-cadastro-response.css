@@ -48,6 +48,7 @@
             color: #3498db;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
+            width: 300px;
             
         }
 

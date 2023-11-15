@@ -37,16 +37,16 @@ public class ClienteService {
 			throw new ServiceExceptions("Cliente de ID : "+id+ " não  foi encontrado na base de dados.");
 		}
 	}
-
-	public Cliente localizarClientePorID(Long id) {
-		Cliente cliente = repository.findById(id).get();
-				return cliente;
-	}
 	
-	public ClienteCompletoDTO localizarClientePorID2(Long id) {
-		Cliente cliente = findById(id);
+	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {
+		try {
+			Cliente cliente = repository.findByDocumento(documento);		
 			ClienteCompletoDTO dto = new ClienteCompletoDTO(cliente);
 				return dto;
+		} catch (NullPointerException e) {
+			throw new ServiceExceptions("O documento : '"+documento +"' não foi localizado na base de dados.");
+		}
+		
 	}
 
 

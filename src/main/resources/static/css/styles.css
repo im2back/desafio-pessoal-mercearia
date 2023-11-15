@@ -3,6 +3,10 @@
             text-align: center;
             margin: 40px;
             font-size: 30px;
+            
+            background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua pelo caminho da sua imagem */
+		    background-size: cover;
+		    background-position: center;
         }
 
         h1 {

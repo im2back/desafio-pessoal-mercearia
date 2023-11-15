@@ -27,6 +27,9 @@
 		<input type="text" id="preco"  name="preco" >
 		<br><br>
 		
+		<div th:if="${serviceMessage != null }">
+		        <p th:text="${serviceMessage}"></p>	   
+		</div>
 		<div th:each="msg : ${errorMessages}" >
   			  <p class="error-message" th:if="${#strings.startsWith(msg, 'idCliente')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
 		</div>

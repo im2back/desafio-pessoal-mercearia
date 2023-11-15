@@ -22,7 +22,7 @@ public class ProdutosCompradosService {
 
 	public ProdutoCompradoResponseDTO salvar(ProdutoCompradoRequestDTO dto) {
 
-		Cliente cliente = clienteService.localizarClientePorID(dto.idCliente());
+		Cliente cliente = clienteService.findById(dto.idCliente());
 			ProdutosComprados produto = new ProdutosComprados(dto, cliente);
 				repository.save(produto);
 					ProdutoCompradoResponseDTO response = new ProdutoCompradoResponseDTO(dto, cliente.getName());
