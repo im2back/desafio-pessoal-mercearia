@@ -24,36 +24,41 @@ public class ClienteService {
 
 	public ClienteCadastroResponseDTO salvar(ClienteCadastroRequestDTO clienteRequest) {
 		Cliente cliente = new Cliente(clienteRequest);
-			repository.save(cliente);
-				ClienteCadastroResponseDTO response = new ClienteCadastroResponseDTO(clienteRequest);
-					return response;
+		repository.save(cliente);
+		ClienteCadastroResponseDTO response = new ClienteCadastroResponseDTO(clienteRequest);
+		return response;
 	}
-	
+
 	public Cliente findById(Long id) {
 		try {
 			Optional<Cliente> cliente = repository.findById(id);
 			return cliente.get();
 		} catch (NoSuchElementException e) {
-			throw new ServiceExceptions("Cliente de ID : "+id+ " não  foi encontrado na base de dados.");
+			throw new ServiceExceptions("Cliente de ID : " + id + " não  foi encontrado na base de dados.");
 		}
 	}
-	
+
+	public Cliente findByDocumento(String documento) {
+		return repository.findByDocumento(documento);
+
+	}
+
 	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {
 		try {
-			Cliente cliente = repository.findByDocumento(documento);		
+			Cliente cliente = repository.findByDocumento(documento);
 			ClienteCompletoDTO dto = new ClienteCompletoDTO(cliente);
-				return dto;
+			return dto;
 		} catch (NullPointerException e) {
-			throw new ServiceExceptions("O documento : '"+documento +"' não foi localizado na base de dados.");
+			throw new ServiceExceptions("O documento : '" + documento + "' não foi localizado na base de dados.");
 		}
-		
+
 	}
 
-
 	public List<ClienteListarTodosDTO> listarTodosOsClientes() {
-		List<Cliente> listaClientes =  repository.findAll();
-			List<ClienteListarTodosDTO> response = listaClientes.stream() .map(ClienteListarTodosDTO::new).collect(Collectors.toList());
-				return response;
+		List<Cliente> listaClientes = repository.findAll();
+		List<ClienteListarTodosDTO> response = listaClientes.stream().map(ClienteListarTodosDTO::new)
+				.collect(Collectors.toList());
+		return response;
 	}
 
 }

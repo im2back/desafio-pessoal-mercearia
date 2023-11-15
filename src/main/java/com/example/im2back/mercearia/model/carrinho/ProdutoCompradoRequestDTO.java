@@ -11,8 +11,8 @@ public record ProdutoCompradoRequestDTO(
 		@NotNull
 		Double preco,
 		
-		 @NotNull
-		Long idCliente
+		 @NotBlank
+		 String documento
 		) {
 
 }

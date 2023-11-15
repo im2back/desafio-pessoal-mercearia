@@ -51,7 +51,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/buscarCliente")
-	String buscarClientePorID(@Valid DocumentoDTO dto, Model model) {
+	String buscarClientePorDocumento(@Valid DocumentoDTO dto, Model model) {
 
 			var clienteDTO = service.localizarClientePorDocumento(dto.documento());
 				model.addAttribute("cliente", clienteDTO);
