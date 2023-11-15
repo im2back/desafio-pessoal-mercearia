@@ -3,6 +3,10 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 40px;
+             background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
+		 	background-size: cover;
+		 	background-repeat: no-repeat;
+		 	
         }
 
         h1 {
@@ -12,9 +16,9 @@
         form {
             margin: 20px auto;
             max-width: 400px;
-            padding: 20px;
+            padding: 40px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
             background-color: #f9f9f9;
         }
 
@@ -22,6 +26,7 @@
             display: block;
             margin-bottom: 8px;
             color: #333;
+            font-size: 20px;
         }
 
         input {
@@ -29,12 +34,15 @@
             padding: 10px;
             margin-bottom: 15px;
             box-sizing: border-box;
+            border-radius: 12px;
+            
         }
 
         input[type="submit"] {
             background-color: #3498db;
             color: #fff;
             cursor: pointer;
+            font-size: 20px;
         }
 
         input[type="submit"]:hover {
@@ -44,12 +52,12 @@
          a {
             display: inline-block;
             margin: 10px;
-            padding: 15px 30px;
+            padding: 10px 30px;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 20px;
             border: 2px solid #3498db;
             color: #3498db;
-            border-radius: 5px;
+            border-radius: 3px;
             transition: background-color 0.3s, color 0.3s;
         }
 

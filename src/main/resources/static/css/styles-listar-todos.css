@@ -3,6 +3,10 @@ body {
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+             background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
+		 	background-size: cover;
+		 	background-repeat: no-repeat;
+		 	
         }
 
         h1 {

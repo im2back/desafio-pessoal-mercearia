@@ -4,7 +4,7 @@
 <head>
     <title>Cadastro</title>
     <meta charset="UTF-8">
-       <link rel="stylesheet" type="text/css" href="/css/styles-listar-cliente-especifo.css">
+       <link rel="stylesheet" type="text/css" href="/css/styles-formulario-listar-cliente-especifico.css">
 </head>
 
 <body>		
@@ -14,7 +14,7 @@
 		<div ><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
 		<br><br>
 		<div th:if="${serviceMessage != null }">
-		        <p th:text="${serviceMessage}"></p>	   
+		        <p class="error-message" th:text="${serviceMessage}"></p>	   
 		</div>
 		
 		<div th:each="msg : ${errorMessages}" >
@@ -23,9 +23,10 @@
 		
 		<form action="/cliente/buscarCliente" method="get">
 			<label for="id">Documento do cliente :</label>
+			<br><br>
 			<input type="text" id="documento"  name="documento">
 			
-		<input type="submit" value="buscar" >
+		<input type="submit" value="Buscar" >
 			</form>
 		
 		

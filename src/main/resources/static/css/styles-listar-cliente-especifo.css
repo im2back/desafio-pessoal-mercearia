@@ -1,75 +1,53 @@
-body {
-            font-family: 'Arial', sans-serif;
+
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
+		 	background-size: cover;
+		 	background-repeat: no-repeat;
         }
 
         h1 {
+            text-align: center;
             color: #333;
-            margin-top: 50px;
-            font-size: 50px;
         }
 
-        p {
-            margin: 10px 0;
-            color: #333;
-            
-        }
-
-        .error-message {
-            color: #d9534f;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 35px;
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
         }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 20px;
+        th {
+            background-color: #f2f2f2;
         }
 
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4285f4;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 20px;
+        tr:hover {
+            background-color: #f5f5f5;
         }
 
-        input[type="submit"]:hover {
-            background-color: #3367d6;
+        /* Estilo para o botão */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
         }
-        
-           a {
+
+        a {
             display: inline-block;
             margin: 10px;
             padding: 15px 30px;
             text-decoration: none;
-            font-size: 30px;
+            font-size: 28px;
             border: 2px solid #3498db;
             color: #3498db;
             border-radius: 5px;
@@ -80,4 +58,11 @@ body {
         a:hover {
             background-color: #3498db;
             color: #fff;
+        }
+
+        p {
+            color: #3498db;
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
         }

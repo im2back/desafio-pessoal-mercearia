@@ -1,42 +1,34 @@
     body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 40px;
-            font-size: 30px;
-            
-            background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua pelo caminho da sua imagem */
-		    background-size: cover;
-		    background-position: center;
+            margin: 0;
+            padding: 0;
+         background-image: url('/images/back.jpg'); /* Substitua pelo caminho da sua imagem */
+		 background-size: cover;
         }
 
         h1 {
             color: #333;
+            margin-top: 40px;
+            font-size: 60PX;
         }
 
-        a {
+       a {
             display: inline-block;
             margin: 10px;
             padding: 15px 30px;
             text-decoration: none;
-            font-size: 28px;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 30px;
-            transition: background-color 0.3s, color 0.3s;
-            width: 50%;
-        }
-
-
-
-        a.round:hover {
-            background-color: #267bb5;
-        }
-
-        a:not(.round) {
-            text-align: center;
-        }
-
-        a:not(.round):hover {
+            font-size: 22px;
+            color: #fff;
             background-color: #3498db;
+            border-radius: 9px;
+            transition: background-color 0.3s, color 0.3s;
+            width: 500px;
+            margin-bottom: 30px;
+            margin-left: 800px;
+        }
+
+        a:hover {
+            background-color:rgb(0, 0, 0);
             color: #fff;
         }
