@@ -10,29 +10,38 @@
 
 <body>		
 		<h1>CadastrarCliente</h1>
-		<div th:if="${errorMessages != null and errorMessages.size() > 0}">
-		    <div th:each="message : ${errorMessages}" class="error-message">
-		        <p th:text="${message}"></p>
-		    </div>
-		</div>
+		
 		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
 		
 	<form action="/cliente/cadastrar" method="post">
+		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'name')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
 		<label for="name">Nome</label>
 		<input type="text" id="name"  name="name">
 		
 		<br><br>
 		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'documento')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
 		<label for="documento">Documento</label>
 		<input type="text" id="documento"  name="documento">
 		
 		<br><br>
 		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'rua')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
 		<label for="rua">Travessa/Rua:</label>
 		<input type="text" id="rua"  name="rua" >
 		
 		<br><br>
 		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'numero')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
 		<label for="numero">Numero da casa:</label>
 		<input type="text" id="numero"  name="numero" >
 		

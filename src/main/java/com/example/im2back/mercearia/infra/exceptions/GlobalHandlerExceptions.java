@@ -35,9 +35,21 @@ public class GlobalHandlerExceptions {
 	        String referer = request.getHeader("Referer");
 	        return "redirect:" + referer;
 	    }
+	
+	@ExceptionHandler(ServiceExceptions.class)
+	@ResponseStatus(HttpStatus.FOUND)
+	public String handleServiceExceptions(ServiceExceptions ex,HttpServletRequest request, RedirectAttributes redirectAttributes) {
+			
+			
+	    	redirectAttributes.addFlashAttribute("serviceMessage", ex.getMessage());
+	        // Redirecione para a página anterior
+	        String referer = request.getHeader("Referer");
+	        return "redirect:" + referer;
+	    }
 
-	
-	
+
+
+
 	private List<String> criarListaDeErros(BindingResult bindingResult) {
 		List<String> erros = new ArrayList<>();
 

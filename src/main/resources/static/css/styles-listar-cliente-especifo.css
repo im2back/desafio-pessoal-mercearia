@@ -1,54 +1,65 @@
-     body {
-            font-family: Arial, sans-serif;
+body {
+            font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
             color: #333;
-            font-size: 50px;
+            margin-top: 50px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .error-message {
+            color: #d9534f;
         }
 
         form {
             max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
+            margin: 0 auto;
             background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
-            margin-bottom: 1px;
+            margin-bottom: 10px;
             color: #333;
-            font-size: 20px;
         }
 
-        input {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             box-sizing: border-box;
-            border: 1px solid#3498db;
-            border-radius: 4px;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         input[type="submit"] {
-            background-color: #3498db;
+            width: 100%;
+            padding: 10px;
+            background-color: #4285f4;
             color: #fff;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #267bb5;
+            background-color: #3367d6;
         }
-  
-
-        a {
+        
+           a {
             display: inline-block;
             margin: 10px;
             padding: 15px 30px;
@@ -64,12 +75,3 @@
             background-color: #3498db;
             color: #fff;
         }
-        
-           .error-message {
-	font-size: 15px;
-    background-color: #ffcccc; /* Cor de fundo personalizada para mensagens de erro 'preco' */
-    border:  0px solid #ff0000; /* Borda vermelha para realçar a área de erro */
-    border-radius: 10px;
-    padding: 5px; /* Espaçamento interno para melhor legibilidade */
-    margin-bottom: 10px; /* Espaçamento inferior para separar os blocos de erro */
-}
