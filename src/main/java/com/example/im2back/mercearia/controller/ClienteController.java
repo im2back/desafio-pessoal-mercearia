@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.DocumentoDTO;
@@ -51,8 +52,15 @@ public class ClienteController {
 	}
 
 	@GetMapping("/buscarCliente")
-	String buscarClientePorDocumento(@Valid DocumentoDTO dto, Model model) {
-
+	String buscarClientePorDocumento(@RequestParam("documento") String documento, @Valid DocumentoDTO dto, Model model) {
+		
+		if(documento != null) {
+			 DocumentoDTO dtoParam = new DocumentoDTO(documento);
+			 var clienteDTO = service.localizarClientePorDocumento(dtoParam.documento());
+				model.addAttribute("cliente", clienteDTO);
+					return "cliente/Response-Cliente-Completo";
+		}
+		
 			var clienteDTO = service.localizarClientePorDocumento(dto.documento());
 				model.addAttribute("cliente", clienteDTO);
 					return "cliente/Response-Cliente-Completo";

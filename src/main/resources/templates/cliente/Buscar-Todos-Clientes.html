@@ -8,7 +8,7 @@
 </head>
 
 <body>		
-		<h1>Todos os clientes</h1>
+	<h1>Todos os clientes</h1>
 			<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
 		
 			 <table>
@@ -17,6 +17,7 @@
 				<th>Nome</th>
 				<th>Documento</th>
 				<th>Total</th>
+				<th>Ação</th>
 			
 			</tr>
 		</thead>
@@ -24,13 +25,16 @@
 			<tr th:each="cliente : ${lista}">
 				<td th:text="${cliente.nome}"> </td> 
 				<td th:text="${cliente.documento}" > </td>
-				<td th:text="'R$ 	' + ${cliente.total}" > </td>				          
+				<td th:text="'R$ 	' + ${cliente.total}" > </td>	
+				<td>            
+				    <a class="editar" th:href="@{'/cliente/buscarCliente' + '?documento=' + ${cliente.documento}}">Detalhar</a>			
+				</td>		          
 			</tr>
 		</tbody>
-	</table>
-				
-
+	</table>				
 </body>
-
+				
+	            
+	          
 
 </html>
