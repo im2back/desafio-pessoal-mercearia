@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+       
+        <link rel="stylesheet" type="text/css" href="/css/styles-formulario-cadastro-cliente.css">
+</head>
+
+<body>		
+		<br>
+		<h1>Iniciar Sessão</h1>
+			
+	<form action="/login" method="post">
+		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'name')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
+		<label for="login">Login</label>
+		<input type="text" id="login"  name="login" required>
+		
+		<br><br>
+		
+		<div th:each="msg : ${errorMessages}" >
+  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'senha')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+		</div>
+		<label for="senha">Senha</label>
+		  <input type="password" id="senha" name="senha" required>
+		
+		<br><br>
+		<input type="submit" value="Cadastrar">
+	</form>
+				
+
+</body>
+
+
+</html>
