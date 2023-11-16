@@ -45,12 +45,12 @@
         a {
             display: inline-block;
             margin: 10px;
-            padding: 15px 30px;
+            padding: 10px 30px;
             text-decoration: none;
             font-size: 28px;
             border: 2px solid #3498db;
             color: #3498db;
-            border-radius: 5px;
+            border-radius: 3px;
             transition: background-color 0.3s, color 0.3s;
             width: 400px;
         }
@@ -62,7 +62,7 @@
 
         p {
             color: #3498db;
-            font-size: 18px;
+            font-size: 30px;
             margin-top: 20px;
             text-align: center;
         }
