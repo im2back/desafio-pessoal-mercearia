@@ -6,6 +6,7 @@ import com.example.im2back.mercearia.model.cliente.Cliente;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
+@Entity(name = "ProdutosComprados")
 @Table(name = "produtosComprados")
 public class ProdutosComprados {
 
@@ -29,7 +30,9 @@ public class ProdutosComprados {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "nome")
 	private String name;
+	
 	private Double preco;
 	
 	@ManyToOne @JsonIgnore

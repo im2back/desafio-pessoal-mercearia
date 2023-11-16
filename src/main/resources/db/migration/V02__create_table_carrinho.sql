@@ -1,0 +1,6 @@
+CREATE TABLE produtosComprados (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    preco DOUBLE NOT NULL,
+    moment DATETIME
+);

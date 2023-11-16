@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
 import com.example.im2back.mercearia.model.endereco.Endereco;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,26 +18,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@NoArgsConstructor
+@Entity(name = "Cliente")
 @Table(name = "tb_cliente")
+@NoArgsConstructor
+@Getter
+@Setter
 public class Cliente {
 
-	@Getter
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Getter @Setter
+
+	@Column(name = "nome")
 	private String name;
 	
-	@Getter @Setter
+
 	private String documento;
 	
-	@Getter @Setter
+
 	@Embedded
 	private Endereco endereco = new Endereco();
 	
-	@Getter
+	
 	@OneToMany(mappedBy = "client")
 	private List<ProdutosComprados> carrinho = new ArrayList<>();
 	
@@ -54,6 +58,7 @@ public class Cliente {
 		this.documento = documento;
 		this.endereco = endereco;
 	}
+	
 	
 	public Double getTotal() {
 		Double total = 0.0;
