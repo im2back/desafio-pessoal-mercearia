@@ -27,10 +27,11 @@ public class AutenticacaoController {
 	
 	@PostMapping
 	public String login(@Valid DadosAutenticacao dados, Model model) {
-		
-		var token = new  UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-			@SuppressWarnings("unused")
-			var authentication  = manager.authenticate(token);
-					return "ok";//return "cliente/home";
+		System.out.println("Verificação do parametro : " + dados.login()+" + "+dados.senha());
+			var token = new  UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+				@SuppressWarnings("unused")
+					var authentication  = manager.authenticate(token);
+					return "cliente/home";
+
 				}
 }
