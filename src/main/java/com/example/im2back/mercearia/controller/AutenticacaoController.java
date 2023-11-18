@@ -35,10 +35,10 @@ public class AutenticacaoController {
 	public String login(@Valid DadosAutenticacao dados, Model model) {
 			var tokenAuthentication = new  UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
 			   var authentication  = manager.authenticate(tokenAuthentication);
+			   
 				    TokenDTO token = new TokenDTO(tokenService.gerarToken((Usuario)authentication.getPrincipal()));
-					 model.addAttribute("token",token);
+					 model.addAttribute("token",token.token());
 					 	System.out.println("### Token Gerado ### : "+token);
 					 		return "cliente/home";
-
 				}
 }

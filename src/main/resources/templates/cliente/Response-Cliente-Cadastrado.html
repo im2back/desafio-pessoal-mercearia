@@ -9,7 +9,7 @@
 
 <body>		
 		<h1>Cadastro realizado com sucesso !</h1>
-		<div class="button-container"><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> 
+		<div class="button-container"><a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> 
 		<a  th:href="@{'/produtos'}">Adicionar Compra</a> 
 		</div>
 		

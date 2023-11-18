@@ -32,6 +32,7 @@ public class SecurityConfigurations {
 	                req.requestMatchers(HttpMethod.GET, "/login").permitAll();
 	                req.requestMatchers("/css/**").permitAll();
 	                req.requestMatchers("/images/**").permitAll();
+	             	
 	                req.anyRequest().authenticated().and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 	                })
 		     .build();

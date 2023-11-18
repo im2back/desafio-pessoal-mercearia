@@ -11,7 +11,7 @@
 	<br><br>
 		<h1>Localizar Cliente</h1>
 		<br>
-		<div ><a  th:href="@{'/cliente/home'}">Pagina Inicial</a> </div>
+		<div ><a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
 		<br><br>
 		<div th:if="${serviceMessage != null }">
 		        <p class="error-message" th:text="${serviceMessage}"></p>	   
@@ -21,12 +21,14 @@
   			  <p class="error-message" th:if="${#strings.startsWith(msg, 'documento')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
 		</div>
 		
-		<form action="/cliente/buscarCliente" method="get">
+		<form th:action="@{'/cliente/buscarCliente'}" method="get">
+   			 <input type="hidden" name="token" th:value="${token}" />
+			
 			<label for="id">Documento do cliente :</label>
 			<br><br>
 			<input type="text" id="documento"  name="documento">
 			
-		<input type="submit" value="Buscar" >
+			<input type="submit" value="Buscar" >
 			</form>
 		
 		

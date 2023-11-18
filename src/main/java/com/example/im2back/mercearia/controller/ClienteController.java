@@ -6,12 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.DocumentoDTO;
 import com.example.im2back.mercearia.service.ClienteService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -22,45 +22,63 @@ public class ClienteController {
 	private ClienteService service;
 
 	@GetMapping("/home")
-	public String paginaInicial(Model model) {
-		return "cliente/home";
+	public String paginaInicial(Model model, HttpServletRequest request) {
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+				return "cliente/home";
 	}
 
 	@PostMapping("/cadastrar")
 	@Transactional
-	String salvar(@Valid ClienteCadastroRequestDTO clienteRequest, Model model) {
+	public String salvar(@Valid ClienteCadastroRequestDTO clienteRequest, Model model, HttpServletRequest request) {
 		var response = service.salvar(clienteRequest);
 		model.addAttribute("cliente", response);
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+		
 		return "cliente/Response-Cliente-Cadastrado";
 	}
 
 	@GetMapping("/cadastrar")
-	String cadastrarCliente(Model model) {
+	String cadastrarCliente(Model model, HttpServletRequest request) {
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+		
 		return "cliente/Formulario-Cliente-Cadastro";
 	}
 
 	@GetMapping("/listar")
-	String listarTodos(Model model) {
-		var response = service.listarTodosOsClientes();
-		model.addAttribute("lista", response);
+	public String listarTodos(Model model, HttpServletRequest request) {
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+	
+		var lista = service.listarTodosOsClientes();
+		model.addAttribute("lista",lista);
+					
 		return "cliente/Buscar-Todos-Clientes";
 	}
 
 	@GetMapping("/buscar")
-	String buscarCliente(Model model) {
+	public String buscarCliente(Model model, HttpServletRequest request) {
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
 		return "cliente/Formulario-Buscar-Cliente-Especifico";
 	}
 
 	@GetMapping("/buscarCliente")
-	String buscarClientePorDocumento(@RequestParam("documento") String documento, @Valid DocumentoDTO dto, Model model) {
-		
+	public String buscarClientePorDocumento( @Valid DocumentoDTO dto, Model model, 
+			HttpServletRequest request) {
+			var documento = request.getParameter("documento");
 		if(documento != null) {
+			var token = request.getParameter("token");
+			model.addAttribute("token",token);
 			 DocumentoDTO dtoParam = new DocumentoDTO(documento);
 			 var clienteDTO = service.localizarClientePorDocumento(dtoParam.documento());
 				model.addAttribute("cliente", clienteDTO);
 					return "cliente/Response-Cliente-Completo";
 		}
-		
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
 			var clienteDTO = service.localizarClientePorDocumento(dto.documento());
 				model.addAttribute("cliente", clienteDTO);
 					return "cliente/Response-Cliente-Completo";
