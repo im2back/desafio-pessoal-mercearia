@@ -29,11 +29,11 @@ public class GlobalHandlerExceptions {
 	public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex,HttpServletRequest request, BindingResult bindingResult
 			,RedirectAttributes redirectAttributes) {
 			
-		var x = criarListaDeErros(bindingResult);
-	    	redirectAttributes.addFlashAttribute("errorMessages", x);
+		var erroList = criarListaDeErros(bindingResult);
+	    	redirectAttributes.addFlashAttribute("errorMessages", erroList);
 	        // Redirecione para a página anterior
-	        String referer = request.getHeader("Referer");
-	        return "redirect:" + referer;
+	    	String referer = request.getHeader("Referer");
+	    	return "redirect:" + referer;
 	    }
 	
 	@ExceptionHandler(ServiceExceptions.class)

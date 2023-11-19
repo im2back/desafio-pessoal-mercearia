@@ -32,8 +32,8 @@ public class TokenService {
 	}
 
 	private Instant dataExpiracao() {
-		return LocalDateTime.now().plusMinutes(1).toInstant(ZoneOffset.of("-03:00"));
-		// return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+		//return LocalDateTime.now().plusMinutes(1).toInstant(ZoneOffset.of("-03:00"));
+		 return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
 	}
 
 	public String getSubject(String tokenJWT)  {
@@ -45,6 +45,7 @@ public class TokenService {
 		catch (JWTVerificationException ex) {
 			throw new JWTExceptions("Token JWT inválido ou expirado!");
 		}
+		
 		
 		
 	}

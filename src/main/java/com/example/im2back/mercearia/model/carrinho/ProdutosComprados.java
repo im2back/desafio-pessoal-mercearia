@@ -1,9 +1,8 @@
 package com.example.im2back.mercearia.model.carrinho;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import com.example.im2back.mercearia.model.cliente.Cliente;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -39,11 +38,8 @@ public class ProdutosComprados {
 	@JoinColumn(name = "client_id")
 	private Cliente client;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy'T'HH:mm:ss'Z'", timezone = "America/Sao_Paulo")
-	private Instant moment  =Instant.now();
+	private LocalDateTime moment = LocalDateTime.now();
 
-
-	
 	public ProdutosComprados (ProdutoCompradoRequestDTO dto, Cliente client) {
 		
 		this.name = dto.name();

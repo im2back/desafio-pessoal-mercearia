@@ -26,39 +26,34 @@ public class AutenticacaoController {
 
 	@Autowired
 	private AuthenticationManager manager;
-	
+
 	@Autowired
 	private TokenService tokenService;
-	
-	   @GetMapping("/logout")
-	    public String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
-		   // Obtém o contexto de segurança atual
-	        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-	        logoutHandler.setInvalidateHttpSession(true); // Invalida a sessão
-	        logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-	        
-	       
-	        return "redirect:/login"; 
-	    }
-	
-	
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
+		SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+		logoutHandler.setInvalidateHttpSession(true);
+		logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+		return "redirect:/login";
+	}
+
 	@GetMapping
 	public String telaDeLogin(HttpServletRequest request) {
-	
-		return "cliente/Formulario-LOGIN";	
-		}
-	
+
+		return "cliente/Formulario-LOGIN";
+	}
+
 	@PostMapping
 	public String login(@Valid DadosAutenticacao dados, Model model) {
-		     var tokenAuthentication = new  UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-		     var authentication  = manager.authenticate(tokenAuthentication);
-			  
-		     
-			 var param =  tokenService.gerarToken((Usuario)authentication.getPrincipal());
-			 
-			 TokenDTO token = new TokenDTO(param);
-			 model.addAttribute("token",token.token());
-			 		
-			 	return "cliente/home";
-				}
+		var tokenAuthentication = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
+		var authentication = manager.authenticate(tokenAuthentication);
+
+		var param = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+
+		TokenDTO token = new TokenDTO(param);
+		model.addAttribute("token", token.token());
+
+		return "cliente/home";
+	}
 }
