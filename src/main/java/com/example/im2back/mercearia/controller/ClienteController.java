@@ -39,7 +39,7 @@ public class ClienteController {
 		return "cliente/Response-Cliente-Cadastrado";
 	}
 
-	@GetMapping("/cadastrar")
+	public @GetMapping("/cadastrar")
 	String cadastrarCliente(Model model, HttpServletRequest request) {
 		var token = request.getParameter("token");
 		model.addAttribute("token",token);

@@ -11,6 +11,7 @@
 <body>		
 		<br>
 		<h1>Iniciar Sessão</h1>
+		 <p class="error-message"  th:text="'Faça login novamente, motivo: ' + ${JWTMessage}"></p>
 			
 	<form action="/login" method="post">
 		

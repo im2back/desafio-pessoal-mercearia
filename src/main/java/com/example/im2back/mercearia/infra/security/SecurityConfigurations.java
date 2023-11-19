@@ -22,6 +22,7 @@ public class SecurityConfigurations {
 	SecurityFilter securityFilter;
 
 	
+	@SuppressWarnings("removal")
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -32,7 +33,7 @@ public class SecurityConfigurations {
 	                req.requestMatchers(HttpMethod.GET, "/login").permitAll();
 	                req.requestMatchers("/css/**").permitAll();
 	                req.requestMatchers("/images/**").permitAll();
-	             	
+	                req.requestMatchers(HttpMethod.GET, "/cliente/listar").hasRole("ADMIN");
 	                req.anyRequest().authenticated().and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 	                })
 		     .build();
@@ -47,5 +48,6 @@ public class SecurityConfigurations {
      public PasswordEncoder passwordEncoder() {
    return new BCryptPasswordEncoder();
 }
+     
 	 
 }

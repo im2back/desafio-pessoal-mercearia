@@ -5,14 +5,18 @@
     <title>Cadastro</title>
     <meta charset="UTF-8">
        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>      
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
+            
 </head>
 
 <body>
 
     <h1>Caderneta da Mercearia</h1>
-
+	
+  	
+	
     <br> <br>
+	<a th:href="@{'/login/logout?token=' + ${token}}">Logout</a>
 
     <!-- Adiciona o token como cabeçalho de autorização ao clicar no link -->
     <a  th:href="@{'/cliente/cadastrar?token=' + ${token}}">Cadastrar Cliente</a> 
