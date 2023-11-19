@@ -36,15 +36,16 @@ public class TokenService {
 		// return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
 	}
 
-	public String getSubject(String tokenJWT) {
+	public String getSubject(String tokenJWT)  {
+		
 		try {
 			var algoritmo = Algorithm.HMAC256(secret);
 			return JWT.require(algoritmo).withIssuer("API Caderneta Digital").build().verify(tokenJWT).getSubject();
-		}
-
+		} 
 		catch (JWTVerificationException ex) {
 			throw new JWTExceptions("Token JWT inválido ou expirado!");
 		}
-
+		
+		
 	}
 }

@@ -47,19 +47,6 @@ public class GlobalHandlerExceptions {
 	        return "redirect:" + referer;
 	    }
 
-	@ExceptionHandler(JWTExceptions.class)
-	@ResponseStatus(HttpStatus.FOUND)
-	public String handleJWTExceptions(JWTExceptions ex,HttpServletRequest request, RedirectAttributes redirectAttributes) {
-			
-			
-	    	redirectAttributes.addFlashAttribute("JWTMessage", ex.getMessage());
-	        // Redirecione para a página DE login  GET http://localhost:8080/login
-	        System.out.println("Entrou na classe handler JWT EXCEPTION");
-	        return "redirect:/login";
-	    }
-
-
-
 
 	private List<String> criarListaDeErros(BindingResult bindingResult) {
 		List<String> erros = new ArrayList<>();
