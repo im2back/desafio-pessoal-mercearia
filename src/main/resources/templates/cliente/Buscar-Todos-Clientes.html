@@ -15,13 +15,18 @@
 	<h1>Todos os clientes</h1>
 	<div class="button-container"> <a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>  </div>
 		
+			   <div th:if="${NotaMessage != null }">
+		        	<p class="error-message" th:text="${NotaMessage}"></p>	   
+				</div>
+				
 			 <table>
 		<thead>
 			<tr>
 				<th>Nome</th>
 				<th>Documento</th>
 				<th>Total</th>
-				<th>Ação</th>
+				<th></th>
+				<th></th>
 			
 			</tr>
 		</thead>
@@ -31,9 +36,12 @@
 				<td th:text="${cliente.documento}" > </td>
 				<td th:text="'R$ 	' + ${cliente.total}" > </td>	
 				<td>            
-				   <a class="editar" th:href="@{'/cliente/buscarCliente?documento=' + ${cliente.documento} + '&token=' + ${token}}">Detalhar</a>
-			
-				</td>		          
+				   <a class="editar" th:href="@{'/cliente/buscarCliente?documento=' + ${cliente.documento} + '&token=' + ${token}}">Detalhar</a>	
+				</td>	
+				<td>            
+				   <a class="editar" th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}}">Gerar Nota</a>	
+				</td>	
+					          
 			</tr>
 		</tbody>
 	</table>				

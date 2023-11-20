@@ -11,9 +11,16 @@
 		<h1>Detalhar  Cliente</h1>
 			<div class="button-container">
 				<a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> 
+						<br>          
+		   		 <a class="editar" th:href="@{'/cliente/gerar2?documento=' + ${cliente.documento} + '&token=' + ${token}}">Gerar Nota</a>		
 			</div>
+			
+			   <div th:if="${NotaMessage != null }">
+		        	<p class="error-message" th:text="${NotaMessage}"></p>	   
+				</div>
 			<br><br>
-			<p>Cliente</p>
+													<p>Cliente</p>
+				
 	<table>
 		<thead>
 			<tr>

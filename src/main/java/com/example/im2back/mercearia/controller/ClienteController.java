@@ -84,5 +84,31 @@ public class ClienteController {
 					return "cliente/Response-Cliente-Completo";
 		
 	}
+	
+	@GetMapping("/gerar")
+	public String gerarNota(Model model, HttpServletRequest request) {
+		
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+		model.addAttribute("NotaMessage","Nota Gerada com Sucesso");
+		
+		String documento = request.getParameter("documento");
+		service.geraradorNotaClientePDF(documento);
+		
+	    return "forward:/cliente/listar";
+	}
+	
+	@GetMapping("/gerar2")
+	public String gerarNotaClienteDetalhado(Model model, HttpServletRequest request) {
+		
+		var token = request.getParameter("token");
+		model.addAttribute("token",token);
+		model.addAttribute("NotaMessage","Nota Gerada com Sucesso");
+		
+		String documento = request.getParameter("documento");
+		service.geraradorNotaClientePDF(documento);
+		
+	    return "forward:/cliente/buscarCliente";
+	}
 
 }
