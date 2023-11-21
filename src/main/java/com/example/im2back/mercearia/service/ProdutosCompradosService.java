@@ -38,4 +38,11 @@ public class ProdutosCompradosService {
 		return repository.findAll();
 	}
 
+	public void zerarConta(String documento) {
+		Cliente cliente = clienteService.findByDocumento(documento);
+		repository.deleteByClient_id(cliente.getId());
+		clienteService.geraradorNotaClientePDF(cliente.getDocumento());
+	
+	}
+
 }

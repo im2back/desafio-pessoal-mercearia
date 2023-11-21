@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Zombie+Holocaust&display=swap');
+
+/* ... restante do seu CSS ... */
 
         body {
             font-family: Arial, sans-serif;
@@ -52,7 +55,7 @@
             color: #3498db;
             border-radius: 3px;
             transition: background-color 0.3s, color 0.3s;
-            width: 400px;
+            width: 300px;
         }
 
         a:hover {
@@ -83,3 +86,31 @@
         opacity: 0;
     }
 }
+
+
+button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 28px;
+    border: 2px solid #3498db;
+    color: #3498db;
+    border-radius: 10px;
+    transition: background-color 1.0s, color 2.0s;
+    cursor: pointer;
+    background-color: transparent;
+     font-family: 'Zombie Holocaust', cursive; 
+ 	font-weight: bold; 
+}
+
+
+button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
+     border: 2px solid rgb(255, 0, 0);
+     border-width: 3px;
+    
+}
+
+

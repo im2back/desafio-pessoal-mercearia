@@ -39,7 +39,7 @@
 				   <a class="editar" th:href="@{'/cliente/buscarCliente?documento=' + ${cliente.documento} + '&token=' + ${token}}">Detalhar</a>	
 				</td>	
 				<td>            
-				   <a class="editar" th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}}">Gerar Nota</a>	
+				   <a class="editar" th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}+ '&redirect=listar'}">Gerar Nota</a>	
 				</td>	
 					          
 			</tr>

@@ -8,19 +8,30 @@
 </head>
 
 <body>		
-		<h1>Detalhar  Cliente</h1>
-			<div class="button-container">
+													<h1>Detalhar  Cliente</h1>
+		
+		    <div class="button-container">
 				<a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> 
-						<br>          
-		   		 <a class="editar" th:href="@{'/cliente/gerar2?documento=' + ${cliente.documento} + '&token=' + ${token}}">Gerar Nota</a>		
+														         
+		   		<a class="editar" th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar Nota</a>
+
+		   												          	   			
+		   		<form id="zerarContaForm" th:action="@{'/produtos/delete'}" th:method="post">
+					<input type="hidden" name="documento" th:value="${cliente.documento}" />
+				    <input type="hidden" name="token" th:value="${token}" />
+					<button  type="submit" >Zerar Conta</button>
+				</form>		
 			</div>
 			
-			   <div th:if="${NotaMessage != null }">
+			<div th:if="${NotaMessage != null }">
 		        	<p class="error-message" th:text="${NotaMessage}"></p>	   
-				</div>
-			<br><br>
-													<p>Cliente</p>
-				
+			</div>
+			<div th:if="${zerarMessage != null }">
+		        	<p class="error-message" th:text="${zerarMessage}"></p>	   
+			</div>
+			
+													
+													<p>Cliente</p>			
 	<table>
 		<thead>
 			<tr>

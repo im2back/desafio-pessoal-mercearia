@@ -68,7 +68,7 @@ public class ClienteService {
 		return response;
 	}
 	
-	public void geraradorNotaClientePDF(String documento) {
+	public String geraradorNotaClientePDF(String documento) {
 		
 		Cliente cliente = repository.findByDocumento(documento); // localiza o cliente
 		var carrinho = cliente.getCarrinho(); // pega o carrinho com todas as compras feitas pelo cliente
@@ -86,6 +86,7 @@ public class ClienteService {
 		//método para gerar o pdf
 		CriadorPDF criador = new CriadorPDF();
 		criador.gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(),cliente.getDocumento());
+		return "Nota Gerada com Sucesso";
 	}
 
 }

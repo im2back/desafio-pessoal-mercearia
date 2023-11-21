@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.im2back.mercearia.infra.security.TokenDTO;
 import com.example.im2back.mercearia.infra.security.TokenService;
 import com.example.im2back.mercearia.model.usuario.DadosAutenticacao;
 import com.example.im2back.mercearia.model.usuario.Usuario;
@@ -40,20 +39,15 @@ public class AutenticacaoController {
 
 	@GetMapping
 	public String telaDeLogin(HttpServletRequest request) {
-
 		return "cliente/Formulario-LOGIN";
 	}
 
 	@PostMapping
-	public String login(@Valid DadosAutenticacao dados, Model model) {
+	public String login(@Valid DadosAutenticacao dados, Model model, HttpServletResponse response,HttpServletRequest request) {		
 		var tokenAuthentication = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
 		var authentication = manager.authenticate(tokenAuthentication);
-
-		var param = tokenService.gerarToken((Usuario) authentication.getPrincipal());
-
-		TokenDTO token = new TokenDTO(param);
-		model.addAttribute("token", token.token());
-
-		return "cliente/home";
+			String token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+			model.addAttribute("token", token);
+				return "cliente/home";
 	}
 }
