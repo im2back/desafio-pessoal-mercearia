@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.im2back.mercearia.event.RecursoCriadoEvento;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
-import com.example.im2back.mercearia.model.cliente.ClienteCompletoDTO;
 import com.example.im2back.mercearia.model.cliente.DocumentoDTO;
 import com.example.im2back.mercearia.service.ClienteService;
 
@@ -38,8 +37,7 @@ public class ClienteController {
 	@Transactional
 	public String salvar(@Valid ClienteCadastroRequestDTO clienteRequest, Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-		  var response = service.salvar(clienteRequest);
-			model.addAttribute("cliente", response);
+			model.addAttribute("cliente", service.salvar(clienteRequest));
 			   return "cliente/Response-Cliente-Cadastrado";
 	}
 
@@ -52,8 +50,7 @@ public class ClienteController {
 	@GetMapping("/listar")
 	public String listarTodos(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-			var lista = service.listarTodosOsClientes();
-				model.addAttribute("lista",lista);		
+				model.addAttribute("lista",service.listarTodosOsClientes());		
 					return "cliente/Buscar-Todos-Clientes";
 	}
 
@@ -64,28 +61,17 @@ public class ClienteController {
 	}
 
 	@GetMapping("/buscarCliente")
-	public String buscarClientePorDocumento( @Valid DocumentoDTO dto, Model model, HttpServletRequest request) {
+	public String buscarClientePorDocumento(@Valid DocumentoDTO dto, Model model, HttpServletRequest request) {	
 		String documento = request.getParameter("documento");
-		if(documento != null) {
-			publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-				DocumentoDTO dtoParam = new DocumentoDTO(documento);
-					ClienteCompletoDTO clienteDTO = service.localizarClientePorDocumento(dtoParam.documento());
-						model.addAttribute("cliente", clienteDTO);
-							return "cliente/Response-Cliente-Completo";
-		}
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-			var clienteDTO = service.localizarClientePorDocumento(dto.documento());
-				model.addAttribute("cliente", clienteDTO);
+				model.addAttribute("cliente", service.localizarClientePorDocumento(documento));
 					return "cliente/Response-Cliente-Completo";
-			}
+				}
 	
 	@GetMapping("/gerar")
 	public String gerarNota(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-			String documento = request.getParameter("documento");
-				model.addAttribute("NotaMessage",service.geraradorNotaClientePDF(documento));
-					String url = request.getParameter("redirect");
-						return "forward:/cliente/"+url;
+				model.addAttribute("NotaMessage",service.geraradorNotaClientePDF(request.getParameter("documento")));
+						return "forward:/cliente/"+request.getParameter("redirect");
 	}	
-
 }
