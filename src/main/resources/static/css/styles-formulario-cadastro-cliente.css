@@ -4,9 +4,10 @@
             margin: 0;
             padding: 0;
             background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
-		 	background-size: cover;
-		 	background-repeat: no-repeat;
-		 	background-position: center;
+		 	 	 background-size: cover;
+		 background-repeat: no-repeat;
+		 width: 100%; /* Ocupará 100% da largura do viewport */
+   		 height: 100vh; /* Ocupará 100% da altura do viewport (viewport height) */
         }
 
         h1 {

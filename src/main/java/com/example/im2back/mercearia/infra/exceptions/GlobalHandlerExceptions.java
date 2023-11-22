@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -47,7 +48,24 @@ public class GlobalHandlerExceptions {
 	        return "redirect:" + referer;
 	    }
 
-
+	
+	
+	@ExceptionHandler(DataIntegrityViolationException.class)
+	@ResponseStatus(HttpStatus.FOUND)
+	public String handleDataIntegrityViolationException(DataIntegrityViolationException ex,HttpServletRequest request, BindingResult bindingResult
+			,RedirectAttributes redirectAttributes) {
+			
+		var erroList = criarListaDeErros(bindingResult);
+	    	redirectAttributes.addFlashAttribute("errorMessages", erroList);
+	        // Redirecione para a página anterior
+	    	String referer = request.getHeader("Referer");
+	    	return "redirect:" + referer;
+	    }
+	
+	
+	
+	
+	
 	private List<String> criarListaDeErros(BindingResult bindingResult) {
 		List<String> erros = new ArrayList<>();
 

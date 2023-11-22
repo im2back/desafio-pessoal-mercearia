@@ -44,5 +44,11 @@ public class ProdutosCompradosService {
 		clienteService.geraradorNotaClientePDF(cliente.getDocumento());
 	
 	}
+	
+	public String excluirCliente(String documento) {
+		zerarConta(documento);
+		clienteService.deleteByDocumento(documento);
+		return "Cliente Deletado com sucesso, confira a nota backup";
+	}
 
 }

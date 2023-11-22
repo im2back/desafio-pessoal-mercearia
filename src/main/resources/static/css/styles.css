@@ -1,34 +1,135 @@
-    body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-         background-image: url('/images/back.jpg'); /* Substitua pelo caminho da sua imagem */
-		 background-size: cover;
-        }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/back.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    justify-content: center;  
+    display: flex;
+    flex-direction: column;
+    background-color:black   
+}
 
-        h1 {
-            color: #333;
-            margin-top: 40px;
-            font-size: 60PX;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-       a {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 22px;
-            color: #fff;
-            background-color: #3498db;
-            border-radius: 9px;
-            transition: background-color 0.3s, color 0.3s;
-            width: 500px;
-            margin-bottom: 30px;
-            margin-left: 800px;
-        }
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 50px; 
+}
 
-        a:hover {
-            background-color:rgb(0, 0, 0);
-            color: #fff;
-        }
+
+.logout{
+    padding: 10px;
+    font-size: 11px;
+    color: #fff;
+    background-color: rgb(255, 34, 34);
+    border-radius: 4px;
+    max-width: 100px; /* Limita a largura máxima do link */  
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 19px; /* Reduz o tamanho da fonte do link */
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 9px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%; /* Ocupará 100% da largura disponível */
+    max-width: 500px; /* Limita a largura máxima do link */
+    margin-bottom: 20px; /* Reduz o espaçamento inferior do link */  
+    letter-spacing: 0.5px;
+}
+
+a:hover {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+}
+
+.container-logout{
+	display: flex;
+	width: 100%; 
+	height: 7vh;
+	align-items: center;	
+	justify-content: right;
+	
+}
+
+.container-cabecalho{
+	display: flex;
+	width: 100%; 
+	height: 13vh;
+	align-items: center;	
+	justify-content: center;
+  
+}
+
+.container-principal{
+	display: flex;
+	width: 100%; 
+	height: 60vh;
+	align-items: center;
+	flex-direction: row;
+	justify-content: right;
+	
+}
+
+
+.container-rodape{
+
+	display: flex;
+	width: 100%; 
+	height: 20vh;
+	align-items: center;	
+	justify-content: center;
+}
+
+.container-botoes{
+	
+	margin-right: 10%;
+	width: 30%; 
+}
+
+.linkedin-button {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+      background-color: transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    max-width: 300px; /* Limita a largura máxima do link */
+}
+
+.linkedin-button:hover {
+     background-color: transparent;
+}
+
+		.error-message {
+    color: #e74c3c;
+    font-size: 25px;
+    text-align: center;
+
+    /* Adicionando efeito piscante */
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}

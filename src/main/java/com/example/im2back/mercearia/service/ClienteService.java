@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
@@ -25,12 +26,19 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository repository;
-
+	
+ 
 	public ClienteCadastroResponseDTO salvar(ClienteCadastroRequestDTO clienteRequest) {
-		Cliente cliente = new Cliente(clienteRequest);
-		repository.save(cliente);
-		ClienteCadastroResponseDTO response = new ClienteCadastroResponseDTO(clienteRequest);
-		return response;
+		try {
+			Cliente cliente = new Cliente(clienteRequest);
+			repository.save(cliente);
+			ClienteCadastroResponseDTO response = new ClienteCadastroResponseDTO(clienteRequest);
+			return response;
+			
+		} catch (DataIntegrityViolationException e) {
+			throw new ServiceExceptions("O documento : '" + clienteRequest.documento() + " ja esta cadastrado para um cliente");
+		}
+	
 	}
 
 	public Cliente findById(Long id) {
@@ -56,6 +64,7 @@ public class ClienteService {
 		} catch (NullPointerException e) {
 			throw new ServiceExceptions("O documento : '" + documento + "' não foi localizado na base de dados.");
 		}
+		
 
 	}
 
@@ -88,5 +97,12 @@ public class ClienteService {
 		criador.gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(),cliente.getDocumento());
 		return "Nota Gerada com Sucesso";
 	}
+
+	public void deleteByDocumento(String documento) {
+		repository.deleteByDocumento(documento);
+		
+	}
+
+
 
 }

@@ -29,7 +29,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 
 		// var tokenJWT = recuperarToken(request);
-		var x= request.getAttribute("zerarMessage");
+
 		var tokenParametro = request.getParameter("token");
 
 		if (tokenParametro != null) {

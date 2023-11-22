@@ -12,6 +12,7 @@ import com.example.im2back.mercearia.event.RecursoCriadoEvento;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.DocumentoDTO;
 import com.example.im2back.mercearia.service.ClienteService;
+import com.example.im2back.mercearia.service.ProdutosCompradosService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -23,6 +24,9 @@ import jakarta.validation.Valid;
 public class ClienteController {
 	@Autowired
 	private ClienteService service;
+	
+	@Autowired
+	private ProdutosCompradosService produtosCompradosService; 
 
 	@Autowired
 	private ApplicationEventPublisher publisher;
@@ -74,4 +78,12 @@ public class ClienteController {
 				model.addAttribute("NotaMessage",service.geraradorNotaClientePDF(request.getParameter("documento")));
 						return "forward:/cliente/"+request.getParameter("redirect");
 	}	
+	
+	@Transactional
+	@PostMapping("/delete")
+	public String excluirCliente(Model model, HttpServletRequest request) {
+		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
+				model.addAttribute("NotaMessage", produtosCompradosService.excluirCliente(request.getParameter("documento")));
+						return "cliente/home";
+	}
 }
