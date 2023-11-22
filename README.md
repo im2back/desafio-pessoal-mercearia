@@ -25,6 +25,42 @@ em breve...
 
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/81176b92-603c-4edf-8f33-b3df059c5d4e)
 
+## Futuras implementações (Atualização de 21/11/2023)
+
+
+( 1 ) ------> Implementar o Spring-Security JWT
+Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
+
+
+( 2 ) -------> Ajustar os retornos quando o  usuario não tem autorização para acessar determinados URL's
+
+
+( 3 ) -------> Implementar Deleção de cliente. (Cliente+historico de produtos)
+
+
+( 4 ) -------> Acrecentar um capo de observação ao realizar uma compra.
+
+
+( 5 ) -------> Acrecentar telefone no cadastro de cliente
+
+
+( 6 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
+
+
+( 7 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
+
+
+( 8 ) -------> Adicionar feedback de compra realizada com sucesso
+ 
+
+( 9 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes
+
+
+( 10 ) -------> Corrigir retorno de senha invalida ao entrar
+
+
+( 11 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
+
 # Tecnologias utilizadas
 ## Back end
 - Linguagem : <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Java-blue.svg?style=flat&logo=coffeescript&logoColor=white" target="_blank"></a> <br>
