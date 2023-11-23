@@ -75,7 +75,7 @@ public class ClienteController {
 	@GetMapping("/gerar")
 	public String gerarNota(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-				model.addAttribute("NotaMessage",service.geraradorNotaClientePDF(request.getParameter("documento")));
+				model.addAttribute("NotaMessage",service.gerarNotaClientePDF(request.getParameter("documento")));
 						return "forward:/cliente/"+request.getParameter("redirect");
 	}	
 	
