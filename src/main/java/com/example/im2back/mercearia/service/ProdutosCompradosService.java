@@ -28,7 +28,7 @@ public class ProdutosCompradosService {
 			ProdutosComprados produto = new ProdutosComprados(dto, cliente);
 			repository.save(produto);
 			ProdutoCompradoResponseDTO response = new ProdutoCompradoResponseDTO(dto, cliente.getName());
-			return response;
+				return response;
 		} catch (NullPointerException e) {
 			throw new ServiceExceptions("O documento : '" + dto.documento() + "' não foi localizado na base de dados.");
 		}
@@ -47,8 +47,8 @@ public class ProdutosCompradosService {
 	
 	public String excluirCliente(String documento) {
 		zerarConta(documento);
-		clienteService.deleteByDocumento(documento);
-		return "Cliente Deletado com sucesso, confira a nota backup";
+			clienteService.deleteByDocumento(documento);
+				return "Cliente Deletado com sucesso, confira a nota backup";
 	}
 
 }

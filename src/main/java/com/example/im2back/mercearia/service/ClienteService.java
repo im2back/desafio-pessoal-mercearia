@@ -1,8 +1,7 @@
 package com.example.im2back.mercearia.service;
 
-import java.util.ArrayList;
+import java.nio.file.Paths;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
 import com.example.im2back.mercearia.infra.utils.CriadorPDF;
 import com.example.im2back.mercearia.infra.utils.ProdutosCompradosListDTO;
-import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
 import com.example.im2back.mercearia.model.cliente.Cliente;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroResponseDTO;
@@ -26,83 +24,52 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository repository;
-	
- 
+
 	public ClienteCadastroResponseDTO salvar(ClienteCadastroRequestDTO clienteRequest) {
+		Cliente cliente = new Cliente(clienteRequest);
 		try {
-			Cliente cliente = new Cliente(clienteRequest);
 			repository.save(cliente);
-			ClienteCadastroResponseDTO response = new ClienteCadastroResponseDTO(clienteRequest);
-			return response;
-			
 		} catch (DataIntegrityViolationException e) {
-			throw new ServiceExceptions("O documento : '" + clienteRequest.documento() + " ja esta cadastrado para um cliente");
+			throw new ServiceExceptions(
+					"O documento : '" + clienteRequest.documento() + " ja esta cadastrado para um cliente");
 		}
-	
+		return new ClienteCadastroResponseDTO(clienteRequest);
 	}
 
 	public Cliente findById(Long id) {
-		try {
-			Optional<Cliente> cliente = repository.findById(id);
-			return cliente.get();
-		} catch (NoSuchElementException e) {
-			throw new ServiceExceptions("Cliente de ID : " + id + " não  foi encontrado na base de dados.");
-		}
+		return repository.findById(id).orElseThrow(
+				() -> new ServiceExceptions("Cliente de ID: " + id + " não foi encontrado na base de dados."));
 	}
 
 	public Cliente findByDocumento(String documento) {
 		return repository.findByDocumento(documento);
-
 	}
 
 	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {
-		try {
-			Cliente cliente = repository.findByDocumento(documento);
-			ClienteCompletoDTO dto = new ClienteCompletoDTO(cliente);		
-			
-			return dto;
-		} catch (NullPointerException e) {
-			throw new ServiceExceptions("O documento : '" + documento + "' não foi localizado na base de dados.");
-		}
-		
-
+		return Optional.ofNullable(repository.findByDocumento(documento)).map(ClienteCompletoDTO::new).orElseThrow(
+				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados."));
 	}
 
 	public List<ClienteListarTodosDTO> listarTodosOsClientes() {
-		List<Cliente> listaClientes = repository.findAll();
-		List<ClienteListarTodosDTO> response = listaClientes.stream().map(ClienteListarTodosDTO::new)
-				.collect(Collectors.toList());
-		
-		
-		return response;
+		return repository.findAll().stream().map(ClienteListarTodosDTO::new).collect(Collectors.toList());
 	}
-	
-	public String geraradorNotaClientePDF(String documento) {
-		
-		Cliente cliente = repository.findByDocumento(documento); // localiza o cliente
-		var carrinho = cliente.getCarrinho(); // pega o carrinho com todas as compras feitas pelo cliente
-		
-		// apartir do carrinho, eu instancio uma lista do meu DTO que contem as informações que serão impressas.
-		List<ProdutosCompradosListDTO> listDTO = new ArrayList<>(); 
-		for (ProdutosComprados p : carrinho) {
-			var novo = new ProdutosCompradosListDTO(p.getName(), p.getPreco(), p.getMoment()); 
-			listDTO.add(novo);
-		}
-		
-		// caminho onde o arquivo será salvo + nome dinamico 
-		String path = "C:\\Users\\jeffe\\OneDrive\\Área de Trabalho\\Notas Detalhadas\\"+cliente.getName()+"_nota_fiscal_"+ ".pdf";
-		
-		//método para gerar o pdf
-		CriadorPDF criador = new CriadorPDF();
-		criador.gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(),cliente.getDocumento());
+
+	public String gerarNotaClientePDF(String documento) {
+		Cliente cliente = repository.findByDocumento(documento);
+		List<ProdutosCompradosListDTO> listDTO = cliente.getCarrinho().stream()
+				.map(p -> new ProdutosCompradosListDTO(p.getName(), p.getPreco(), p.getMoment()))
+				.collect(Collectors.toList());
+
+		String path = Paths.get("C:\\Users\\jeffe\\OneDrive\\Área de Trabalho\\Notas Detalhadas",
+				cliente.getName() + "_nota_fiscal_" + ".pdf").toString();
+
+		new CriadorPDF().gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(), cliente.getDocumento());
+
 		return "Nota Gerada com Sucesso";
 	}
 
 	public void deleteByDocumento(String documento) {
 		repository.deleteByDocumento(documento);
-		
 	}
-
-
 
 }
