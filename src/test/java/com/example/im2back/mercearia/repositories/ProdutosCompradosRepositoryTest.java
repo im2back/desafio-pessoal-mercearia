@@ -19,6 +19,7 @@ import com.example.im2back.mercearia.model.endereco.Endereco;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @ActiveProfiles("test")
+
 class ProdutosCompradosRepositoryTest {
 	@Autowired
 	private ProdutosCompradosRepository  produtosCompradosRepository;

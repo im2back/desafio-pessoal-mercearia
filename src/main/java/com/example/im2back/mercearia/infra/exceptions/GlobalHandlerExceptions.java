@@ -26,7 +26,7 @@ public class GlobalHandlerExceptions {
 	
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(HttpStatus.FOUND)
+	@ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
 	public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex,HttpServletRequest request, BindingResult bindingResult
 			,RedirectAttributes redirectAttributes) {
 			
