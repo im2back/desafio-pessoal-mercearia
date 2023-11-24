@@ -59,6 +59,9 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 
 ( 10 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
 
+
+( 11 ) -------> Implementar sistema de black list
+
 # Tecnologias utilizadas
 ## Back end
 - Linguagem : <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Java-blue.svg?style=flat&logo=coffeescript&logoColor=white" target="_blank"></a> <br>
