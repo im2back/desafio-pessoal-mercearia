@@ -25,42 +25,36 @@ em breve...
 
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/81176b92-603c-4edf-8f33-b3df059c5d4e)
 
-## Futuras implementações (Atualização de 22/11/2023)
+## Futuras implementações (Atualização de 26/11/2023)
 
 
 ( 1 ) ------> Implementar o Spring-Security JWT
 Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
 
 
-( 2 ) -------> Ajustar os retornos quando o  usuario não tem autorização para acessar determinados URL's
+( 2 ) -------> Acrecentar um capo de observação ao realizar uma compra.
 
 
-
-( 3 ) -------> Acrecentar um capo de observação ao realizar uma compra.
-
-
-( 4 ) -------> Acrecentar telefone no cadastro de cliente
+( 3 ) -------> Acrecentar telefone no cadastro de cliente
 
 
-( 5 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
+( 4 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
 
 
-( 6 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
+( 5 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
 
 
-( 7 ) -------> Adicionar feedback de compra realizada com sucesso
+( 6 ) -------> Adicionar feedback de compra realizada com sucesso
  
 
-( 8 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes
+( 7 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes
 
 
-( 9 ) -------> Corrigir retorno de senha invalida ao entrar
+
+( 8 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
 
 
-( 10 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
-
-
-( 11 ) -------> Implementar sistema de black list
+( 9 ) -------> Implementar sistema de black list
 
 # Tecnologias utilizadas
 ## Back end
