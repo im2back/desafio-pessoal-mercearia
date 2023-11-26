@@ -36,6 +36,7 @@ public class ProdutosCompradosController {
 	public String salvar(@Valid ProdutoCompradoRequestDTO dtoRequest, HttpServletRequest request, Model model) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 			service.salvar(dtoRequest);
+			model.addAttribute("CompraRealizada","Compra realizada com sucesso!");
 				return "produto/Adicionar-Produto-No-Carrinho";
 	}
 

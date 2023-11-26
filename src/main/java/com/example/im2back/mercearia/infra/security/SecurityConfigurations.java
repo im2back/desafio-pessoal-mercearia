@@ -66,8 +66,8 @@ public class SecurityConfigurations {
 	}
 
 	private void handleAccessDeniedException(AccessDeniedException exception, HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
-		String mensagem = "Você não tem autorização para acessar esse recurso !";	
+			HttpServletResponse response) throws IOException {	
+		String mensagem = "Você não tem autorização para acessar esse recurso!";
 		String referer = request.getHeader("Referer");		
     		response.sendRedirect(referer + "&permissao=" + URLEncoder.encode(mensagem, "UTF-8"));	
 	}

@@ -14,8 +14,7 @@ public class RecursoCriadoListener implements ApplicationListener<RecursoCriadoE
 	@Override
 	public void onApplicationEvent(RecursoCriadoEvento event) {
 		HttpServletRequest request = event.getRequest();
-		Model model = event.getModel();
-		
+		Model model = event.getModel();		
 		adicionarToken(request, model);	
 	}
 
