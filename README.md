@@ -44,7 +44,7 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 ( 5 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
 
 
-( 6 ) -------> Adicionar feedback de compra realizada com sucesso
+
  
 
 ( 7 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes
