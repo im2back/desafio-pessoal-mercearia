@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://thymeleaf.org"
-			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-			   xmlns="http://www.w3.org/1999/xhtml">
-			   
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <title>Cadastro</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+	<title>Cadastro</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 	<div class="container-logout">
-			  <a class="logout" th:href="@{'/login/logout?token=' + ${token}}">Logout</a>
+		<a class="logout" th:href="@{'/login/logout?token=' + ${token}}">Logout</a>
 	</div>
-		 
-	<div class="container-cabecalho">	
-    <p class="error-message" th:if="${param.permissao != null}" th:text="${param.permissao}"></p>	
-    <h1>Caderneta da Mercearia</h1>			
-</div>
 
-    
-	 <div class="container-principal">
-	 	<div class="container-botoes">
-			   <p class="error-message" th:if="${NotaMessage != null}" th:text="${NotaMessage}"></p>
-			    <!-- Adiciona o token como cabeçalho de autorização ao clicar no link -->
-			    <a  th:href="@{'/cliente/cadastrar?token=' + ${token}}">Cadastrar Cliente</a> 
-			    <br>
-				<a th:href="@{'/cliente/listar?token=' + ${token}}">Listar todos os Clientes</a>
-			    <br>
-			    <a  th:href="@{'/produtos?token=' + ${token}}">Realizar Compra</a> 
-			    <br>
-			    <a  th:href="@{'/cliente/buscar?token=' + ${token}}">Buscar Cliente Por Documento</a> 
-	 	</div>
-	 </div>
-	 
-	 <div class="container-rodape">
-	<a href="https://www.linkedin.com/in/jefferson-richards-sena-de-souza-4110a3222/" class="linkedin-button" target="_blank">
-  Conectar no LinkedIn
-</a>
+	<div class="container-cabecalho">
+		<p class="error-message" th:if="${param.permissao != null}" th:text="${param.permissao}"></p>
+		<h1>Caderneta da Mercearia</h1>
+	</div>
 
-	 </div>  
- 
+
+	<div class="container-principal">
+		<div class="container-botoes">
+			<p class="error-message" th:if="${NotaMessage != null}" th:text="${NotaMessage}"></p>
+			<!-- Adiciona o token como cabeçalho de autorização ao clicar no link -->
+			<a th:href="@{'/cliente/cadastrar?token=' + ${token}}">Cadastrar Cliente</a>
+			<br>
+			<a th:href="@{'/cliente/listar?token=' + ${token}}">Listar todos os Clientes</a>
+			<br>
+			<a th:href="@{'/produtos?token=' + ${token}}">Realizar Compra</a>
+			<br>
+			<a th:href="@{'/cliente/buscar?token=' + ${token}}">Buscar Cliente Por Documento</a>
+		</div>
+	</div>
+
+	<div class="container-rodape">
+		<a href="https://www.linkedin.com/in/jefferson-richards-sena-de-souza-4110a3222/" class="linkedin-button"
+			target="_blank">
+			Conectar no LinkedIn
+		</a>
+
+	</div>
+
 </body>
 
 </html>

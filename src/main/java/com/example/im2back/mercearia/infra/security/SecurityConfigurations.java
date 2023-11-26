@@ -28,10 +28,9 @@ public class SecurityConfigurations {
 	@Autowired
 	SecurityFilter securityFilter;
 
-	
 	@Bean
 	@SuppressWarnings("removal")
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception,RuntimeException {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception, RuntimeException {
 
 		return http.csrf(csrf -> csrf.disable())
 				.sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -41,19 +40,19 @@ public class SecurityConfigurations {
 					req.requestMatchers("/css/**").permitAll();
 					req.requestMatchers("/images/**").permitAll();
 					req.requestMatchers(HttpMethod.POST, "/cliente/delete").hasRole("ADMIN");
-					req.requestMatchers(HttpMethod.POST, "/produtos/delete").hasRole("ADMIN");	
+					req.requestMatchers(HttpMethod.POST, "/produtos/delete").hasRole("ADMIN");
 					try {
-						req.anyRequest().authenticated().and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-						 .exceptionHandling(exceptions -> exceptions
-						            .accessDeniedHandler((request, response, accessDeniedException) -> {
-						                handleAccessDeniedException( accessDeniedException, request, response);
-						            })
-						    );
+						req.anyRequest().authenticated().and()
+								.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+								.exceptionHandling(exceptions -> exceptions
+										.accessDeniedHandler((request, response, accessDeniedException) -> {
+											handleAccessDeniedException(accessDeniedException, request, response);
+										}));
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
-					}).build();
+				}).build();
 	}
 
 	@Bean
@@ -65,11 +64,12 @@ public class SecurityConfigurations {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	private void handleAccessDeniedException(AccessDeniedException exception, HttpServletRequest request, HttpServletResponse response) throws IOException {
-       var token = request.getParameter("token");
-       String mensagem = "Você não tem autorização para acessar esse recurso !";
-       response.sendRedirect("/cliente/home?token=" + token + "&permissao=" + URLEncoder.encode(mensagem, "UTF-8"));
-    }
+
+	private void handleAccessDeniedException(AccessDeniedException exception, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
+		String mensagem = "Você não tem autorização para acessar esse recurso !";	
+		String referer = request.getHeader("Referer");		
+    		response.sendRedirect(referer + "&permissao=" + URLEncoder.encode(mensagem, "UTF-8"));	
+	}
 
 }

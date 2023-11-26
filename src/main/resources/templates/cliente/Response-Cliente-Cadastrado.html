@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://thymeleaf.org"
-			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
-    <title>Cadastro</title>
-    <meta charset="UTF-8">
-       <link rel="stylesheet" type="text/css" href="/css/styles-cliente-cadastro-response.css">
+	<title>Cadastro</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/styles-cliente-cadastro-response.css">
 </head>
 
-<body>		
-		<h1>Cadastro realizado com sucesso !</h1>
-		<div class="button-container">
-			<a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> 
-			<a  th:href="@{'/produtos?token=' + ${token}}">Adicionar Compra</a> 
-		</div>
-		
-		
-			 <table>
+<body>
+	<h1>Cadastro realizado com sucesso !</h1>
+	<div class="button-container">
+		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+		<a th:href="@{'/produtos?token=' + ${token}}">Adicionar Compra</a>
+	</div>
+
+
+	<table>
 		<thead>
 			<tr>
 				<th>Nome</th>
@@ -26,14 +26,14 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td th:text="${cliente.name}"> </td> 
-				<td th:text="${cliente.documento}" > </td>
-				<td th:text="${cliente.rua}" > </td>
-				<td th:text="${cliente.numero}" > </td>					          
+				<td th:text="${cliente.name}"> </td>
+				<td th:text="${cliente.documento}"> </td>
+				<td th:text="${cliente.rua}"> </td>
+				<td th:text="${cliente.numero}"> </td>
 			</tr>
 		</tbody>
 	</table>
-				
+
 
 </body>
 

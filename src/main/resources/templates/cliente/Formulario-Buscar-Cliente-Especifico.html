@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://thymeleaf.org"
-			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
-    <title>Listar Cliente</title>
-    <meta charset="UTF-8">
-       <link rel="stylesheet" type="text/css" href="/css/styles-formulario-listar-cliente-especifico.css">
+	<title>Listar Cliente</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/styles-formulario-listar-cliente-especifico.css">
 </head>
 
-<body>		
+<body>
 	<br><br>
-		<h1>Localizar Cliente</h1>
-		<br>
-		<div ><a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
+	<h1>Localizar Cliente</h1>
+	<br>
+	<div><a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
+	<br><br>
+	<div th:if="${serviceMessage != null }">
+		<p class="error-message" th:text="${serviceMessage}"></p>
+	</div>
+
+	<div th:each="msg : ${errorMessages}">
+		<p class="error-message" th:if="${#strings.startsWith(msg, 'documento')}"
+			th:text="'O campo ' + ${msg.split(':')[1]}"></p>
+	</div>
+
+	<form th:action="@{'/cliente/buscarCliente'}" method="get">
+		<input type="hidden" name="token" th:value="${token}" />
+
+		<label for="id">Documento do cliente :</label>
 		<br><br>
-		<div th:if="${serviceMessage != null }">
-		        <p class="error-message" th:text="${serviceMessage}"></p>	   
-		</div>
-		
-		<div th:each="msg : ${errorMessages}" >
-  			  <p class="error-message" th:if="${#strings.startsWith(msg, 'documento')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>
-		</div>
-		
-		<form th:action="@{'/cliente/buscarCliente'}" method="get">
-   			 <input type="hidden" name="token" th:value="${token}" />
-			
-			<label for="id">Documento do cliente :</label>
-			<br><br>
-			<input type="text" id="documento"  name="documento">
-			
-			<input type="submit" value="Buscar" >
-		</form>
-		
-		
-				
+		<input type="text" id="documento" name="documento">
+
+		<input type="submit" value="Buscar">
+	</form>
+
+
+
 
 </body>
 

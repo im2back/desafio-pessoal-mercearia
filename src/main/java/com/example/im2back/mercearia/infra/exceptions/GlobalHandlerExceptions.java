@@ -48,16 +48,6 @@ public class GlobalHandlerExceptions {
 	        return "redirect:" + referer;
 	    }
 	
-	@ExceptionHandler(SecurityExceptions.class)
-	@ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
-	public String handleSecurityExceptions(SecurityExceptions ex,HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		 System.out.println("############ Teste handler #############");
-		
-	    	redirectAttributes.addFlashAttribute("serviceMessage", ex.getMessage());
-	        // Redirecione para a página anterior
-	      System.out.println("Teste handler");
-	        return "redirect:cliente/home";
-	    }
 	
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	@ResponseStatus(HttpStatus.FOUND)

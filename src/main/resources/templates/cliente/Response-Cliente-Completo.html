@@ -1,42 +1,44 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://thymeleaf.org"
-			   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
-    <title>Cliente Completo</title>
-    <meta charset="UTF-8">
-       <link rel="stylesheet" type="text/css" href="/css/styles-listar-cliente-especifo.css">
+	<title>Cliente Completo</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/styles-listar-cliente-especifo.css">
 </head>
 
-<body>		
-													<h1>Detalhar  Cliente</h1>
-		
-		    <div class="button-container">
-				<a  th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> 
-														         
-		   		<a class="editar" th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar Nota</a>
- 												          	   			
-		   		<form id="zerarContaForm" th:action="@{'/produtos/delete'}" th:method="post">  
-					<input type="hidden" name="documento" th:value="${cliente.documento}" />
-				    <input type="hidden" name="token" th:value="${token}" />
-					<button  type="submit" >Zerar Conta</button>
-				</form>	
-				<form id="zerarContaForm" th:action="@{'/cliente/delete'}" th:method="post">
-					<input type="hidden" name="documento" th:value="${cliente.documento}" />
-				    <input type="hidden" name="token" th:value="${token}" />
-					<button  type="submit" >Excluir Cliente</button>
-				</form>		
-				
-			</div>
-			
-			<div th:if="${NotaMessage != null }">
-		        	<p class="error-message" th:text="${NotaMessage}"></p>	   
-			</div>
-			<div th:if="${zerarMessage != null }">
-		        	<p class="error-message" th:text="${zerarMessage}"></p>	   
-			</div>
-			
-													
-													<p>Cliente</p>			
+<body>
+	<h1>Detalhar Cliente</h1>
+	<p class="error-message" th:if="${not #lists.isEmpty(param.permissao)}" th:text="${param.permissao[0]}"></p>
+	<div class="button-container">
+		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+
+		<a class="editar"
+			th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar
+			Nota</a>
+
+		<form id="zerarContaForm" th:action="@{'/produtos/delete'}" th:method="post">
+			<input type="hidden" name="documento" th:value="${cliente.documento}" />
+			<input type="hidden" name="token" th:value="${token}" />
+			<button type="submit">Zerar Conta</button>
+		</form>
+		<form id="zerarContaForm" th:action="@{'/cliente/delete'}" th:method="post">
+			<input type="hidden" name="documento" th:value="${cliente.documento}" />
+			<input type="hidden" name="token" th:value="${token}" />
+			<button type="submit">Excluir Cliente</button>
+		</form>
+
+	</div>
+
+	<div th:if="${NotaMessage != null }">
+		<p class="error-message" th:text="${NotaMessage}"></p>
+	</div>
+	<div th:if="${zerarMessage != null }">
+		<p class="error-message" th:text="${zerarMessage}"></p>
+	</div>
+
+
+	<p>Cliente</p>
 	<table>
 		<thead>
 			<tr>
@@ -45,38 +47,38 @@
 				<th>Rua/Travessa</th>
 				<th>Numero</th>
 				<th>Total da conta:</th>
-			
+
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td th:text="${cliente.name}"> </td> 
-				<td th:text="${cliente.documento}" > </td>
-				<td th:text="${cliente.rua}" > </td>	
-				<td th:text="${cliente.numero}" > </td>	
-				<td th:text="${cliente.total}" > </td>			          
+				<td th:text="${cliente.name}"> </td>
+				<td th:text="${cliente.documento}"> </td>
+				<td th:text="${cliente.rua}"> </td>
+				<td th:text="${cliente.numero}"> </td>
+				<td th:text="${cliente.total}"> </td>
 			</tr>
 		</tbody>
 	</table>
-		<br>
+	<br>
 	<p>Produtos Comprados</p>
-		 <table>
+	<table>
 		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Preco</th>
-				<th>Moment</th>		
+				<th>Moment</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="produto : ${cliente.lista}">
-				<td th:text="${produto.name}"> </td> 
-				<td th:text="${produto.preco}" > </td>
-				<td th:text="${produto.moment}" > </td>			          
+				<td th:text="${produto.name}"> </td>
+				<td th:text="${produto.preco}"> </td>
+				<td th:text="${produto.moment}"> </td>
 			</tr>
 		</tbody>
 	</table>
-				
+
 
 </body>
 
