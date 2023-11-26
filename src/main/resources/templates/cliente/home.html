@@ -12,13 +12,15 @@
 </head>
 
 <body>
-	 <div class="container-logout">
+	<div class="container-logout">
 			  <a class="logout" th:href="@{'/login/logout?token=' + ${token}}">Logout</a>
-		 </div>
-	<div class="container-cabecalho">
-		
-		 <h1>Caderneta da Mercearia</h1>	
-    </div>
+	</div>
+		 
+	<div class="container-cabecalho">	
+    <p class="error-message" th:if="${param.permissao != null}" th:text="${param.permissao}"></p>	
+    <h1>Caderneta da Mercearia</h1>			
+</div>
+
     
 	 <div class="container-principal">
 	 	<div class="container-botoes">

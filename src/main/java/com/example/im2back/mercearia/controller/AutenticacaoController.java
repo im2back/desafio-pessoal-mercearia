@@ -44,14 +44,12 @@ public class AutenticacaoController {
 	public String login(@Valid DadosAutenticacao dados, Model model, HttpServletResponse response,HttpServletRequest request) {	
 
 		var tokenAuthentication = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-		System.out.println("ENTORU2");
 		Authentication authentication = null;
 		try {
 		authentication = manager.authenticate(tokenAuthentication);
 		} catch (RuntimeException e) {
 			throw new ServiceExceptions("Usuario Invalido");
 		}
-		
 			String token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 			model.addAttribute("token", token);
 				return "cliente/home";

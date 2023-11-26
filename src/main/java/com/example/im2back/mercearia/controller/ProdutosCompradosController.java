@@ -42,6 +42,7 @@ public class ProdutosCompradosController {
 	@Transactional
 	@PostMapping("/delete")
 	public String zerarRegistros(Model model, HttpServletRequest request,HttpServletRequest response) {
+		System.out.println("teste");
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				service.zerarConta(request.getParameter("documento"));
 						return "redirect:" + request.getHeader("Referer");

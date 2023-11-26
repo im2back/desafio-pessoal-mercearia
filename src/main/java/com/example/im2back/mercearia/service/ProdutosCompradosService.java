@@ -40,9 +40,8 @@ public class ProdutosCompradosService {
 
 	public void zerarConta(String documento) {
 		Cliente cliente = clienteService.findByDocumento(documento);
-		repository.deleteByClient_id(cliente.getId());
 		clienteService.gerarNotaClientePDF(cliente.getDocumento());
-	
+		repository.deleteByClient_id(cliente.getId());
 	}
 	
 	public String excluirCliente(String documento) {

@@ -47,8 +47,17 @@ public class GlobalHandlerExceptions {
 	        String referer = request.getHeader("Referer");
 	        return "redirect:" + referer;
 	    }
-
 	
+	@ExceptionHandler(SecurityExceptions.class)
+	@ResponseStatus(HttpStatus.MOVED_PERMANENTLY)
+	public String handleSecurityExceptions(SecurityExceptions ex,HttpServletRequest request, RedirectAttributes redirectAttributes) {
+		 System.out.println("############ Teste handler #############");
+		
+	    	redirectAttributes.addFlashAttribute("serviceMessage", ex.getMessage());
+	        // Redirecione para a página anterior
+	      System.out.println("Teste handler");
+	        return "redirect:cliente/home";
+	    }
 	
 	@ExceptionHandler(DataIntegrityViolationException.class)
 	@ResponseStatus(HttpStatus.FOUND)
@@ -62,7 +71,14 @@ public class GlobalHandlerExceptions {
 	    	return "redirect:" + referer;
 	    }
 	
-	
+	@ExceptionHandler(JWTExceptions.class)
+	@ResponseStatus(HttpStatus.FOUND)
+	public String handleJWTExceptions(JWTExceptions ex,HttpServletRequest request, RedirectAttributes redirectAttributes) {
+	    	redirectAttributes.addFlashAttribute("JWTMessage", ex.getMessage());
+	        return "redirect:/login";
+	    }
+
+
 	
 	
 	

@@ -53,6 +53,7 @@ public class ClienteController {
 
 	@GetMapping("/listar")
 	public String listarTodos(Model model, HttpServletRequest request) {
+		System.out.println("########Entrou no end point ###########");
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("lista",service.listarTodosOsClientes());		
 					return "cliente/Buscar-Todos-Clientes";

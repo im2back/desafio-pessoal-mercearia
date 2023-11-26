@@ -11,6 +11,10 @@
 <body>	
 		<br>
 		<h1>Iniciar Sessão</h1>
+		
+			<div class="container-message" th:if="${JWTMessage != null }">
+		        <p class="error-message" th:text="${JWTMessage}"></p>	   
+			</div>
 		 
 	<div class="container-message" th:if="${serviceMessage != null }">
 		        <p class="error-message" th:text="${serviceMessage}"></p>	   

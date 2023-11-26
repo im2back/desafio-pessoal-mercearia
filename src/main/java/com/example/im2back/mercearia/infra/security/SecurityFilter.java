@@ -28,51 +28,31 @@ public class SecurityFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 
-		// var tokenJWT = recuperarToken(request);
-
 		var tokenParametro = request.getParameter("token");
-
+		var atributo = request.getAttribute("permissao");
+		System.out.println(atributo);
 		if (tokenParametro != null) {
 			try {
 				var subject = tokenService.getSubject(tokenParametro);
 				var usuario = repository.findByLogin(subject);
 				var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
 				SecurityContextHolder.getContext().setAuthentication(authentication);
-
 			} catch (JWTExceptions ex) {
-				// Redirecionamento interno para o manipulador de exceções do filtro
 				request.setAttribute("JWTMessage", ex.getMessage());
 				request.getRequestDispatcher("/login").forward(request, response);
 				return;
+			} catch (RuntimeException e) {
+				e.printStackTrace();
 			}
 		}
-
-		filterChain.doFilter(request, response);
-
-		/*
-		 * /* Método usado para token sendo enviado por cabeçalho if (tokenJWT != null)
-		 * {
-		 * 
-		 * 
-		 * var subject = tokenService.getSubject(tokenJWT);
-		 * 
-		 * var usuario = repository.findByLogin(subject);
-		 * 
-		 * var authentication = new UsernamePasswordAuthenticationToken(usuario, null,
-		 * usuario.getAuthorities());
-		 * 
-		 * SecurityContextHolder.getContext().setAuthentication(authentication);
-		 * 
-		 * }
-		 */
+		try {
+			System.out.println("Entoru aki");
+			filterChain.doFilter(request, response);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+		}
+		
 
 	}
-
-	/*
-	 * private String recuperarToken(HttpServletRequest request) { var
-	 * authorizationHeader = request.getHeader("Authorization");
-	 * if(authorizationHeader != null) { return
-	 * authorizationHeader.replace("Bearer ",""); } return null; }
-	 */
 
 }

@@ -72,6 +72,7 @@ a:hover {
 	height: 13vh;
 	align-items: center;	
 	justify-content: center;
+	flex-direction: column;
   
 }
 
