@@ -5,17 +5,18 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles-formulario-cadastro-cliente.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles-login.css">
 </head>
 
 <body>	
 		<br>
 		<h1>Iniciar Sessão</h1>
 		 
-	<div th:if="${JWTMessage != null }">
-		        <p class="error-message" th:text="${JWTMessage}"></p>	   
+	<div class="container-message" th:if="${serviceMessage != null }">
+		        <p class="error-message" th:text="${serviceMessage}"></p>	   
 	</div>
-		
+	
+	<div class="container-principal">	
 	<form action="/login" method="post">
 		
 		<div th:each="msg : ${errorMessages}" >
@@ -35,6 +36,7 @@
 		<br><br>
 		<input type="submit" value="Entrar">
 	</form>
+	</div>
 				
 
 </body>

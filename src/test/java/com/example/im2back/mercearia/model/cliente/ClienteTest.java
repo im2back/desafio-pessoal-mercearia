@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.example.im2back.mercearia.model.carrinho.ProdutoCompradoRequestDTO;
@@ -14,7 +13,7 @@ import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
 import com.example.im2back.mercearia.model.endereco.Endereco;
 
 
-@DataJpaTest
+
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 class ClienteTest {

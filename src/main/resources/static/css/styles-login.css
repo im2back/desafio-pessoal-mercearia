@@ -1,0 +1,92 @@
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
+		 	background-size: cover;
+			background-repeat: no-repeat;
+			width: 100%; /* Ocupará 100% da largura do viewport */
+	   		height: 100vh; /* Ocupará 100% da altura do viewport (viewport height) */
+	   		display: flex;
+	   		flex-direction: column;
+	   		
+	   	
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 50px;
+        }
+
+        form {
+            height: 80%;
+            width: 16%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1px;
+            color: #333;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid#3498db;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #267bb5;
+        }
+         
+           .error-message {
+			font-size: 20px;
+		    background-color: rgba(255, 204, 204, 0.8); /* Cor de fundo personalizada para mensagens de erro 'preco' */
+		    width: 18%;
+		    border-radius: 5px;
+		    padding: 5px; /* Espaçamento interno para melhor legibilidade */
+		    margin-bottom: 10px; /* Espaçamento inferior para separar os blocos de erro */
+		    text-align: center
+			
+		}
+		
+		.container-principal{
+			width: 100%;
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 50%;
+		}
+		
+		.container-message{
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    width: 100%;
+		}
+		
+		
+	
+		
+		.button-container{
+			text-align: center;
+		}
