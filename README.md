@@ -85,7 +85,7 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 17
+Pré-requisitos: Java 17 , Mysql database
 
 ```bash
 # clonar repositório
