@@ -12,8 +12,8 @@
 		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
 			
 		 
-	<form th:action="@{'/produtos/cadastrar'}" method="post">
-		<p class="error-message" th:if="${CompraRealizada != null}" th:text="${CompraRealizada}"></p>	
+	<form th:action="@{'/produtos/cadastrar?token=' + ${token}}" method="post">
+	<p class="error-message" th:if="${compra != null}" th:text="${compra}"></p>	
     <input type="hidden" name="token" th:value="${token}" />
 		<div th:each="msg : ${errorMessages}" >
   			  <p class="error-message" th:if="${#strings.startsWith(msg, 'name')}" th:text="'O campo ' + ${msg.split(':')[1]}"></p>

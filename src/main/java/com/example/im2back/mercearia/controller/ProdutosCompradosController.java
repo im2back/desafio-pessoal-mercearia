@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.im2back.mercearia.event.RecursoCriadoEvento;
 import com.example.im2back.mercearia.model.carrinho.ProdutoCompradoRequestDTO;
@@ -33,11 +34,10 @@ public class ProdutosCompradosController {
 
 	@PostMapping("/cadastrar")
 	@Transactional
-	public String salvar(@Valid ProdutoCompradoRequestDTO dtoRequest, HttpServletRequest request, Model model) {
-		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
+	public String salvar(@Valid ProdutoCompradoRequestDTO dtoRequest, HttpServletRequest request, Model model,RedirectAttributes redirectAttributes) {
 			service.salvar(dtoRequest);
-			model.addAttribute("CompraRealizada","Compra realizada com sucesso!");
-				return "produto/Adicionar-Produto-No-Carrinho";
+				redirectAttributes.addFlashAttribute("compra","Compra realizada com sucesso!");
+					return "redirect:" + request.getHeader("Referer");
 	}
 
 	@Transactional
