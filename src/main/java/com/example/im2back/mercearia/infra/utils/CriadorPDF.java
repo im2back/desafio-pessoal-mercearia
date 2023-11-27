@@ -18,7 +18,7 @@ public class CriadorPDF {
 
             // Adicionar uma página ao documento
             PDPage page = new PDPage(PDRectangle.A4);
-            document.addPage(page);
+            document.addPage(page);  
 
             // Criar um objeto PDPageContentStream para escrever no conteúdo da página
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
@@ -33,10 +33,23 @@ public class CriadorPDF {
             contentStream.endText();
 
             // Adicionar conteúdo ao PDF com base na lista de produtos
-            float yPosition = 700; // Posição inicial do texto
+            float yPosition = 750; // Posição inicial do texto
+         
+            
             for (ProdutosCompradosListDTO produto : listaProdutos) {
+            	if (yPosition < 100) {
+                    // Se a posição vertical for menor que 50, adicione uma nova página
+                    document.addPage(new PDPage(PDRectangle.A4));
+                    yPosition = 800; // Redefina a posição vertical para o topo da nova página
+                    contentStream.close(); // Feche o stream da página anterior
+                    contentStream = new PDPageContentStream(document, document.getPage(document.getNumberOfPages() - 1));
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12); // Defina a fonte para a nova página
+                
+                }
+            	
+            	
                 yPosition -= 50; // Ajuste a posição vertical para O PROXIMO OBJETO
-
+                
                 // Nome do produto
                 contentStream.beginText();
                 contentStream.newLineAtOffset(50, yPosition);
@@ -57,7 +70,7 @@ public class CriadorPDF {
                 contentStream.showText("Data/Hora da compra  : " + produto.Data());
                 contentStream.endText();         
             }
-            // Data do produto
+ 
             yPosition -= 40;
             contentStream.beginText();
             contentStream.newLineAtOffset(50, yPosition);
