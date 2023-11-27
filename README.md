@@ -35,7 +35,6 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 ( 2 ) -------> Acrecentar um capo de observação ao realizar uma compra.
 
 
-( 3 ) -------> Acrecentar telefone no cadastro de cliente
 
 
 ( 4 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
