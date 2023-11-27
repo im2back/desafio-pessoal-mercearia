@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class Cliente {
 
 	
@@ -33,9 +35,12 @@ public class Cliente {
 	@Column(name = "nome")
 	private String name;
 	
-
 	private String documento;
 	
+	@Getter @Setter
+	private String email;
+	@Getter @Setter
+	private String telefone;
 
 	@Embedded
 	private Endereco endereco = new Endereco();
@@ -50,6 +55,14 @@ public class Cliente {
 		this.documento = dto.documento();
 		this.endereco.setNumero(dto.numero());
 		this.endereco.setRua(dto.rua());
+	}
+	public Cliente(String name, String documento, String email, String telefone, Endereco endereco) {
+		super();
+		this.name = name;
+		this.documento = documento;
+		this.email = email;
+		this.telefone = telefone;
+		this.endereco = endereco;
 	}
 	
 	public Cliente(String name, String documento, Endereco endereco) {
@@ -67,4 +80,7 @@ public class Cliente {
 		}
 		return  total;
 	}
+
+
+
 }

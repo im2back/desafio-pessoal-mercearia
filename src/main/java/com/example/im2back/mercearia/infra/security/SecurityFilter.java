@@ -29,8 +29,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 
 		var tokenParametro = request.getParameter("token");
-		var atributo = request.getAttribute("permissao");
-		System.out.println(atributo);
 		if (tokenParametro != null) {
 			try {
 				var subject = tokenService.getSubject(tokenParametro);
@@ -46,7 +44,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 			}
 		}
 		try {
-			System.out.println("Entoru aki");
 			filterChain.doFilter(request, response);
 		} catch (RuntimeException e) {
 			e.printStackTrace();

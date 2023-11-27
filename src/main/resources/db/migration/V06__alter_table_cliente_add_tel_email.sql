@@ -1,0 +1,3 @@
+ALTER TABLE tb_cliente
+ADD COLUMN email VARCHAR(255),
+ADD COLUMN telefone VARCHAR(255);
