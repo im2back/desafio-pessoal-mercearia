@@ -51,7 +51,7 @@ class ProdutosCompradosRepositoryTest {
 	}
 
 	private void cadastrarCarrinho(Cliente cliente) {	
-	ProdutoCompradoRequestDTO dto= new ProdutoCompradoRequestDTO("banana",(double) 20, "123456");	
+	ProdutoCompradoRequestDTO dto= new ProdutoCompradoRequestDTO("banana",(double) 20, "123456","123");	
 		ProdutosComprados produtos = new ProdutosComprados(dto, cliente);
 			em.persist(produtos);
 	}

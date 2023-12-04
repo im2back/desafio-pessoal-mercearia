@@ -75,3 +75,12 @@
     padding: 5px; /* Espaçamento interno para melhor legibilidade */
     margin-bottom: 10px; /* Espaçamento inferior para separar os blocos de erro */
 }
+
+       .obs {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            word-wrap: break-word; /* Adicionando a propriedade para permitir quebra de linha automática */
+        }

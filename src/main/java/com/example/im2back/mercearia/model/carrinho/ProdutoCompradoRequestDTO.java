@@ -12,7 +12,9 @@ public record ProdutoCompradoRequestDTO(
 		Double preco,
 		
 		 @NotBlank
-		 String documento
+		 String documento,
+		 
+		 String obs
 		) {
 
 }

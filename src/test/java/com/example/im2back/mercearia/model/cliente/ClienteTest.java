@@ -29,8 +29,8 @@ class ClienteTest {
 
 	        Cliente cliente = new Cliente("Jefferson", "123456", endereco);
 
-	        ProdutoCompradoRequestDTO produto1 = new ProdutoCompradoRequestDTO("banana", 20.0, "123456");
-	        ProdutoCompradoRequestDTO produto2 = new ProdutoCompradoRequestDTO("uva", 60.0, "123456");
+	        ProdutoCompradoRequestDTO produto1 = new ProdutoCompradoRequestDTO("banana", 20.0, "123456","123");
+	        ProdutoCompradoRequestDTO produto2 = new ProdutoCompradoRequestDTO("uva", 60.0, "123456","123");
 
 	        ProdutosComprados produtos1 = new ProdutosComprados(produto1, cliente);
 	        ProdutosComprados produtos2 = new ProdutosComprados(produto2, cliente);

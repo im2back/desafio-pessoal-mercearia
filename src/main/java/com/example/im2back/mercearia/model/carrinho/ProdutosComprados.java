@@ -41,12 +41,15 @@ public class ProdutosComprados {
 	private Cliente client;
 	
 	private LocalDateTime moment = LocalDateTime.now();
+	
+	private String observacao;
 
 	public ProdutosComprados (ProdutoCompradoRequestDTO dto, Cliente client) {
 		
 		this.name = dto.name();
 		this.preco = dto.preco();
 		this.client = client;
+		this.observacao = dto.obs();
 		
 	}
 
