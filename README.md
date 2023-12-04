@@ -4,28 +4,42 @@
 Esta API foi concebida com o objetivo de simplificar o processo de registro das compras realizadas pelos clientes em pequenos estabelecimentos comerciais, como mercados de bairro. Nos pequenos mercados, é comum adotar a prática de permitir que os clientes comprem "fiado" e efetuem o pagamento no final do mês. No entanto, a organização e integridade das anotações podem ser comprometidas à medida que o número de clientes e o volume de transações aumentam. Em suma esse é um sistema simples, feito afim de substituir as cadernetas de papel. No momento o desenvolvimento é 100% autoral, ainda não tem contribuições de terceiros.
 
 ## Layout da tela  principal da aplicação
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/a2787568-4c06-4f34-b840-90f9611f3660)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/89dc57ba-341d-42dd-bc28-905cf8427dae)
+
 
 ## Layout da tela de cadastro de clientes
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/2f9a9687-4347-475a-9ec0-480edb43c375)
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/78b413a5-18cc-46ca-9d2a-d5ed88653e76)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/e700abf4-d263-4ee3-82a8-f8b7f17ec59d)
+
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/4a67c4ba-8f5d-42fa-ad77-6675cd94f0f1)
+
 
 
 ## Layout da tela de listar todos os clientes (somente informações importantes)
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/b7266516-f1ca-4b4a-b9df-4c794cd53347)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/5952328a-71bf-4a50-9509-f6236b72cdae)
+
 <br>
-## Detalhamento do cliente (todas as informações)
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/50f18fd6-c19c-446e-ad6d-0219d5d513a3)
+
+## Detalhamento do cliente (todas as informações + Ações)
+
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/fb7520e4-aaef-4986-a5ee-eaab447e5901)
+
+
 
 ## Modelo conceitual
 em breve...
 
 ## Segurança com Spring-security (JWT)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/7d77aae2-9a70-421d-80b5-ef1fe4d0cbc7)
+
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/0e561a26-74c9-4981-99bd-19e577f0bcf4)
 
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/81176b92-603c-4edf-8f33-b3df059c5d4e)
+### Senhas encriptadas com o Bcrypt
 
-## Futuras implementações (Atualização de 26/11/2023)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/1eda6ebe-de9c-4710-938f-773e003be4ef)
+
+
+
+## Futuras implementações (Atualização de 04/12/2023)
 
 
 ( 1 ) ------> Implementar o Spring-Security JWT
