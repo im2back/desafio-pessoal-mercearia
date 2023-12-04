@@ -32,28 +32,20 @@ em breve...
 Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
 
 
-( 2 ) -------> Acrecentar um capo de observação ao realizar uma compra.
+( 2 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
+
+
+( 3 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
+
+
+( 4 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes (ABA ESTATISTICAS)
 
 
 
-
-( 4 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
-
-
-( 5 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
+( 5 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
 
 
-
- 
-
-( 7 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes
-
-
-
-( 8 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
-
-
-( 9 ) -------> Implementar sistema de black list
+( 6 ) -------> Implementar sistema de black list (TOKEN)
 
 # Tecnologias utilizadas
 ## Back end
