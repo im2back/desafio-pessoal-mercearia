@@ -39,27 +39,24 @@ em breve...
 
 
 
-## Futuras implementações (Atualização de 04/12/2023)
+## Futuras implementações (Atualização de 05/12/2023)
 
 
 ( 1 ) ------> Implementar o Spring-Security JWT
 Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
 
 
-( 2 ) -------> Implementar funcionalidade que envia E-MAIL ou SMS todo inicio de mês caso o cliente não tenha pago.
+( 2 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
 
 
-( 3 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
-
-
-( 4 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes (ABA ESTATISTICAS)
+( 3 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes (ABA ESTATISTICAS)
 
 
 
-( 5 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
+( 4 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
 
 
-( 6 ) -------> Implementar sistema de black list (TOKEN)
+( 5 ) -------> Implementar sistema de black list (TOKEN)
 
 # Tecnologias utilizadas
 ## Back end
