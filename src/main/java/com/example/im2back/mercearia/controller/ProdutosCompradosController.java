@@ -1,5 +1,7 @@
 package com.example.im2back.mercearia.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
@@ -42,7 +44,7 @@ public class ProdutosCompradosController {
 
 	@Transactional
 	@PostMapping("/delete")
-	public String zerarRegistros(Model model, HttpServletRequest request,HttpServletRequest response) {
+	public String zerarRegistros(Model model, HttpServletRequest request,HttpServletRequest response) throws IOException {
 		System.out.println("teste");
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				service.zerarConta(request.getParameter("documento"));

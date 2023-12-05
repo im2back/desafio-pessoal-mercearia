@@ -8,10 +8,19 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.springframework.mail.javamail.JavaMailSender;
 
 public class CriadorPDF {
+	
+	private final EmailService emailService;
 
-    public void gerarPDF(List<ProdutosCompradosListDTO> listaProdutos, String nomeCliente, String nomeArquivo,Double total, String documento) {
+    public CriadorPDF(JavaMailSender javaMailSender) {
+        this.emailService = new EmailService(javaMailSender);
+    }
+	
+
+	public void gerarPDF(List<ProdutosCompradosListDTO> listaProdutos, String nomeCliente, String nomeArquivo,Double total, 
+			String documento,String email) {
         try {
             // Criar um novo documento PDF
             PDDocument document = new PDDocument();
@@ -79,15 +88,19 @@ public class CriadorPDF {
 
             // Fechar o PDPageContentStream
             contentStream.close();
-
+            
+            // enviando o email antes de fechar
+            emailService.enviarEmailComAnexo(document,email);
+            
             // Salvar o documento PDF
             document.save(nomeArquivo);
-
+          
             // Fechar o documento
             document.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
 

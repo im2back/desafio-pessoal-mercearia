@@ -1,5 +1,6 @@
 package com.example.im2back.mercearia.service;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
@@ -24,6 +26,9 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository repository;
+
+	@Autowired
+	private JavaMailSender javaMailSender;
 
 	public ClienteCadastroResponseDTO salvar(ClienteCadastroRequestDTO clienteRequest) {
 		Cliente cliente = new Cliente(clienteRequest);
@@ -54,7 +59,7 @@ public class ClienteService {
 		return repository.findAll().stream().map(ClienteListarTodosDTO::new).collect(Collectors.toList());
 	}
 
-	public String gerarNotaClientePDF(String documento) {
+	public String gerarNotaClientePDF(String documento) throws IOException {
 		Cliente cliente = repository.findByDocumento(documento);
 		List<ProdutosCompradosListDTO> listDTO = cliente.getCarrinho().stream()
 				.map(p -> new ProdutosCompradosListDTO(p.getName(), p.getPreco(), p.getMoment()))
@@ -63,7 +68,8 @@ public class ClienteService {
 		String path = Paths.get("C:\\Users\\jeffe\\OneDrive\\Área de Trabalho\\Notas Detalhadas",
 				cliente.getName() + "_nota_fiscal_" + ".pdf").toString();
 
-		new CriadorPDF().gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(), cliente.getDocumento());
+		new CriadorPDF(javaMailSender).gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(),
+				cliente.getDocumento(), cliente.getEmail());
 
 		return "Nota Gerada com Sucesso";
 	}

@@ -1,5 +1,6 @@
 package com.example.im2back.mercearia.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +39,13 @@ public class ProdutosCompradosService {
 		return repository.findAll();
 	}
 
-	public void zerarConta(String documento) {
+	public void zerarConta(String documento) throws IOException {
 		Cliente cliente = clienteService.findByDocumento(documento);
 		clienteService.gerarNotaClientePDF(cliente.getDocumento());
 		repository.deleteByClient_id(cliente.getId());
 	}
 	
-	public String excluirCliente(String documento) {
+	public String excluirCliente(String documento) throws IOException {
 		zerarConta(documento);
 			clienteService.deleteByDocumento(documento);
 				return "Cliente Deletado com sucesso, confira a nota backup";

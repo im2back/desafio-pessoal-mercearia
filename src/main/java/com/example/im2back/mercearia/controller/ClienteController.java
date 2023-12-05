@@ -1,5 +1,7 @@
 package com.example.im2back.mercearia.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
@@ -73,7 +75,7 @@ public class ClienteController {
 				}
 	
 	@GetMapping("/gerar")
-	public String gerarNota(Model model, HttpServletRequest request) {
+	public String gerarNota(Model model, HttpServletRequest request) throws IOException {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("NotaMessage",service.gerarNotaClientePDF(request.getParameter("documento")));
 						return "forward:/cliente/"+request.getParameter("redirect");
@@ -81,7 +83,7 @@ public class ClienteController {
 	
 	@Transactional
 	@PostMapping("/delete")
-	public String excluirCliente(Model model, HttpServletRequest request) {
+	public String excluirCliente(Model model, HttpServletRequest request) throws IOException {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("NotaMessage", produtosCompradosService.excluirCliente(request.getParameter("documento")));
 						return "cliente/home";
