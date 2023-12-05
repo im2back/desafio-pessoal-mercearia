@@ -90,3 +90,18 @@
 		.button-container{
 			text-align: center;
 		}
+		
+		/* Estilos para smartphones */
+@media screen and (max-width: 480px) {
+    form {
+        width: 80%;
+    }
+
+    label, input {
+        font-size: 14px;
+    }
+
+    .error-message {
+        width: 80%;
+    }
+}

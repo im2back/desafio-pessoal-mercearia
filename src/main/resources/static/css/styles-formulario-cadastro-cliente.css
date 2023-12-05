@@ -85,3 +85,55 @@
 		.button-container{
 			text-align: center;
 		}
+	
+	
+		/* Estilos para smartphones */
+/* Estilos para smartphones */
+@media screen and (max-width: 1080px) {
+    form {
+        width: 100%;
+        max-width: none; /* Removendo a largura máxima */
+        height: 70vh;
+    }
+
+    label, input {
+        font-size: 14px;
+		 padding: 40px;
+		 font-size: 50px;
+		
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 15px;
+    }
+
+    a {
+        width: 100%;
+        padding: 15px;
+        font-size: 70px;
+    }
+
+    .error-message {
+        font-size: 14px;
+        width: 80%;
+    }
+    
+        h1 {     
+            font-size: 80px;
+        }
+        
+          input {
+            border: 2px solid#3498db;
+            font-size: 40px;
+        }
+        
+          input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            font-size: 60px;
+        }
+
+}
+

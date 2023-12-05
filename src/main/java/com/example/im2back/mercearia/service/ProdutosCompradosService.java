@@ -45,8 +45,13 @@ public class ProdutosCompradosService {
 		repository.deleteByClient_id(cliente.getId());
 	}
 	
+	public void zerarContaSemNota(String documento) throws IOException {
+		Cliente cliente = clienteService.findByDocumento(documento);
+		repository.deleteByClient_id(cliente.getId());
+	}
+	
 	public String excluirCliente(String documento) throws IOException {
-		zerarConta(documento);
+		zerarContaSemNota(documento);
 			clienteService.deleteByDocumento(documento);
 				return "Cliente Deletado com sucesso, confira a nota backup";
 	}

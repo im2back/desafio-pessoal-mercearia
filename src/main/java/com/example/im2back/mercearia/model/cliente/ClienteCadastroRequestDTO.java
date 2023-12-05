@@ -14,7 +14,9 @@ public record ClienteCadastroRequestDTO(
 		String rua,
 		
 		@NotBlank
-		String numero
+		String numero,
+			
+		String email
 		
 		) {
 

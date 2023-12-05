@@ -2,117 +2,148 @@
 
 /* ... restante do seu CSS ... */
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
-		 	 background-size: cover;
-		 background-repeat: no-repeat;
-		 width: 100%; /* Ocupará 100% da largura do viewport */
-   		 height: 100vh; /* Ocupará 100% da altura do viewport (viewport height) */
-        }
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	background-image: url('/images/back2.jpg');
+	/* Substitua pelo caminho da sua imagem */
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	/* Ocupará 100% da largura do viewport */
+	height: 100vh;
+	/* Ocupará 100% da altura do viewport (viewport height) */
+}
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+h1 {
+	text-align: center;
+	color: #333;
+}
 
-        table {
-            width: 90%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
+table {
+	width: 90%;
+	margin: 20px auto;
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+}
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 2px solid #ddd;
-        }
+th,
+td {
+	padding: 15px;
+	text-align: left;
+	border-bottom: 2px solid #ddd;
+}
 
-        th {
-            background-color: #f2f2f2;
-        }
+th {
+	background-color: #f2f2f2;
+}
 
-        tr:hover {
-            background-color: #f5f5f5;
-        }
+tr:hover {
+	background-color: #f5f5f5;
+}
 
-        /* Estilo para o botão */
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
+/* Estilo para o botão */
+.button-container {
+	text-align: center;
+	margin-top: 20px;
+}
 
-        a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 30px;
-            text-decoration: none;
-            font-size: 28px;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 3px;
-            transition: background-color 0.3s, color 0.3s;
-            width: 300px;
-        }
+a {
+	display: inline-block;
+	margin: 10px;
+	padding: 10px 30px;
+	text-decoration: none;
+	font-size: 28px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 3px;
+	transition: background-color 0.3s, color 0.3s;
+	width: 300px;
+}
 
-        a:hover {
-            background-color: #3498db;
-            color: #fff;
-        }
+a:hover {
+	background-color: #3498db;
+	color: #fff;
+}
 
-        p {
-            color: #3498db;
-            font-size: 30px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        		.error-message {
-    color: #e74c3c;
-    font-size: 25px;
-    text-align: center;
+p {
+	color: #3498db;
+	font-size: 30px;
+	margin-top: 20px;
+	text-align: center;
+}
 
-    /* Adicionando efeito piscante */
-    animation: blink 2s infinite;
+.error-message {
+	color: #e74c3c;
+	font-size: 25px;
+	text-align: center;
+
+	/* Adicionando efeito piscante */
+	animation: blink 2s infinite;
 }
 
 @keyframes blink {
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
+
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+
+	25%,
+	75% {
+		opacity: 0;
+	}
 }
 
 
 button {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 30px;
-    text-decoration: none;
-    font-size: 28px;
-    border: 2px solid #3498db;
-    color: #3498db;
-    border-radius: 10px;
-    transition: background-color 1.0s, color 2.0s;
-    cursor: pointer;
-    background-color: transparent;
-     font-family: 'Zombie Holocaust', cursive; 
- 	font-weight: bold; 
+	display: inline-block;
+	margin: 10px;
+	padding: 10px 30px;
+	text-decoration: none;
+	font-size: 28px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 10px;
+	transition: background-color 1.0s, color 2.0s;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: 'Zombie Holocaust', cursive;
+	font-weight: bold;
 }
 
 
 button:hover {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 0, 0);
-     border: 2px solid rgb(255, 0, 0);
-     border-width: 3px;
-    
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 0, 0);
+	border: 2px solid rgb(255, 0, 0);
+	border-width: 3px;
+
 }
 
+/* Estilos para dispositivos de tela menor */
+@media screen and (max-width: 1080px) {
+	h1 {
+		font-size: 70px;
+	}
 
+
+	a,
+	p,
+	.error-message,
+	button {
+		font-size: 70px;
+		/* Reduzindo ainda mais o tamanho da fonte para telas menores */
+	}
+
+	table {
+		width: 98%;
+	}
+	  th {
+		font-size: 20px;
+        }
+}

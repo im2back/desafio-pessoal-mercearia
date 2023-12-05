@@ -86,5 +86,26 @@ body {
         opacity: 0;
     }
 }
+/* Estilos para dispositivos de tela menor */
+@media screen and (max-width: 1080px) {
+	h1 {
+		font-size: 70px;
+	}
+	a,
+	p,
+	.error-message,
+	button {
+		font-size: 70px;
+		/* Reduzindo ainda mais o tamanho da fonte para telas menores */
+	}
+
+	table {
+		width: 98%;
+	}
+	  th {
+		font-size: 30px;
+        }
+     
+}
 		
 		

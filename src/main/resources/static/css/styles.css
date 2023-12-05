@@ -134,3 +134,22 @@ a:hover {
         opacity: 0;
     }
 }
+
+/* Estilos para smartphones */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    a {
+        font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
+        padding: 10px; /* Ajustando o espaçamento interno */
+    }
+
+    .container-botoes {
+        margin-right: 5%; /* Reduzindo a margem direita */
+        width: 90%; /* Ocupando 90% da largura disponível */
+    }
+
+    /* Adicione outras regras específicas para smartphones conforme necessário */
+}
