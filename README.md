@@ -23,6 +23,12 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/fb7520e4-aaef-4986-a5ee-eaab447e5901)
 
+<br>
+
+## Layout da tela de estatisticas
+
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/5e4685f8-f98d-4131-9e1c-4d572b47bb44)
+
 
 
 ## Modelo conceitual
@@ -46,11 +52,7 @@ em breve...
 Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
 
 
-( 2 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO)
-
-
-( 3 ) -------> Na pagina onde listamos todos os cliente, implementar uma fução que exiba o total(soma de todos) em aberto de todos os clientes (ABA ESTATISTICAS)
-
+( 2 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO) (AJUSTAR RETORNO DAS ESTATISTICAS)
 
 
 ( 4 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
