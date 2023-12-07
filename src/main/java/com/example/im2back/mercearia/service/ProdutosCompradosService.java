@@ -1,15 +1,18 @@
 package com.example.im2back.mercearia.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
+import com.example.im2back.mercearia.infra.utils.DadosGraficoDto;
 import com.example.im2back.mercearia.model.carrinho.ProdutoCompradoRequestDTO;
 import com.example.im2back.mercearia.model.carrinho.ProdutoCompradoResponseDTO;
 import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
+import com.example.im2back.mercearia.model.carrinho.ValoresDto;
 import com.example.im2back.mercearia.model.cliente.Cliente;
 import com.example.im2back.mercearia.repositories.ProdutosCompradosRepository;
 
@@ -54,6 +57,28 @@ public class ProdutosCompradosService {
 		zerarContaSemNota(documento);
 			clienteService.deleteByDocumento(documento);
 				return "Cliente Deletado com sucesso, confira a nota backup";
+	}
+
+	public ValoresDto montarEstatisticas() {
+		var total = repository.valorTotal();
+		var totalDoDia =  repository.valorTotalDoDia();
+		var totalDoMesAnterior = repository.valorTotalMesAnterior();
+		var totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora();
+										
+		return new ValoresDto(total, totalDoDia, totalDoMesAnterior, totalParcial);
+	}
+	
+	public List<DadosGraficoDto> GraficoDto() {
+		
+		List<Object[]> list = repository.obterSomaPrecoPorDataUltimos7Dias();
+		List<DadosGraficoDto> listDadosGraficoDto = new ArrayList<>();
+		for(Object[] element : list) {
+		    java.sql.Date data = (java.sql.Date) element[0];
+		    Double valorTotal = (Double) element[1];
+		    listDadosGraficoDto.add(new DadosGraficoDto(data,valorTotal));	    
+		}
+		
+		return listDadosGraficoDto;
 	}
 
 }

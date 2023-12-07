@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Cadastro</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/css/estatisticas.css">
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div>
+		<h1>Estatísticas</h1>		
+	</div>
+	<br>
+		<div class="button-container"> <a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
+	<br><br><br>
+<div class="principal" > 	
+	<div class="estatisticas">
+		<p>Valor total em aberto: <span class="valor" th:text="'R$'+${valores.total}"></span></p>
+		<br><br>
+		<p>Valor parcial vendido em <span  th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}"></span>: <span class="valor" th:text="'R$'+${valores.totalDoDia}"></span> </p>	
+		<br><br>
+		<p>Valor total vendido no mes Passado: <span class="valor" th:text="'R$'+${valores.totalDoMesAnterior}"></span></p>
+		<br><br>
+		<p>Valor parcial do mês atual: <span class="valor" th:text="'R$'+${valores.totalParcial}"</p>
+	</div>
+	
+	<div class="grafico" >
+		<div> <p class="tituloGrafico">Desempenho de Vendas - Ultimos 7 dias:</p></div>
+		<canvas id="meuGrafico" width="400" height="300"></canvas>
+	</div>
+</div>	
+
+<script th:inline="javascript">
+    var list = /*[[${listaGraficoDto}]]*/ [];
+
+    var labels = list.map(function(item) {
+    return item.data;
+    });
+
+    var valores = list.map(function(item) {
+        return item.valor;
+    });
+
+    var dadosDoGrafico = {
+        labels: labels,
+        datasets: [{
+            label: 'R$',
+            data: valores,
+
+            
+            backgroundColor: [              
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(201, 203, 207, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+		// Configurações do gráfico
+		var opcoesDoGrafico = {
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
+		};
+
+		// Obtém o contexto do canvas
+		var contexto = document.getElementById('meuGrafico').getContext('2d');
+
+		// Cria o gráfico
+		var meuGrafico = new Chart(contexto, {
+			type: 'line', // Tipo de gráfico (pode ser 'bar', 'line', etc.)
+			data: dadosDoGrafico,
+			options: opcoesDoGrafico
+		});
+	</script>
+</body>
+
+</html>

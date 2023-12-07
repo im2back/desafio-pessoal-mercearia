@@ -135,6 +135,11 @@ a:hover {
     }
 }
 
+.grafico{
+	width: 30%;
+	height: 30vh;
+}
+
 /* Estilos para smartphones */
 @media screen and (max-width: 480px) {
     h1 {

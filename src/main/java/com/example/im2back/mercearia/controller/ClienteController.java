@@ -88,4 +88,6 @@ public class ClienteController {
 				model.addAttribute("NotaMessage", produtosCompradosService.excluirCliente(request.getParameter("documento")));
 						return "cliente/home";
 	}
+	
+
 }

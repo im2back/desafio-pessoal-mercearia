@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    background-size: cover;
+
+    width: 100%;
+    height: 100%; 
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    background-color: #fac928  
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 55px; 
+    letter-spacing: 3px;
+     font-family: Arial, Helvetica, sans-serif;
+}
+a {
+	display: inline-block;
+	margin: 10px;
+	padding: 10px 30px;
+	text-decoration: none;
+	font-size: 28px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 3px;
+	transition: background-color 0.3s, color 0.3s;
+	width: 300px;
+}
+
+a:hover {
+	background-color: #3498db;
+	color: #fff;
+}
+
+.principal{
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.estatisticas{
+ display: flex;
+ align-items: flex-start;
+ flex-direction: column;
+ justify-content: center;
+width: 60%;
+margin-left: 2%;
+	
+}
+.grafico{
+	width: 40%;
+	margin-right: 3%;
+	background-color: azure;
+}
+.valor{
+		font-family: 'Times New Roman', Times, serif;
+		color: red
+}	
+
+p {
+    font-size: 40px;
+    color: #3498db; /* Cor do texto */
+    font-family: 'Arial', sans-serif; /* Fonte moderna */
+    text-align: center; /* Centralizar o texto */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    margin: 0; /* Remover margens padrão */
+    padding: 20px; /* Adicionar algum preenchimento para legibilidade */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s ease; /* Efeito de transição suave */
+    font-weight: bold;
+    background-color:  #e0e0e0;
+  
+}
+
+
+.tituloGrafico{
+	font-size: 30px;
+	background-color:white;
+    text-align: center; /* Centralizar o texto */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    margin: 0; /* Remover margens padrão */
+    padding: 10px; /* Adicionar algum preenchimento para legibilidade */
+    border-radius: 0px; /* Borda arredondada */
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: none;
+    font-weight: bold;
+       
+}
+
+/* Estilos para smartphones */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 30px;
+  
+    }
+
+    a {
+        font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
+        padding: 10px; /* Ajustando o espaçamento interno */
+    }
+
+    .container-botoes {
+        margin-right: 5%; /* Reduzindo a margem direita */
+        width: 90%; /* Ocupando 90% da largura disponível */
+    }
+
+    .principal{
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.grafico{
+	width: 100%;
+	
+	background-color: azure;
+}
+p {
+    font-size: 20px;
+    color: #333; /* Cor do texto */
+    font-family: 'Arial', sans-serif; /* Fonte moderna */
+    text-align: center; /* Centralizar o texto */
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    margin: 0; /* Remover margens padrão */
+    padding: 20px; /* Adicionar algum preenchimento para legibilidade */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 20px 8px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s ease; /* Efeito de transição suave */
+  
+}
+.estatisticas{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+ width: 100%;
+ margin-left: 0%;
+	
+}
+
+}
