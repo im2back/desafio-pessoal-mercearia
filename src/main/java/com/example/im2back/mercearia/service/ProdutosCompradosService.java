@@ -1,6 +1,7 @@
 package com.example.im2back.mercearia.service;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,11 +70,12 @@ public class ProdutosCompradosService {
 	}
 	
 	public List<DadosGraficoDto> GraficoDto() {
+		 SimpleDateFormat formatoBrasileiro = new SimpleDateFormat("dd/MM/yyyy");
 		
 		List<Object[]> list = repository.obterSomaPrecoPorDataUltimos7Dias();
 		List<DadosGraficoDto> listDadosGraficoDto = new ArrayList<>();
 		for(Object[] element : list) {
-		    java.sql.Date data = (java.sql.Date) element[0];
+		    var data = formatoBrasileiro.format(element[0]);
 		    Double valorTotal = (Double) element[1];
 		    listDadosGraficoDto.add(new DadosGraficoDto(data,valorTotal));	    
 		}

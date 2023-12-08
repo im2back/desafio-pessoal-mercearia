@@ -3,15 +3,15 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-
     background-size: cover;
-
+	background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
+	background-repeat: no-repeat;
     width: 100%;
     height: 100%; 
     flex-direction: column;
     display: flex;
     flex-direction: column;
-    background-color: #fac928  
+    
 }
 
 img {
@@ -62,24 +62,24 @@ margin-left: 2%;
 .grafico{
 	width: 40%;
 	margin-right: 3%;
-	background-color: azure;
+	
 }
 .valor{
 		font-family: 'Times New Roman', Times, serif;
-		color: red
+		color: olivedrab
 }	
 
 p {
     font-size: 40px;
-    color: #3498db; /* Cor do texto */
-    font-family: 'Arial', sans-serif; /* Fonte moderna */
-    text-align: center; /* Centralizar o texto */
-    letter-spacing: 2px; /* Espaçamento entre as letras */
-    margin: 0; /* Remover margens padrão */
-    padding: 20px; /* Adicionar algum preenchimento para legibilidade */
+    color: #3498db; 
+    font-family: 'Arial', sans-serif; 
+    text-align: center; 
+    letter-spacing: 1px; 
+    margin: 0; 
+    padding: 20px; 
     border-radius: 8px; /* Borda arredondada */
-    box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: background-color 0.3s ease; /* Efeito de transição suave */
+    box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.5); 
+    transition: background-color 0.3s ease; 
     font-weight: bold;
     background-color:  #e0e0e0;
   
@@ -88,7 +88,7 @@ p {
 
 .tituloGrafico{
 	font-size: 30px;
-	background-color:white;
+	background-color: transparent;
     text-align: center; /* Centralizar o texto */
     letter-spacing: 2px; /* Espaçamento entre as letras */
     margin: 0; /* Remover margens padrão */
@@ -108,13 +108,13 @@ p {
     }
 
     a {
-        font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
-        padding: 10px; /* Ajustando o espaçamento interno */
+        font-size: 14px; 
+        padding: 10px; 
     }
 
     .container-botoes {
-        margin-right: 5%; /* Reduzindo a margem direita */
-        width: 90%; /* Ocupando 90% da largura disponível */
+        margin-right: 5%; 
+        width: 90%; 
     }
 
     .principal{
@@ -126,20 +126,19 @@ p {
 
 .grafico{
 	width: 100%;
-	
-	background-color: azure;
+	margin-top: 5%;
 }
 p {
-    font-size: 20px;
-    color: #333; /* Cor do texto */
-    font-family: 'Arial', sans-serif; /* Fonte moderna */
-    text-align: center; /* Centralizar o texto */
-    letter-spacing: 2px; /* Espaçamento entre as letras */
-    margin: 0; /* Remover margens padrão */
-    padding: 20px; /* Adicionar algum preenchimento para legibilidade */
-    border-radius: 8px; /* Borda arredondada */
-    box-shadow: 20px 8px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: background-color 0.3s ease; /* Efeito de transição suave */
+    font-size: 15px;
+    color: #333; 
+    font-family: 'Arial', sans-serif; 
+    text-align: center; 
+    letter-spacing: 1px; 
+    margin: 5px; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 20px 8px 8px rgba(0, 0, 0, 0.5);  
+    transition: background-color 0.3s ease; 
   
 }
 .estatisticas{
@@ -151,5 +150,7 @@ p {
  margin-left: 0%;
 	
 }
+
+
 
 }

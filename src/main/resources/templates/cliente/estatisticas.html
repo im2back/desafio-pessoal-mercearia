@@ -24,7 +24,7 @@
 		<br><br>
 		<p>Valor parcial vendido em <span  th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}"></span>: <span class="valor" th:text="'R$'+${valores.totalDoDia}"></span> </p>	
 		<br><br>
-		<p>Valor total vendido no mes Passado: <span class="valor" th:text="'R$'+${valores.totalDoMesAnterior}"></span></p>
+		<p>Valor total vendido no mês Passado: <span class="valor" th:text="'R$'+${valores.totalDoMesAnterior}"></span></p>
 		<br><br>
 		<p>Valor parcial do mês atual: <span class="valor" th:text="'R$'+${valores.totalParcial}"</p>
 	</div>
