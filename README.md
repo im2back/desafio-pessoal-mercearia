@@ -30,10 +30,12 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/d9134151-854f-407f-9806-a8c9b021291e)
 
 
+<br>
 
+## PLANTA UML do pacote model
+![UML](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/ec1564e4-132f-464b-abd6-77816825fecd)
 
-## Modelo conceitual
-em breve...
+<br>
 
 ## Segurança com Spring-security (JWT)
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/7d77aae2-9a70-421d-80b5-ef1fe4d0cbc7)
