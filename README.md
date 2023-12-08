@@ -27,7 +27,8 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 ## Layout da tela de estatisticas
 
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/5e4685f8-f98d-4131-9e1c-4d572b47bb44)
+![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/d9134151-854f-407f-9806-a8c9b021291e)
+
 
 
 
