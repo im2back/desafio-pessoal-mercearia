@@ -7,5 +7,5 @@ CREATE TABLE tb_cliente (
 
 );
 
-ALTER TABLE produtosComprados ADD COLUMN client_id BIGINT;
-ALTER TABLE produtosComprados ADD CONSTRAINT fk_client FOREIGN KEY (client_id) REFERENCES tb_cliente(id);
+ALTER TABLE produtos_comprados ADD COLUMN client_id BIGINT;
+ALTER TABLE produtos_comprados ADD CONSTRAINT fk_client FOREIGN KEY (client_id) REFERENCES tb_cliente(id);

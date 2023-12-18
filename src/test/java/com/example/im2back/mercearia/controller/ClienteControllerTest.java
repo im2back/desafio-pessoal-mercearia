@@ -41,10 +41,11 @@ class ClienteControllerTest {
 	    mvc.perform(post("/cliente/cadastrar")
 	            .contentType(MediaType.APPLICATION_FORM_URLENCODED)
 	            .param("name", "jeff")
-	            .param("documento", "123213")
+	            .param("documento", "1234567890123")
 	            .param("rua", "travessa")
-	            .param("numero", "06"))
-	            .andExpect(status().isOk());
+	            .param("numero", "06")
+	    		.param("observacao", "teste"))
+	            .andExpect(status().isFound());
 	}
 
 

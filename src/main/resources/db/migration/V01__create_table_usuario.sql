@@ -1,3 +1,4 @@
+
 create table usuarios(
 
     id bigint not null auto_increment,
