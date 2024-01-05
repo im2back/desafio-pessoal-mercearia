@@ -27,6 +27,10 @@ public class EmailService {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
+        	if(destinatario == null) {
+        		return;
+        	}
+        	
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(destinatario);
             helper.setSubject("Conta Detalhada");

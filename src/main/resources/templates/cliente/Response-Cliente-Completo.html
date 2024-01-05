@@ -13,26 +13,26 @@
 	<div class="button-container">
 		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
 
-		<a class="editar"
-			th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar
-			Nota</a>
+		<a th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar Nota</a>
 
 		<form id="zerarContaForm" th:action="@{'/produtos/delete'}" th:method="post">
 			<input type="hidden" name="documento" th:value="${cliente.documento}" />
 			<input type="hidden" name="token" th:value="${token}" />
 			<button type="submit">Zerar Conta</button>
 		</form>
+		
 		<form id="zerarContaForm" th:action="@{'/cliente/delete'}" th:method="post">
 			<input type="hidden" name="documento" th:value="${cliente.documento}" />
 			<input type="hidden" name="token" th:value="${token}" />
 			<button type="submit">Excluir Cliente</button>
 		</form>
-
 	</div>
+
 
 	<div th:if="${NotaMessage != null }">
 		<p class="error-message" th:text="${NotaMessage}"></p>
 	</div>
+	
 	<div th:if="${zerarMessage != null }">
 		<p class="error-message" th:text="${zerarMessage}"></p>
 	</div>
@@ -73,6 +73,7 @@
 				<th>Preco</th>
 				<th>Moment</th>
 				<th>Observação</th>	
+				<th> </th>	
 			</tr>
 		</thead>
 		<tbody>
@@ -81,11 +82,17 @@
 				<td th:text="${produto.preco}"> </td>
 				<td th:text="${produto.moment}"> </td>
 				<td th:text="${produto.observacao}"> </td>
+				
+				<td>													
+					<form id="excluirProduto" th:action="@{'/produtos/deletar'}" th:method="post">
+						<input type="hidden" name="idproduto" th:value="${produto.id}" />
+						<input type="hidden" name="token" th:value="${token}" />
+						<button class="editar" type="submit">Excluir Produto</button>
+					</form>							
+				</td>
 			</tr>
 		</tbody>
 	</table>
-
-
 </body>
 
 

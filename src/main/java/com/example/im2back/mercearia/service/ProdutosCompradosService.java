@@ -83,4 +83,11 @@ public class ProdutosCompradosService {
 		return listDadosGraficoDto;
 	}
 
+	public void excluirProduto(String idProduto) {
+		Long idProdutoConvert = Long.parseLong(idProduto);
+		
+		repository.deleteById(idProdutoConvert);
+		
+	}
+
 }

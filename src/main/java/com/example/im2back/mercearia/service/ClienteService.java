@@ -50,9 +50,11 @@ public class ClienteService {
 		return repository.findByDocumento(documento);
 	}
 
-	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {
+	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {	
 		return Optional.ofNullable(repository.findByDocumento(documento)).map(ClienteCompletoDTO::new).orElseThrow(
 				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados."));
+		
+	
 	}
 
 	public List<ClienteListarTodosDTO> listarTodosOsClientes() {

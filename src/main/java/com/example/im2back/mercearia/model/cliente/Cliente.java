@@ -56,6 +56,7 @@ public class Cliente {
 		this.endereco.setNumero(dto.numero());
 		this.endereco.setRua(dto.rua());
 		this.email = dto.email();
+		this.telefone = dto.telefone();
 	}
 	public Cliente(String name, String documento, String email, String telefone, Endereco endereco) {
 		super();

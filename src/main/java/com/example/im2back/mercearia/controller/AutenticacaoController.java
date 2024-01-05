@@ -31,7 +31,7 @@ public class AutenticacaoController {
 
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
-		// aplicar a logica de black list
+		var token = request.getParameter("token");
 		return "redirect:/login";
 	}
 

@@ -38,6 +38,16 @@
 		<input type="text" id="documento" name="documento">
 
 		<br><br>
+		
+		<label for="email">E-mail:</label>
+		<input type="text" id="email" name="email">
+
+		<br><br>
+		
+		<label for="telefone">Telefone:</label>
+		<input type="text" id="telefone" name="telefone">
+
+		<br><br>
 
 		<div th:each="msg : ${errorMessages}">
 			<p class="error-message" th:if="${#strings.startsWith(msg, 'rua')}"
@@ -54,11 +64,6 @@
 		</div>
 		<label for="numero">Numero da casa:</label>
 		<input type="text" id="numero" name="numero">
-
-		<br><br>
-		
-			<label for="email">E-mail:</label>
-		<input type="text" id="email" name="email">
 
 		<br><br>
 

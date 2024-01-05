@@ -10,13 +10,17 @@ public record ClienteCadastroRequestDTO(
 		@NotBlank
 		String documento,
 		
-		@NotBlank
+		String email,
+		
+		String telefone,
+		
+	
 		String rua,
 		
-		@NotBlank
-		String numero,
+		
+		String numero
 			
-		String email
+		
 		
 		) {
 
