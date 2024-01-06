@@ -33,10 +33,7 @@ public interface ProdutosCompradosRepository extends JpaRepository<ProdutosCompr
 	  Double valorVendidoDoInicioDoMesAtéAgora();
 	  	  
 	  
-
-
-
-	    @Query("SELECT NEW com.example.im2back.mercearia.infra.utils.DadosGraficoDto(FUNCTION('DATE', p.moment), SUM(p.preco)) " +
+	   @Query("SELECT NEW com.example.im2back.mercearia.infra.utils.DadosGraficoDto(FUNCTION('DATE', p.moment), SUM(p.preco)) " +
 	            "FROM ProdutosComprados p " +
 	            "WHERE FUNCTION('DATE', p.moment) BETWEEN (CURRENT_DATE - 7) AND CURRENT_DATE " +
 	            "GROUP BY FUNCTION('DATE', p.moment)" +

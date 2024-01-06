@@ -60,12 +60,25 @@ public class ProdutosCompradosService {
 	}
 
 	public ValoresDto montarEstatisticas() {
-		var total = repository.valorTotal();
-		var totalDoDia =  repository.valorTotalDoDia();
-
-		var totalDoMesAnterior = repository.valorTotalMesAnterior();
-		var totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora();
-										
+		Double total = repository.valorTotal();	
+		Double totalDoMesAnterior = repository.valorTotalMesAnterior();	
+		
+		Double totalDoDia = 0.00;
+		if(repository.valorTotalDoDia() == null) {
+			totalDoDia = 0.00;
+		} else {
+		totalDoDia =  repository.valorTotalDoDia();
+		}
+		
+		
+		Double totalParcial = 0.00;			
+		if(repository.valorTotalDoDia() == null)  {
+		 totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora();
+		}
+		if (repository.valorTotalDoDia() != null) {
+		 totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora() + repository.valorTotalDoDia();
+		}		
+		
 		return new ValoresDto(total, totalDoDia, totalDoMesAnterior, totalParcial);
 	}
 	

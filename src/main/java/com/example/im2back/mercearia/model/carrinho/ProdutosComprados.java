@@ -43,6 +43,9 @@ public class ProdutosComprados {
 	private LocalDateTime moment = LocalDateTime.now();
 	
 	private String observacao;
+	
+	@JoinColumn(name = "status_produto")
+	private boolean status;
 
 	public ProdutosComprados (ProdutoCompradoRequestDTO dto, Cliente client) {
 		

@@ -39,6 +39,8 @@ h1 {
             border-radius: 3px;	  
 			width: 150px;
 			text-align: center;
+			font-family: Arial, sans-serif;
+			letter-spacing: 0px;
 		}
 
 table {
