@@ -57,14 +57,8 @@ public class ProdutosCompradosController {
 	@Transactional
 	@PostMapping("/deletar")
 	public String deletarProduto(Model model, HttpServletRequest request,HttpServletRequest response) throws IOException {
-		System.out.println(" ###--> ENTROU <-- ### ");
-		System.out.println(" ###--> ENTROU <-- ### ");
-		System.out.println(" ###--> ENTROU <-- ### ");
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				service.excluirProduto(request.getParameter("idproduto"));	
-				System.out.println(" ###--> RETORNO <-- ### ");
-				System.out.println(" ###--> RETORNO <-- ### ");
-				System.out.println(" ###--> RETORNO <-- ### ");
 				return "redirect:" + request.getHeader("Referer");
 	}
 	

@@ -2,7 +2,6 @@ package com.example.im2back.mercearia.service;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +62,7 @@ public class ProdutosCompradosService {
 	public ValoresDto montarEstatisticas() {
 		var total = repository.valorTotal();
 		var totalDoDia =  repository.valorTotalDoDia();
+
 		var totalDoMesAnterior = repository.valorTotalMesAnterior();
 		var totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora();
 										
@@ -70,16 +70,13 @@ public class ProdutosCompradosService {
 	}
 	
 	public List<DadosGraficoDto> GraficoDto() {
-		 SimpleDateFormat formatoBrasileiro = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat formatoBrasileiro = new SimpleDateFormat("dd/MM/yyyy");
 		
-		List<Object[]> list = repository.obterSomaPrecoPorDataUltimos7Dias();
-		List<DadosGraficoDto> listDadosGraficoDto = new ArrayList<>();
-		for(Object[] element : list) {
-		    var data = formatoBrasileiro.format(element[0]);
-		    Double valorTotal = (Double) element[1];
-		    listDadosGraficoDto.add(new DadosGraficoDto(data,valorTotal));	    
-		}
+		var listDadosGraficoDto = repository.obterSomaPrecoPorDataUltimos7Dias();
 		
+		for (DadosGraficoDto dado: listDadosGraficoDto) {
+		         dado.setData(formatoBrasileiro.format(dado.getDataBruta()));
+		}		
 		return listDadosGraficoDto;
 	}
 

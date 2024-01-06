@@ -1,87 +1,148 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-image: url('/images/back2.jpg');
+	/* Substitua pelo caminho da sua imagem */
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	/* Ocupará 100% da largura do viewport */
+	height: 100vh;
+	/* Ocupará 100% da altura do viewport (viewport height) */
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-              background-image: url('/images/back2.jpg'); /* Substitua pelo caminho da sua imagem */
-		 		 background-size: cover;
-		 background-repeat: no-repeat;
-		 width: 100%; /* Ocupará 100% da largura do viewport */
-   		 height: 100vh; /* Ocupará 100% da altura do viewport (viewport height) */
-        }
+h1 {
+	color: #333;
+	margin-top: 40px;
+	font-size: 50px;
+}
 
-        h1 {
-            color: #333;
-            margin-top: 40px;
-            font-size: 50px;
-        }
 
-		 
+
+a {
+	display: inline-block;
+	margin: 10px;
+	padding: 15px 30px;
+	text-decoration: none;
+	font-size: 28px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 5px;
+	transition: background-color 0.3s, color 0.3s;
+	width: 300px;
+}
+
+a:hover {
+	background-color: #3498db;
+	color: #fff;
+}
+
+p {
+	color: #3498db;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+.error-message {
+	color: #e74c3c;
+	font-size: 16px;
+}
+
+form {
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+label {
+	color: #333;
+	font-size: 30px;
+
+}
+
+input[type="text"] {
+	padding: 10px;
+	font-size: 20px;
+	width: 500px;
+	margin-left: 50px;
+}
+
+input[type="submit"] {
+	display: inline-block;
+	padding: 10px 30px;
+	font-size: 20px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 5px;
+	background-color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="submit"]:hover {
+	background-color: #3498db;
+	color: #fff;
+}
+
+@media screen and (max-width: 1080px) {
+	form {
+		width: 100%;
+		max-width: none;
+		/* Removendo a largura máxima */
+		height: 80vh;
+	}
+
+	label {
 		
-        a {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 28px;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            width: 300px;
-        }
+		font-size: 80px;
+		font-weight: bold;
+	}
 
-        a:hover {
-            background-color: #3498db;
-            color: #fff;
-        }
 
-        p {
-            color: #3498db;
-            font-size: 18px;
-            margin-top: 20px;
-        }
+	a {
+		width: 100%;
+		padding: 50px;
+		font-size: 70px;
+		margin-bottom: 150px;
+		font-weight: bold;
+		border-radius: 10px;
+		border-width: 7px;
+	}
 
-        .error-message {
-            color: #e74c3c;
-            font-size: 16px;
-        }
+	.error-message {
+		font-size: 50px;
+		margin-bottom: 0px;
+		font-weight: bold;
 
-        form {
-            margin-top: 20px;
-            margin-right: 20px;
-        }
+	}
 
-        label {
-            color: #333;
-            font-size: 30px;
-            
-        }
+	h1 {
+		font-size: 100px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+	
+	
 
-        input[type="text"] {
-            padding: 10px;
-            font-size: 20px;
-            width: 500px;
-            margin-left: 50px;
-        }
+	input[type="text"] {
+	padding: 40px 20px;
+	margin: auto 20px;
+	font-size: 20px;
+	width: 100%;
+	border-radius: 15px;
+	
+}
 
-        input[type="submit"] {
-            display: inline-block;
-            padding: 10px 30px;
-            font-size: 20px;
-            border: 2px solid #3498db;
-            color: #3498db;
-            border-radius: 5px;
-            background-color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
 
-        input[type="submit"]:hover {
-            background-color: #3498db;
-            color: #fff;
-        }
-        
-       
+	input[type="submit"] {
+		background-color: #3498db;
+		color: #fff;
+		cursor: pointer;
+		font-size: 60px;
+		margin-top: 50px;
+		padding: 30px 80px;
+	}
+
+}

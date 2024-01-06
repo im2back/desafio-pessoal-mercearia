@@ -11,14 +11,15 @@
 	<h1>Detalhar Cliente</h1>
 	<p class="error-message" th:if="${not #lists.isEmpty(param.permissao)}" th:text="${param.permissao[0]}"></p>
 	<div class="button-container">
-		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
-
-		<a th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token} + '&redirect=buscarCliente'}">Gerar Nota</a>
+		<a class="homelink" th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+	<div class="acoes" >
+		<a th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}
+					+ '&redirect=buscarCliente'}">Gerar Nota</a>
 
 		<form id="zerarContaForm" th:action="@{'/produtos/delete'}" th:method="post">
 			<input type="hidden" name="documento" th:value="${cliente.documento}" />
 			<input type="hidden" name="token" th:value="${token}" />
-			<button type="submit">Zerar Conta</button>
+			<button type="submit">Zerar  Conta</button>
 		</form>
 		
 		<form id="zerarContaForm" th:action="@{'/cliente/delete'}" th:method="post">
@@ -26,6 +27,8 @@
 			<input type="hidden" name="token" th:value="${token}" />
 			<button type="submit">Excluir Cliente</button>
 		</form>
+	</div>
+		
 	</div>
 
 
@@ -71,7 +74,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Preco</th>
-				<th>Moment</th>
+				<th>Data da compra</th>
 				<th>Observação</th>	
 				<th> </th>	
 			</tr>

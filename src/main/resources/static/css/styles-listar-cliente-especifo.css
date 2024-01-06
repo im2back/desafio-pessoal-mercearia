@@ -17,6 +17,15 @@ body {
 	/* Ocupará 100% da altura do viewport (viewport height) */
 }
 
+.acoes{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;	
+background-color:#ddd;
+margin-top: 40px;
+}
+
 h1 {
 	text-align: center;
 	color: #333;
@@ -43,7 +52,7 @@ table {
 th,
 td {
 	padding: 15px;
-	text-align: left;
+	text-align: center;
 	border-bottom: 2px solid #ddd;
 }
 
@@ -63,20 +72,48 @@ tr:hover {
 
 a {
 	display: inline-block;
-	margin: 10px;
-	padding: 10px 30px;
+	margin: 10px 40px;
+	padding: 14px 14px;
 	text-decoration: none;
 	font-size: 28px;
 	border: 2px solid #3498db;
 	color: #3498db;
-	border-radius: 3px;
+	border-radius: 7px;
 	transition: background-color 0.3s, color 0.3s;
-	width: 300px;
+	width: 220px ;
 }
 
 a:hover {
 	background-color: #3498db;
 	color: #fff;
+}
+
+.homelink{
+	width: 300px ;
+}
+button {
+	display: inline-block;
+	margin: 10px 40px;
+	padding: 10px 10px;
+	text-decoration: none;
+	font-size: 28px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 7px;
+	transition: background-color 1.0s, color 2.0s;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: 'Zombie Holocaust', cursive;
+width: 250px ;
+}
+
+
+button:hover {
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 0, 0);
+	border: 2px solid rgb(255, 0, 0);
+	border-width: 3px;
+
 }
 
 p {
@@ -110,30 +147,7 @@ p {
 }
 
 
-button {
-	display: inline-block;
-	margin: 10px;
-	padding: 10px 30px;
-	text-decoration: none;
-	font-size: 28px;
-	border: 2px solid #3498db;
-	color: #3498db;
-	border-radius: 10px;
-	transition: background-color 1.0s, color 2.0s;
-	cursor: pointer;
-	background-color: transparent;
-	font-family: 'Zombie Holocaust', cursive;
-	font-weight: bold;
-}
 
-
-button:hover {
-	background-color: rgb(0, 0, 0);
-	color: rgb(255, 0, 0);
-	border: 2px solid rgb(255, 0, 0);
-	border-width: 3px;
-
-}
 
 /* Estilos para dispositivos de tela menor */
 @media screen and (max-width: 1080px) {
