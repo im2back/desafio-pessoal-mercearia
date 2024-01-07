@@ -40,7 +40,7 @@ class ClienteTest {
 	        cliente.getCarrinho().add(produtos2);
 
 	        // Verificando o cálculo do total
-	        assertEquals(80.0, cliente.getTotal());
+	        assertEquals(80.0, cliente.getTotalAtivoEinativo());
 	    }
 	
 }

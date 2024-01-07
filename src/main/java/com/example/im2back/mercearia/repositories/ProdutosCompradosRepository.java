@@ -18,10 +18,10 @@ public interface ProdutosCompradosRepository extends JpaRepository<ProdutosCompr
 	 @Query("DELETE FROM ProdutosComprados pc WHERE pc.client.id = :id")
 	 void deleteByClient_id(Long id);
 
-	  @Query("SELECT SUM(p.preco) FROM ProdutosComprados p")
-	    Double valorTotal();
+	  @Query("SELECT SUM(p.preco) FROM ProdutosComprados p WHERE p.status = true")
+	  Double valorTotal();
 
-	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE DATE(pc.moment) = CURRENT_DATE")
+	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE DATE(pc.moment) = CURRENT_DATE AND pc.status = true")
 	  Double valorTotalDoDia();
 	  
 	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE (YEAR(pc.moment) = YEAR(CURRENT_DATE) AND MONTH(pc.moment) = MONTH(CURRENT_DATE) - 1) OR (YEAR(pc.moment) = YEAR(CURRENT_DATE) - 1 AND MONTH(pc.moment) = 12 AND MONTH(CURRENT_DATE) = 1)")
@@ -29,7 +29,7 @@ public interface ProdutosCompradosRepository extends JpaRepository<ProdutosCompr
 
 
 	  
-	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE pc.moment >= FUNCTION('DATE_FORMAT', CURRENT_DATE, '%Y-%m-01') AND pc.moment <= CURRENT_DATE")
+	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE pc.moment >= FUNCTION('DATE_FORMAT', CURRENT_DATE, '%Y-%m-01') AND pc.status = true")
 	  Double valorVendidoDoInicioDoMesAtéAgora();
 	  	  
 	  
@@ -38,30 +38,10 @@ public interface ProdutosCompradosRepository extends JpaRepository<ProdutosCompr
 	            "WHERE FUNCTION('DATE', p.moment) BETWEEN (CURRENT_DATE - 7) AND CURRENT_DATE " +
 	            "GROUP BY FUNCTION('DATE', p.moment)" +
 	    		"ORDER BY FUNCTION('DATE', p.moment) DESC")
-	    List<DadosGraficoDto> obterSomaPrecoPorDataUltimos7Dias();
+	  List<DadosGraficoDto> obterSomaPrecoPorDataUltimos7Dias();
 	
-	  
+	  List<ProdutosComprados> findByStatusTrue();
 	    
-	    
-	    
-	    /*/
-	  @Query("SELECT DATE(pc.moment) AS data, SUM(pc.preco) AS valor_total " +
-		       "FROM ProdutosComprados pc " +
-		       "WHERE pc.moment >= CURRENT_TIMESTAMP - INTERVAL 6 DAY AND pc.moment <= CURRENT_TIMESTAMP " +
-		       "GROUP BY DATE(pc.moment)")
-		List<Object[]> obterSomaPrecoPorDataUltimos7Dias();
-
-
-		
-		 SELECT DATE(moment) AS data, SUM(preco) AS valor_total
-		FROM mercearia_api.produtos_comprados
-		WHERE moment >= CURRENT_TIMESTAMP - INTERVAL 6 DAY AND moment <= CURRENT_TIMESTAMP
-		GROUP BY DATE(moment);/*/
-
-
-		
-		
-		
-
+	  			
 	
 }

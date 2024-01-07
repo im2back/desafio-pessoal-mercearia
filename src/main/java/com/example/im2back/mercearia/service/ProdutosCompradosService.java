@@ -42,10 +42,20 @@ public class ProdutosCompradosService {
 		return repository.findAll();
 	}
 
+	public List<ProdutosComprados> findByStatusTrue(){
+		return repository.findByStatusTrue();
+	}
+
 	public void zerarConta(String documento) throws IOException {
 		Cliente cliente = clienteService.findByDocumento(documento);
 		clienteService.gerarNotaClientePDF(cliente.getDocumento());
-		repository.deleteByClient_id(cliente.getId());
+		
+		var carrinho = cliente.getCarrinho();
+		carrinho.forEach(p -> p.exclusaoLogica());
+		
+		repository.saveAll(carrinho);
+		
+		//repository.deleteByClient_id(cliente.getId());
 	}
 	
 	public void zerarContaSemNota(String documento) throws IOException {
@@ -60,24 +70,13 @@ public class ProdutosCompradosService {
 	}
 
 	public ValoresDto montarEstatisticas() {
-		Double total = repository.valorTotal();	
-		Double totalDoMesAnterior = repository.valorTotalMesAnterior();	
+		Double total = verificarValorNulo(repository.valorTotal());	
+		Double totalDoMesAnterior = verificarValorNulo(repository.valorTotalMesAnterior());	
 		
-		Double totalDoDia = 0.00;
-		if(repository.valorTotalDoDia() == null) {
-			totalDoDia = 0.00;
-		} else {
-		totalDoDia =  repository.valorTotalDoDia();
-		}
+		Double totalDoDia = verificarValorNulo(repository.valorTotalDoDia());			
+		Double totalParcial = verificarValorNulo(repository.valorVendidoDoInicioDoMesAtéAgora());		
 		
-		
-		Double totalParcial = 0.00;			
-		if(repository.valorTotalDoDia() == null)  {
-		 totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora();
-		}
-		if (repository.valorTotalDoDia() != null) {
-		 totalParcial = repository.valorVendidoDoInicioDoMesAtéAgora() + repository.valorTotalDoDia();
-		}		
+	
 		
 		return new ValoresDto(total, totalDoDia, totalDoMesAnterior, totalParcial);
 	}
@@ -99,5 +98,15 @@ public class ProdutosCompradosService {
 		repository.deleteById(idProdutoConvert);
 		
 	}
+	
+	private Double verificarValorNulo(Double valor) {
+		if(valor == null) {
+			return 0.0;
+		} else {
+		return valor;
+		}
+		
+	}
+	
 
 }

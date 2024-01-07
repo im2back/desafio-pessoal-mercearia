@@ -44,19 +44,21 @@ public class ProdutosComprados {
 	
 	private String observacao;
 	
-	@JoinColumn(name = "status_produto")
-	private boolean status;
+	@Column(name = "status_produto")
+	@Getter @Setter
+	private boolean status = true;
 
-	public ProdutosComprados (ProdutoCompradoRequestDTO dto, Cliente client) {
-		
+	public ProdutosComprados (ProdutoCompradoRequestDTO dto, Cliente client) {	
 		this.name = dto.name();
 		this.preco = dto.preco();
 		this.client = client;
 		this.observacao = dto.obs();
-		
+	
 	}
 
-
+	public void exclusaoLogica() {
+		this.status = false;
+	}
 	
 	
 }

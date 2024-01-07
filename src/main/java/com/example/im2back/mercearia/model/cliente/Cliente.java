@@ -75,10 +75,30 @@ public class Cliente {
 	}
 	
 	
-	public Double getTotal() {
+	public Double getTotalAtivoEinativo() {
 		Double total = 0.0;
 		for(ProdutosComprados x : this.carrinho) {
 			total = total + x.getPreco();
+		}
+		return  total;
+	}
+	
+	public Double getTotalInativo() {
+		Double total = 0.0;
+		for(ProdutosComprados x : this.carrinho) {
+			if(x.isStatus() == false) {
+				total = total + x.getPreco();
+			}			
+		}
+		return  total;
+	}
+	
+	public Double getTotalAtivo() {
+		Double total = 0.0;
+		for(ProdutosComprados x : this.carrinho) {
+			if(x.isStatus() == true) {
+				total = total + x.getPreco();
+			}			
 		}
 		return  total;
 	}

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
 import com.example.im2back.mercearia.infra.utils.CriadorPDF;
 import com.example.im2back.mercearia.infra.utils.ProdutosCompradosListDTO;
+import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
 import com.example.im2back.mercearia.model.cliente.Cliente;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroResponseDTO;
@@ -51,26 +52,30 @@ public class ClienteService {
 	}
 
 	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {	
+		
 		return Optional.ofNullable(repository.findByDocumento(documento)).map(ClienteCompletoDTO::new).orElseThrow(
-				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados."));
+				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados." ));
 		
 	
 	}
 
 	public List<ClienteListarTodosDTO> listarTodosOsClientes() {
+		
 		return repository.findAll().stream().map(ClienteListarTodosDTO::new).collect(Collectors.toList());
 	}
 
 	public String gerarNotaClientePDF(String documento) throws IOException {
 		Cliente cliente = repository.findByDocumento(documento);
-		List<ProdutosCompradosListDTO> listDTO = cliente.getCarrinho().stream()
+		var carrinho = triarCarrinho(cliente.getCarrinho());
+		
+		List<ProdutosCompradosListDTO> listDTO = carrinho.stream()
 				.map(p -> new ProdutosCompradosListDTO(p.getName(), p.getPreco(), p.getMoment()))
 				.collect(Collectors.toList());
 
 		String path = Paths.get("C:\\Users\\jeffe\\OneDrive\\Área de Trabalho\\Notas Detalhadas",
 				cliente.getName() + "_nota_fiscal_" + ".pdf").toString();
 
-		new CriadorPDF(javaMailSender).gerarPDF(listDTO, cliente.getName(), path, cliente.getTotal(),
+		new CriadorPDF(javaMailSender).gerarPDF(listDTO, cliente.getName(), path, cliente.getTotalAtivo(),
 				cliente.getDocumento(), cliente.getEmail());
 
 		return "Nota Gerada com Sucesso";
@@ -79,6 +84,13 @@ public class ClienteService {
 	public void deleteByDocumento(String documento) {
 		repository.deleteByDocumento(documento);
 	}
+	
+	private static List<ProdutosComprados> triarCarrinho(List<ProdutosComprados> carrinho){	
+	    return carrinho.stream()
+	            .filter(p -> p.isStatus())
+	            .collect(Collectors.toList());
+		
+}
 
 
 }

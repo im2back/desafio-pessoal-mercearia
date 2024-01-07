@@ -6,7 +6,7 @@ public record ClienteListarTodosDTO(
 		Double total
 		) {
 	public ClienteListarTodosDTO(Cliente cliente) {
-		this(cliente.getName(),cliente.getDocumento(),cliente.getTotal());
+		this(cliente.getName(),cliente.getDocumento(),cliente.getTotalAtivo());
 	}
 	
 }
