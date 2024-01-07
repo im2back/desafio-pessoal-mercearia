@@ -86,7 +86,7 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 17 , Mysql database
+Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 
 ```bash
 # clonar repositório
@@ -95,7 +95,9 @@ cd backend
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-
+O sistema precisa de um usuário e senha para isso basta executar o seguinte comando: 👉
+mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
+Esse comando criará um usuario : admin e senha: admin
 # Autor
 
 Jefferson Richards Sena de souza
