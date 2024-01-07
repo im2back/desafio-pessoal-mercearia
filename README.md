@@ -95,9 +95,12 @@ cd backend
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-O sistema precisa de um usuário e senha para isso basta executar o seguinte comando: 👉
+O sistema precisa de um usuário e senha para isso basta executar o seguinte comando: 
+👉 poweshell: 
 mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
-Esse comando criará um usuario : admin e senha: admin
+
+Esse comando criará um usuario : admin e senha: admin e de Role : admin
+
 # Autor
 
 Jefferson Richards Sena de souza
