@@ -104,9 +104,9 @@ cd mercearia
 ./mvnw spring-boot:run
 ```
 
-```Criando um usuário :
+```Criando-um-usuário:
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
-👉 Poweshell:<br> 
+👉 Poweshell: 
 mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
 
 Esse comando criará um um usuário com as seguintes credenciais: 
