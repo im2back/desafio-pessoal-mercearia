@@ -41,7 +41,7 @@ public class ProdutosCompradosController {
 	@PostMapping("/cadastrar")
 	@Transactional
 	public String salvar(@Valid ProdutoCompradoRequestDTO dtoRequest, HttpServletRequest request, Model model,RedirectAttributes redirectAttributes) {
-			service.salvar(dtoRequest);
+			service.salvarCompra(dtoRequest);
 				redirectAttributes.addFlashAttribute("compra","Compra realizada com sucesso!");
 					return "redirect:" + request.getHeader("Referer");
 	}
@@ -58,7 +58,7 @@ public class ProdutosCompradosController {
 	@PostMapping("/deletar")
 	public String deletarProduto(Model model, HttpServletRequest request,HttpServletRequest response) throws IOException {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-				service.excluirProduto(request.getParameter("idproduto"));	
+				service.exclusaoIndividualDeProduto(request.getParameter("idproduto"));	
 				return "redirect:" + request.getHeader("Referer");
 	}
 	

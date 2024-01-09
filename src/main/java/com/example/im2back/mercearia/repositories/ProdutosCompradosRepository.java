@@ -27,7 +27,6 @@ public interface ProdutosCompradosRepository extends JpaRepository<ProdutosCompr
 	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE (YEAR(pc.moment) = YEAR(CURRENT_DATE) AND MONTH(pc.moment) = MONTH(CURRENT_DATE) - 1) OR (YEAR(pc.moment) = YEAR(CURRENT_DATE) - 1 AND MONTH(pc.moment) = 12 AND MONTH(CURRENT_DATE) = 1)")
 	  Double valorTotalMesAnterior();
 
-
 	  
 	  @Query("SELECT SUM(pc.preco) FROM ProdutosComprados pc WHERE pc.moment >= FUNCTION('DATE_FORMAT', CURRENT_DATE, '%Y-%m-01') AND pc.status = true")
 	  Double valorVendidoDoInicioDoMesAtéAgora();

@@ -7,14 +7,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
 import com.example.im2back.mercearia.infra.utils.CriadorPDF;
-import com.example.im2back.mercearia.infra.utils.ProdutosCompradosListDTO;
-import com.example.im2back.mercearia.model.carrinho.ProdutosComprados;
+import com.example.im2back.mercearia.infra.utils.Util;
+import com.example.im2back.mercearia.model.carrinho.DadosParaNotaDTO;
 import com.example.im2back.mercearia.model.cliente.Cliente;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroRequestDTO;
 import com.example.im2back.mercearia.model.cliente.ClienteCadastroResponseDTO;
@@ -31,14 +30,14 @@ public class ClienteService {
 	@Autowired
 	private JavaMailSender javaMailSender;
 
-	public ClienteCadastroResponseDTO salvar(ClienteCadastroRequestDTO clienteRequest) {
+	public String excluirCliente(String documento) throws IOException {
+		repository.deleteByDocumento(documento);
+		return "Cliente Deletado com sucesso, confira a nota backup";
+	}
+
+	public ClienteCadastroResponseDTO salvarCliente(ClienteCadastroRequestDTO clienteRequest) {	
 		Cliente cliente = new Cliente(clienteRequest);
-		try {
-			repository.save(cliente);
-		} catch (DataIntegrityViolationException e) {
-			throw new ServiceExceptions(
-					"O documento : '" + clienteRequest.documento() + " ja esta cadastrado para um cliente");
-		}
+		repository.save(cliente);	
 		return new ClienteCadastroResponseDTO(clienteRequest);
 	}
 
@@ -51,31 +50,28 @@ public class ClienteService {
 		return repository.findByDocumento(documento);
 	}
 
-	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {	
-		
+	public ClienteCompletoDTO localizarClientePorDocumento(String documento) {
 		return Optional.ofNullable(repository.findByDocumento(documento)).map(ClienteCompletoDTO::new).orElseThrow(
-				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados." ));
-		
-	
+				() -> new ServiceExceptions("O documento: '" + documento + "' não foi localizado na base de dados."));
 	}
 
 	public List<ClienteListarTodosDTO> listarTodosOsClientes() {
-		
+
 		return repository.findAll().stream().map(ClienteListarTodosDTO::new).collect(Collectors.toList());
 	}
 
-	public String gerarNotaClientePDF(String documento) throws IOException {
-		Cliente cliente = repository.findByDocumento(documento);
-		var carrinho = triarCarrinho(cliente.getCarrinho());
-		
-		List<ProdutosCompradosListDTO> listDTO = carrinho.stream()
-				.map(p -> new ProdutosCompradosListDTO(p.getName(), p.getPreco(), p.getMoment()))
+	public String gerarNotaDoClientePDF(String documento) throws IOException {
+		Cliente cliente = repository.findByDocumento(documento); 
+		var listaDeProdutosTriada = Util.triarCarrinho(cliente.getCarrinho()); 
+
+		List<DadosParaNotaDTO> listaProdutosParaPdfDto = listaDeProdutosTriada.stream()
+				.map(p -> new DadosParaNotaDTO(p.getName(), p.getPreco(), p.getMoment()))
 				.collect(Collectors.toList());
 
 		String path = Paths.get("C:\\Users\\jeffe\\OneDrive\\Área de Trabalho\\Notas Detalhadas",
 				cliente.getName() + "_nota_fiscal_" + ".pdf").toString();
 
-		new CriadorPDF(javaMailSender).gerarPDF(listDTO, cliente.getName(), path, cliente.getTotalAtivo(),
+		new CriadorPDF(javaMailSender).gerarPDF(listaProdutosParaPdfDto, cliente.getName(), path, cliente.getTotalAtivo(),
 				cliente.getDocumento(), cliente.getEmail());
 
 		return "Nota Gerada com Sucesso";
@@ -84,13 +80,5 @@ public class ClienteService {
 	public void deleteByDocumento(String documento) {
 		repository.deleteByDocumento(documento);
 	}
-	
-	private static List<ProdutosComprados> triarCarrinho(List<ProdutosComprados> carrinho){	
-	    return carrinho.stream()
-	            .filter(p -> p.isStatus())
-	            .collect(Collectors.toList());
-		
-}
-
 
 }

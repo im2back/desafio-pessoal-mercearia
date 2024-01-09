@@ -56,7 +56,7 @@ public class ProdutosComprados {
 	
 	}
 
-	public void exclusaoLogica() {
+	public void mudarStatus() {
 		this.status = false;
 	}
 	

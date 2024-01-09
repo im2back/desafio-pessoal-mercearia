@@ -10,6 +10,8 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.mail.javamail.JavaMailSender;
 
+import com.example.im2back.mercearia.model.carrinho.DadosParaNotaDTO;
+
 public class CriadorPDF {
 	
 	private final EmailService emailService;
@@ -19,7 +21,7 @@ public class CriadorPDF {
     }
 	
 
-	public void gerarPDF(List<ProdutosCompradosListDTO> listaProdutos, String nomeCliente, String nomeArquivo,Double total, 
+	public void gerarPDF(List<DadosParaNotaDTO> listaProdutos, String nomeCliente, String nomeArquivo,Double total, 
 			String documento,String email) {
         try {
             // Criar um novo documento PDF
@@ -45,7 +47,7 @@ public class CriadorPDF {
             float yPosition = 750; // Posição inicial do texto
          
             
-            for (ProdutosCompradosListDTO produto : listaProdutos) {
+            for (DadosParaNotaDTO produto : listaProdutos) {
             	if (yPosition < 100) {
                     // Se a posição vertical for menor que 50, adicione uma nova página
                     document.addPage(new PDPage(PDRectangle.A4));
