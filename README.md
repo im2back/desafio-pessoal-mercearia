@@ -103,14 +103,19 @@ cd mercearia
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:<br> 
+
+``` Criando um usuário :
+# O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:<br> 
 👉 Poweshell:<br> 
 mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
 
 Esse comando criará um um usuário com as seguintes credenciais: 
 Login :admin  
 senha: admin  
-Role : admin  (responsavel pelo controle de acesso, neste caso o admin tem acesso irrestrito)   
+Role : admin  (responsavel pelo controle de acesso, neste caso o admin tem acesso irrestrito)
+
+# Agora basta acessar a url http://localhost:8080/login entrar com seu usuário e senha e utilizar a API.
+```   
 
 # Autor
 
