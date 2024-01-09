@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mercearia-database:
+    image: mysql:8.0.31
+    container_name: mercearia_database
+    environment:
+      MYSQL_ROOT_PASSWORD: Rtyfghvbn1*
+      MYSQL_DATABASE: mercearia_api
+    ports:
+      - "3306:3306"
+    networks:
+      - mercearia-network
+
+  mercearia-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mercearia:latest
+    container_name: mercearia-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mercearia-database
+    networks:
+      - mercearia-network
+
+networks:
+  mercearia-network:
+    driver: bridge

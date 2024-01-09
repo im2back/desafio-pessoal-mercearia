@@ -36,8 +36,7 @@ public class ClienteService {
 	}
 
 	public ClienteCadastroResponseDTO salvarCliente(ClienteCadastroRequestDTO clienteRequest) {	
-		Cliente cliente = new Cliente(clienteRequest);
-		repository.save(cliente);	
+		repository.save(new Cliente(clienteRequest));	
 		return new ClienteCadastroResponseDTO(clienteRequest);
 	}
 

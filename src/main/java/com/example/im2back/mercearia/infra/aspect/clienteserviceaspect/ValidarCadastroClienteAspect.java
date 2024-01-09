@@ -1,4 +1,4 @@
-package com.example.im2back.mercearia.infra.aspect;
+package com.example.im2back.mercearia.infra.aspect.clienteserviceaspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

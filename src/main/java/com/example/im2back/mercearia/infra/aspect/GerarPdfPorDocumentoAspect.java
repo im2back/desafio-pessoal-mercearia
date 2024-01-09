@@ -11,12 +11,12 @@ import com.example.im2back.mercearia.service.ClienteService;
 
 @Aspect
 @Component
-public class GerarCpfPorDocumentoAspect {
+public class GerarPdfPorDocumentoAspect {
 
 	private final ClienteService clienteService;
 	 private Cliente cliente; 
 	
-	GerarCpfPorDocumentoAspect(ClienteService clienteService){
+	GerarPdfPorDocumentoAspect(ClienteService clienteService){
 		this.clienteService = clienteService;
 	}
 	
