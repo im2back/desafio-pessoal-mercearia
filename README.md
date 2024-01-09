@@ -2,7 +2,11 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/im2back/Voll.med/blob/main/LICENSE)  
 # Sobre o projeto
 Esta API foi concebida com o objetivo de simplificar o processo de registro das compras realizadas pelos clientes em pequenos estabelecimentos comerciais, como mercados de bairro. Nos pequenos mercados, é comum adotar a prática de permitir que os clientes comprem "fiado" e efetuem o pagamento no final do mês. No entanto, a organização e integridade das anotações podem ser comprometidas à medida que o número de clientes e o volume de transações aumentam. Em suma esse é um sistema simples, feito afim de substituir as cadernetas de papel. No momento o desenvolvimento é 100% autoral, ainda não tem contribuições de terceiros.
+<br>
 
+#Layout
+- O Layout é responsivo, para isso foi utilizado @MediaQuerys do css, então também funciona normalmente em mobile, porém abaixo terá somente os prints de layout desktop.<br>
+<br>
 ## Layout da tela  principal da aplicação
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/89dc57ba-341d-42dd-bc28-905cf8427dae)
 
@@ -48,20 +52,12 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 
 
-## Futuras implementações (Atualização de 05/12/2023)
+## Futuras implementações (Atualização de 09/01/2023)
+
+( 1 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
 
 
-( 1 ) ------> Implementar o Spring-Security JWT
-Obs : O security foi implementado porém o Token está sendo enviado como parametro. O token deve ser enviado por medio de um cabeçalho.
-
-
-( 2 ) -------> Acrecentar um Status da conta (PAGO || EM ABERTO) (AJUSTAR RETORNO DAS ESTATISTICAS)
-
-
-( 4 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
-
-
-( 5 ) -------> Implementar sistema de black list (TOKEN)
+( 2 ) -------> Implementar sistema de black list para complementar o JWT (TOKEN).
 
 # Tecnologias utilizadas
 ## Back end
@@ -88,6 +84,14 @@ Obs : O security foi implementado porém o Token está sendo enviado como parame
 ## Back end
 Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 
+```MySql
+# Instalar o mysql versão 8.0.31 CE
+
+#Criar seu usuário e senha
+-preferencialmente criar um usuário de Login : root e senha : Rtyfghvbn1*, pois o projeto ja esta configurado para conectar-se a essas <br>
+credencias, mas você pode personalizar.
+```
+
 ```bash
 # clonar repositório
 # entrar na pasta do projeto back end
@@ -95,11 +99,14 @@ cd backend
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-O sistema precisa de um usuário e senha para isso basta executar o seguinte comando: 
-👉 poweshell: 
+O sistema precisa de um usuário e senha para isso basta executar o seguinte comando:<br> 
+👉 Poweshell:<br> 
 mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
 
-Esse comando criará um usuario : admin e senha: admin e de Role : admin
+Esse comando criará um um usuário com as seguintes credenciais: 
+Login :admin  
+senha: admin  
+Role : admin  (responsavel pelo controle de acesso, neste caso o admin tem acesso irrestrito)   
 
 # Autor
 
