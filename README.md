@@ -2,11 +2,14 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/im2back/Voll.med/blob/main/LICENSE)  
 # Sobre o projeto
 Esta API foi concebida com o objetivo de simplificar o processo de registro das compras realizadas pelos clientes em pequenos estabelecimentos comerciais, como mercados de bairro. Nos pequenos mercados, é comum adotar a prática de permitir que os clientes comprem "fiado" e efetuem o pagamento no final do mês. No entanto, a organização e integridade das anotações podem ser comprometidas à medida que o número de clientes e o volume de transações aumentam. Em suma esse é um sistema simples, feito afim de substituir as cadernetas de papel. No momento o desenvolvimento é 100% autoral, ainda não tem contribuições de terceiros.
+
 <br>
 
-#Layout
+# Layout
 - O Layout é responsivo, para isso foi utilizado @MediaQuerys do css, então também funciona normalmente em mobile, porém abaixo terá somente os prints de layout desktop.<br>
+
 <br>
+
 ## Layout da tela  principal da aplicação
 ![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/89dc57ba-341d-42dd-bc28-905cf8427dae)
 
@@ -88,18 +91,19 @@ Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 # Instalar o mysql versão 8.0.31 CE
 
 #Criar seu usuário e senha
--preferencialmente criar um usuário de Login : root e senha : Rtyfghvbn1*, pois o projeto ja esta configurado para conectar-se a essas <br>
-credencias, mas você pode personalizar.
+- Preferencialmente criar um usuário de [Login :root] e [Senha : Rtyfghvbn1*], pois o projeto
+ ja esta configurado para conectar-se a essas credencias, mas você pode personalizar.
+ -Iniciar o MySql na porta compativel a do arquivo .properties do projeto (3306).
 ```
 
 ```bash
 # clonar repositório
-# entrar na pasta do projeto back end
-cd backend
+# entrar na pasta do projeto
+cd mercearia
 # executar o projeto
 ./mvnw spring-boot:run
 ```
-O sistema precisa de um usuário e senha para isso basta executar o seguinte comando:<br> 
+O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:<br> 
 👉 Poweshell:<br> 
 mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
 
