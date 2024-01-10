@@ -37,7 +37,7 @@ public class AutenticacaoController {
 
 	@GetMapping
 	public String telaDeLogin(HttpServletRequest request) {
-		return "cliente/Formulario-LOGIN";
+		return "cliente/Template-FormularioLogin";
 	}
 
 	@PostMapping
@@ -52,6 +52,6 @@ public class AutenticacaoController {
 		}
 			String token = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 			model.addAttribute("token", token);
-				return "cliente/home";
+				return "cliente/Template-Home";
 	}
 }

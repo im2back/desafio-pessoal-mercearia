@@ -35,7 +35,7 @@ public class ProdutosCompradosController {
 	@GetMapping
 	public String cadastrarProduto(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-			return "produto/Adicionar-Produto-No-Carrinho";
+			return "produto/Template-FormularioRegistrarCompra";
 	}
 
 	@PostMapping("/cadastrar")

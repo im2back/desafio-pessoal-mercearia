@@ -33,7 +33,7 @@ public class ClienteController {
 	@GetMapping("/home")
 	public String paginaInicial(Model model, HttpServletRequest request, HttpServletResponse response) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-				return "cliente/home";
+				return "cliente/Template-Home";
 		}
 
 	@PostMapping("/cadastrar")

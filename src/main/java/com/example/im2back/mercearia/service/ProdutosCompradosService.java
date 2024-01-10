@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.im2back.mercearia.infra.aspect.GerarPdfPorDocumentoAspect;
+import com.example.im2back.mercearia.infra.aspect.produtoserviceaspect.GerarPdfPorDocumentoAspect;
 import com.example.im2back.mercearia.infra.aspect.produtoserviceaspect.PesquisarClienteIdAspect;
 import com.example.im2back.mercearia.infra.utils.DadosGraficoDto;
 import com.example.im2back.mercearia.infra.utils.Util;
@@ -27,7 +27,7 @@ public class ProdutosCompradosService {
 	@Autowired
 	private GerarPdfPorDocumentoAspect gerarPpfPorDocumentoAspect;
 	
-	public ProdutoCompradoResponseDTO salvarCompra1(ProdutoCompradoRequestDTO dto) {				
+	public ProdutoCompradoResponseDTO salvarCompra(ProdutoCompradoRequestDTO dto) {				
 			repository.save(new ProdutosComprados(dto, pesquisarClienteIdAspect.getCliente()));		
 				return new ProdutoCompradoResponseDTO(dto, pesquisarClienteIdAspect.getCliente().getName());		
 	}

@@ -11,6 +11,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import com.example.im2back.mercearia.model.carrinho.DadosParaNotaDTO;
+import com.example.im2back.mercearia.model.cliente.Cliente;
 
 public class CriadorPDF {
 	
@@ -21,8 +22,7 @@ public class CriadorPDF {
     }
 	
 
-	public void gerarPDF(List<DadosParaNotaDTO> listaProdutos, String nomeCliente, String nomeArquivo,Double total, 
-			String documento,String email) {
+	public void gerarPDF(List<DadosParaNotaDTO> listaProdutos, Cliente cliente, String nomeArquivo) {
         try {
             // Criar um novo documento PDF
             PDDocument document = new PDDocument();
@@ -38,9 +38,9 @@ public class CriadorPDF {
             contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
             contentStream.beginText();
             contentStream.newLineAtOffset(50, 750); // Posição do texto na página
-            contentStream.showText("Cliente: " + nomeCliente);
+            contentStream.showText("Cliente: " + cliente.getName());
             contentStream.newLineAtOffset(0, -15); // Ajuste o valor para controlar a altura da nova linha
-            contentStream.showText("Documento: " + documento);
+            contentStream.showText("Documento: " + cliente.getDocumento());
             contentStream.endText();
 
             // Adicionar conteúdo ao PDF com base na lista de produtos
@@ -85,14 +85,14 @@ public class CriadorPDF {
             yPosition -= 40;
             contentStream.beginText();
             contentStream.newLineAtOffset(50, yPosition);
-            contentStream.showText("Total  : " + total );
+            contentStream.showText("Total  : " + cliente.getTotalAtivo() );
             contentStream.endText();
 
             // Fechar o PDPageContentStream
             contentStream.close();
             
             // enviando o email antes de fechar
-            emailService.enviarEmailComAnexo(document,email);
+            emailService.enviarEmailComAnexo(document,cliente.getEmail());
             
             // Salvar o documento PDF
             document.save(nomeArquivo);
