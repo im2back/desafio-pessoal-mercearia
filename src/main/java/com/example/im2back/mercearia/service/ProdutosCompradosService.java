@@ -49,7 +49,7 @@ public class ProdutosCompradosService {
 		Double totalDoMesAnterior = Util.verificarValorNulo(repository.valorTotalMesAnterior());
 		Double totalDoDia = Util.verificarValorNulo(repository.valorTotalDoDia());
 		Double totalParcial = Util.verificarValorNulo(repository.valorVendidoDoInicioDoMesAtéAgora());
-
+		
 		return new ValoresDto(total, totalDoDia, totalDoMesAnterior, totalParcial);
 	}
 

@@ -41,26 +41,26 @@ public class ClienteController {
 	public String salvar(@Valid ClienteCadastroRequestDTO clienteRequest, Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 			model.addAttribute("cliente", service.salvarCliente(clienteRequest));
-			   return "cliente/Response-Cliente-Cadastrado";
+			   return "cliente/Template-ResponseClienteCadastrado";
 	}
 
 	public @GetMapping("/cadastrar")
 	String cadastrarCliente(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));	
-			return "cliente/Formulario-Cliente-Cadastro";
+			return "cliente/Template-FormularioCadastroCliente";
 	}
 
 	@GetMapping("/listar")
 	public String listarTodos(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("lista",service.listarTodosOsClientes());		
-					return "cliente/Buscar-Todos-Clientes";
+					return "cliente/Template-BuscarTodosClientes";
 	}
 
 	@GetMapping("/buscar")
 	public String buscarCliente(Model model, HttpServletRequest request) {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
-			return "cliente/Formulario-Buscar-Cliente-Especifico";
+			return "cliente/Template-FormularioBuscarClienteEspecifico";
 	}
 
 	@GetMapping("/buscarCliente")
@@ -68,7 +68,7 @@ public class ClienteController {
 		String documento = request.getParameter("documento");
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("cliente", service.localizarClientePorDocumento(documento));
-					return "cliente/Response-Cliente-Completo";
+					return "cliente/Template-ResponseClienteCompleto";
 				}
 	
 	@GetMapping("/gerar")
@@ -83,7 +83,7 @@ public class ClienteController {
 	public String excluirCliente(Model model, HttpServletRequest request) throws IOException {
 		publisher.publishEvent(new RecursoCriadoEvento(this,model,request));
 				model.addAttribute("NotaMessage", service.excluirCliente(request.getParameter("documento")));
-						return "cliente/home";
+						return "cliente/Template-Home";
 	}
 	
 

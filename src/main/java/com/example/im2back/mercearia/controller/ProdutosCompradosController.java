@@ -69,6 +69,6 @@ public class ProdutosCompradosController {
 			List<DadosGraficoDto> grafico = service.GraficoDto();
 				model.addAttribute("listaGraficoDto",grafico);
 				model.addAttribute("valores",estatisticas);
-					return "cliente/estatisticas";
+					return "cliente/Tempate-Estatisticas";
 		}
 }
