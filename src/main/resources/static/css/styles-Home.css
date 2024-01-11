@@ -1,160 +1,143 @@
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-image: url('/images/back.jpg'); /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    justify-content: center;  
-    display: flex;
-    flex-direction: column;
-    background-color:black   
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	background-image: url('/images/HomeBackground.jpg');
+	height: 100%;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 h1 {
-    color: rgb(0, 0, 0);
-    font-size: 50px; 
+	color: rgb(0, 0, 0);
+	font-size: 50px;
 }
 
 
-.logout{
-    padding: 10px;
-    font-size: 11px;
-    color: #fff;
-    background-color: rgb(255, 34, 34);
-    border-radius: 4px;
-    max-width: 100px; /* Limita a largura máxima do link */  
-    font-weight: bold;
-    letter-spacing: 1px;
+.logout {
+	padding: 10px;
+	font-size: 11px;
+	color: #fff;
+	background-color: rgb(255, 34, 34);
+	border-radius: 4px;
+	max-width: 100px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
 }
 
 a {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px;
-    text-decoration: none;
-    font-size: 19px; /* Reduz o tamanho da fonte do link */
-    color: #fff;
-    background-color: #3498db;
-    border-radius: 9px;
-    transition: background-color 0.3s, color 0.3s;
-    width: 100%; /* Ocupará 100% da largura disponível */
-    max-width: 500px; /* Limita a largura máxima do link */
-    margin-bottom: 20px; /* Reduz o espaçamento inferior do link */  
-    letter-spacing: 0.5px;
+	display: inline-block;
+	margin: 10px;
+	padding: 15px;
+	text-decoration: none;
+	font-size: 19px;
+	color: #fff;
+	background-color: #3498db;
+	border-radius: 9px;
+	transition: background-color 0.3s, color 0.3s;
+	width: 100%;
+	max-width: 500px;
+	margin-bottom: 20px;
+	letter-spacing: 0.5px;
+	box-shadow: 20px 15px 8px rgba(0, 0, 0, 0.5); 
 }
 
 a:hover {
-    background-color: rgb(0, 0, 0);
-    color: #fff;
+	background-color: rgb(0, 0, 0);
+	color: #fff;
 }
 
-.container-logout{
+.container-logout {
 	display: flex;
-	width: 100%; 
+	width: 100%;
 	height: 7vh;
-	align-items: center;	
+	align-items: center;
 	justify-content: right;
-	
+
 }
 
-.container-cabecalho{
+.container-cabecalho {
 	display: flex;
-	width: 100%; 
+	width: 100%;
 	height: 13vh;
-	align-items: center;	
+	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-  
+
 }
 
-.container-principal{
+.container-principal {
 	display: flex;
-	width: 100%; 
+	width: 100%;
 	height: 60vh;
 	align-items: center;
 	flex-direction: row;
 	justify-content: right;
-	
+
 }
 
 
-.container-rodape{
-
+.container-rodape {
 	display: flex;
-	width: 100%; 
+	width: 100%;
 	height: 20vh;
-	align-items: center;	
+	align-items: center;
 	justify-content: center;
 }
 
-.container-botoes{
-	
+.container-botoes {
+	text-align: center;
 	margin-right: 10%;
-	width: 30%; 
+	width: 30%;
 }
 
 .linkedin-button {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-      background-color: transparent;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    max-width: 300px; /* Limita a largura máxima do link */
+	display: inline-block;
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 20px;
+	color: rgb(0, 0, 0);
+	background-color: transparent;
+	border-radius: 5px;
+	transition: background-color 0.3s, color 0.3s;
+	max-width: 300px;
 }
 
 .linkedin-button:hover {
-     background-color: transparent;
+	background-color: transparent;
 }
 
-		.error-message {
-    color: #e74c3c;
-    font-size: 25px;
-    text-align: center;
-
-    /* Adicionando efeito piscante */
-    animation: blink 2s infinite;
-}
-@keyframes blink {
-    0%, 50%, 100% {
-        opacity: 1;
-    }
-    25%, 75% {
-        opacity: 0;
-    }
-}
-
-.grafico{
+.grafico {
 	width: 30%;
 	height: 30vh;
 }
 
-/* Estilos para smartphones */
+
 @media screen and (max-width: 480px) {
-    h1 {
-        font-size: 30px;
-    }
+	h1 {
+		font-size: 30px;
+	}
 
-    a {
-        font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos móveis */
-        padding: 10px; /* Ajustando o espaçamento interno */
-    }
+	a {
+		font-size: 14px;
+		padding: 10px;
+	}
 
-    .container-botoes {
-        margin-right: 5%; /* Reduzindo a margem direita */
-        width: 90%; /* Ocupando 90% da largura disponível */
-    }
+	.container-botoes {
+		margin-right: 5%;
+		width: 90%;
+	}
 
-    /* Adicione outras regras específicas para smartphones conforme necessário */
+
 }

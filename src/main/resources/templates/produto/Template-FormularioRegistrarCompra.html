@@ -5,11 +5,17 @@
     <title>Cadastro</title>
     <meta charset="UTF-8">
        <link rel="stylesheet" type="text/css" href="/css/styles-FormularioRegistrarCompra.css">
+       <link rel="stylesheet" type="text/css" th:href="@{/css/styles-main.css}" />
+       <link rel="stylesheet" type="text/css" th:href="@{/css/styles-Formularios.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles-PearsonMessages.css}" />
 </head>
 
 <body>		
 		<h1>Realizar Compra</h1>
-		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+		<div class="barraDeAcoes">
+			<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+		</div>
+		
 			
 		 
 	<form th:action="@{'/produtos/cadastrar?token=' + ${token}}" method="post">
@@ -40,7 +46,7 @@
         <input type="text" id="documento" name="documento">
 		<br><br>
 		<label for="obs">Observação:</label>
-        <textarea class="obs" id="obs" name="obs"></textarea>
+        <textarea class="observation-field" id="obs" name="obs"></textarea>
 		<br><br>
 		<input type="submit" value="Registrar" >
 	</form>

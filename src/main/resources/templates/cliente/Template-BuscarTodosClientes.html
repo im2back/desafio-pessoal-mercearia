@@ -5,18 +5,19 @@
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/css/styles-BuscarTodosClientes.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-main.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-Tables.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-PearsonMessages.css}" />
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
 </head>
 
 <body>
 
 	<h1>Todos os clientes</h1>
-	<div class="button-container"> <a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
+	<div class="barraDeAcoes"> <a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
 
 	<div th:if="${NotaMessage != null }">
-		<p class="error-message" th:text="${NotaMessage}"></p>
+		<p class="feedback-message" th:text="${NotaMessage}"></p>
 	</div>
 
 	<table>
@@ -27,7 +28,6 @@
 				<th>Total</th>
 				<th></th>
 				<th></th>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -36,15 +36,14 @@
 				<td th:text="${cliente.documento}"> </td>
 				<td th:text="'R$ 	' + ${cliente.total}"> </td>
 				<td>
-					<a class="editar"
+					<a class="acoes"
 						th:href="@{'/cliente/buscarCliente?documento=' + ${cliente.documento} + '&token=' + ${token}}">Detalhar</a>
 				</td>
 				<td>
-					<a class="editar"
+					<a class="acoes"
 						th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}+ '&redirect=listar'}">Gerar
 						Nota</a>
 				</td>
-
 			</tr>
 		</tbody>
 	</table>

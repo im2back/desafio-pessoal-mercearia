@@ -1,0 +1,128 @@
+.formulario-login {
+    height: 80%;
+    width: 16%;
+    margin: 0px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, rgb(132, 223, 253), #FFFFFF); /* Substitua as cores conforme necessário */
+}
+ .formulario-login-container {
+     	width: 100%;
+     	display: flex;
+     	justify-content: center;
+     	align-items: center;
+     	height: 50%;
+     }
+     
+     .labelLogin{
+		display: block;
+     	margin-bottom: 1px;
+     	color: #333;
+     	font-size: 30px;
+     	text-align: center;
+	}
+	.inputLogin{
+		width: 100%;
+     	padding: 10px;
+     	margin-bottom: 15px;
+     	box-sizing: border-box;
+     	border: 1px solid#3498db;
+     	border-radius: 4px;
+     	font-size: 16px;
+	}
+	
+	  .inputSubmitLogin[type="submit"] {
+     	background-color: #3498db;
+     	color: #fff;
+     	cursor: pointer;
+     	font-size: 20px;
+     }
+
+    .inputSubmitLogin:hover {
+     	background-color: #267bb5;
+     }
+
+form {
+	margin: 20px auto;
+	max-width: 400px;
+	padding: 40px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+	text-align: center;
+}
+
+
+label {
+	display: block;
+	margin-bottom: 8px;
+	color: #333;
+	font-size: 20px;
+}
+
+input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 8px;
+	box-sizing: border-box;
+	border-radius: 12px;
+
+}
+
+input[type="submit"] {
+	background-color: #3498db;
+	color: #fff;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+input[type="submit"]:hover {
+	background-color: #2980b9;
+}
+
+@media screen and (max-width: 1080px) {
+	
+	.inputLogin{
+	margin-bottom: 0px;
+}
+  .labelLogin{
+     	margin-bottom: 0px;
+	}
+
+	form {
+		width: 90%;
+		max-width: none;
+		height: 80vh;
+	}
+
+	.obs,
+	label,
+	input {
+		font-size: 18px;
+		padding: 20px;
+		font-size: 50px;
+	}
+
+	input[type="submit"] {
+		width: 100%;
+		padding: 15px;
+
+ }
+ 
+ input {
+		border: 2px solid#3498db;
+		font-size: 40px;
+		margin-bottom: 5px;
+	}
+
+	input[type="submit"] {
+		background-color: #3498db;
+		color: #fff;
+		cursor: pointer;
+		font-size: 60px;
+	}
+	
+		.formulario-login{
+     		width: 80%;
+     	}
+}

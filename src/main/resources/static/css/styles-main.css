@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Zombie+Holocaust&display=swap');
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	background-image: url('/images/GenericBackground.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100vh;
+}
+
+h1 {
+	text-align: center;
+	color: #333;
+}
+
+.HomePage-PearsonContainer {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.HomePage-PearsonLink {
+	width: 300px;
+}
+
+.barraDeAcoes {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #ddd;
+	margin-top: 40px;
+	text-align: center;
+}
+
+.acoes {
+	padding: 7px 20px;
+	font-size: 16px;
+	border: 2px solid rgb(128, 128, 128);
+	color: rgb(128, 128, 128);
+	border-radius: 3px;
+}
+
+a {
+	display: inline-block;
+	margin: 10px;
+	padding: 13px 30px;
+	text-decoration: none;
+	font-size: 24px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 3px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+	background-color: #3498db;
+	color: #fff;
+}
+
+button {
+	display: inline-block;
+	margin: 10px;	
+	padding: 10px 30px;
+	text-decoration: none;
+	font-size: 23px;
+	border: 2px solid #3498db;
+	color: #3498db;
+	border-radius: 3px;
+	transition: background-color 1.0s, color 2.0s;
+	cursor: pointer;
+	background-color: transparent;
+	font-family: 'Zombie Holocaust', cursive;
+}
+
+button:hover {
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 0, 0);
+	border: 2px solid rgb(255, 0, 0);
+	border-width: 3px;
+
+}
+
+.observation-field {
+	width: 100%;
+	padding: 20px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	border-radius: 12px;
+	word-wrap: break-word;
+}
+
+
+@media screen and (max-width: 1080px) {
+	button {
+		font-size: 30px;
+	}	
+		h1 {
+		font-size: 70px;
+	}
+
+}

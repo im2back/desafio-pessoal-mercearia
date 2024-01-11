@@ -1,0 +1,50 @@
+
+.feedback-message {
+	color: #e74c3c;
+	font-size: 25px;
+	text-align: center;
+	animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
+
+
+
+  .container-error-message-Login {
+     	display: flex;
+     	justify-content: center;
+     	align-items: center;
+     	width: 100%;
+     }
+     
+     .error-message {
+	background-color: #ffcccc;
+	border: 0px solid #ff0000;
+	border-radius: 10px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 1080px) {
+	
+	.feedback-message {
+		font-size: 50px;
+	}
+	.error-message {
+		font-size: 20px;
+		margin-bottom: 0px;
+	}
+}

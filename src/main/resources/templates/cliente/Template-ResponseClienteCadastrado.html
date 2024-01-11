@@ -4,12 +4,13 @@
 <head>
 	<title>Cadastro</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/styles-ResponseClienteCadastrado.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-main.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-Tables.css}" />
 </head>
 
 <body>
 	<h1>Cadastro realizado com sucesso !</h1>
-	<div class="button-container">
+	<div class="barraDeAcoes">
 		<a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
 		<a th:href="@{'/produtos?token=' + ${token}}">Adicionar Compra</a>
 	</div>

@@ -5,14 +5,17 @@
 	<title>Cliente Completo</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/css/styles-ResponseClienteCompleto.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-main.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-Tables.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-PearsonMessages.css}" />
 </head>
 
 <body>
 	<h1>Detalhar Cliente</h1>
-	<p class="error-message" th:if="${not #lists.isEmpty(param.permissao)}" th:text="${param.permissao[0]}"></p>
-	<div class="button-container">
-		<a class="homelink" th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
-	<div class="acoes" >
+	<p class="feedback-message" th:if="${not #lists.isEmpty(param.permissao)}" th:text="${param.permissao[0]}"></p>
+	<div class="HomePage-PearsonContainer">
+		<a class="HomePage-PearsonLink" th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a>
+	<div class="barraDeAcoes" >
 		<a th:href="@{'/cliente/gerar?documento=' + ${cliente.documento} + '&token=' + ${token}
 					+ '&redirect=buscarCliente'}">Gerar Nota</a>
 
@@ -33,15 +36,15 @@
 
 
 	<div th:if="${NotaMessage != null }">
-		<p class="error-message" th:text="${NotaMessage}"></p>
+		<p class="feedback-message" th:text="${NotaMessage}"></p>
 	</div>
 	
 	<div th:if="${zerarMessage != null }">
-		<p class="error-message" th:text="${zerarMessage}"></p>
+		<p class="feedback-message" th:text="${zerarMessage}"></p>
 	</div>
 
 
-	<p>Cliente</p>
+	<h1>Cliente</h1>
 	<table>
 		<thead>
 			<tr>
@@ -68,7 +71,7 @@
 		</tbody>
 	</table>
 	<br>
-	<p>Produtos Comprados</p>
+	<h1>Produtos Comprados</h1>
 	<table>
 		<thead>
 			<tr>
@@ -90,7 +93,7 @@
 					<form id="excluirProduto" th:action="@{'/produtos/deletar'}" th:method="post">
 						<input type="hidden" name="idproduto" th:value="${produto.id}" />
 						<input type="hidden" name="token" th:value="${token}" />
-						<button class="editar" type="submit">Excluir Produto</button>
+						<button class="acoes" type="submit">Excluir Produto</button>
 					</form>							
 				</td>
 			</tr>

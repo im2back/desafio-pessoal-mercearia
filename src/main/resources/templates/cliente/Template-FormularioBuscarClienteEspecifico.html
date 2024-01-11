@@ -5,13 +5,16 @@
 	<title>Listar Cliente</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/css/styles-FormularioBuscarClienteEspecifico.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-main.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-Formularios.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles-PearsonMessages.css}" />
 </head>
 
 <body>
 	<br><br>
 	<h1>Localizar Cliente</h1>
 	<br>
-	<div><a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
+	<div class="barraDeAcoes"><a th:href="@{'/cliente/home?token=' + ${token}}">Pagina Inicial</a> </div>
 	<br><br>
 	<div th:if="${serviceMessage != null }">
 		<p class="error-message" th:text="${serviceMessage}"></p>

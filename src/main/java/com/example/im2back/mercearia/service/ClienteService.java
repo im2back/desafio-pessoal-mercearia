@@ -34,7 +34,7 @@ public class ClienteService {
 
 	public String excluirCliente(String documento) throws IOException {
 		repository.deleteByDocumento(documento);
-		return "Cliente Deletado com sucesso, confira a nota backup";
+		return "Cliente Deletado com sucesso";
 	}
 
 	public ClienteCadastroResponseDTO salvarCliente(ClienteCadastroRequestDTO clienteRequest) {
