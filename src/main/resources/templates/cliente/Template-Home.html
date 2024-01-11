@@ -7,14 +7,18 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/css/styles-Home.css">
 	<link rel="stylesheet" type="text/css" href="/css/styles-PearsonMessages.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<div class="container-logout">
+	<div class="container-logout-ajust">
+		<div class="container-logout">
 		<a class="logout" th:href="@{'/login/logout?token=' + ${token}}">Logout</a>
 	</div>
+	</div>
+	
 
 	<div class="container-cabecalho">
 		<p class="error-message" th:if="${param.permissao != null}" th:text="${param.permissao}"></p>
@@ -40,8 +44,13 @@
 
 	<div class="container-rodape">
 		<a href="https://www.linkedin.com/in/jefferson-richards-sena-de-souza-4110a3222/" class="linkedin-button"
-			target="_blank">
-			Conectar no LinkedIn
+			target="_blank"><i class="fab fa-linkedin"></i>
+			Linkedin - Author
+		</a>
+		
+		<a href="https://github.com/im2back" class="git-button"
+			target="_blank"><i class="fab fa-github"></i>
+			GitHub - Author
 		</a>
 
 	</div>

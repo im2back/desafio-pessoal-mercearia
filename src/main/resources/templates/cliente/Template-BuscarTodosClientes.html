@@ -19,7 +19,12 @@
 	<div th:if="${NotaMessage != null }">
 		<p class="feedback-message" th:text="${NotaMessage}"></p>
 	</div>
-
+	
+	<div class="filtro-container">
+		<div class="label-filtro-container" ><label class="label-filtro" >Filtrar cliente por nome</label></div>
+		<div><input class="input-filtro" type="text" id="searchInput" placeholder="Pesquisar por nome"></div>	
+	</div>
+	
 	<table>
 		<thead>
 			<tr>
@@ -47,6 +52,18 @@
 			</tr>
 		</tbody>
 	</table>
+	
+<script>
+    $(document).ready(function() {
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+
 </body>
 
 

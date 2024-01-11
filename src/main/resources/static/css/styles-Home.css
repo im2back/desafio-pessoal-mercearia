@@ -19,9 +19,16 @@ img {
 }
 
 h1 {
-	color: rgb(0, 0, 0);
-	font-size: 50px;
+    font-size: 50px;
+    background: linear-gradient(to right, #3498db, #2c3e50); /* Gradiente azul escuro */
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Sombra do texto */
 }
+
+
+
 
 
 .logout {
@@ -60,13 +67,19 @@ a:hover {
 
 .container-logout {
 	display: flex;
-	width: 100%;
+	width: 8%;
 	height: 7vh;
+	justify-content:center;
 	align-items: center;
-	justify-content: right;
-
-}
-
+	margin-right: 30px;
+	margin-top: 10px;
+ }
+ 
+ .container-logout-ajust{
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: end;
+ }
 .container-cabecalho {
 	display: flex;
 	width: 100%;
@@ -94,7 +107,8 @@ a:hover {
 	height: 20vh;
 	align-items: center;
 	justify-content: center;
-}
+	text-align: center;
+	}
 
 .container-botoes {
 	text-align: center;
@@ -102,20 +116,37 @@ a:hover {
 	width: 30%;
 }
 
+.git-button{
+    background: linear-gradient(to bottom, #000000, #333333);
+	display: inline-block;
+	padding: 10px 0px;
+	text-decoration: none;
+	font-size: 18px;
+	color:white;
+	border-radius: 5px;
+	transition: background-color 0.3s, color 0.3s;
+	max-width: 200px;
+	box-shadow: 10px 15px 8px rgba(0, 0, 0, 0.5); 
+}
+.git-button i {
+    margin-right: 5px; 
+}
+
 .linkedin-button {
 	display: inline-block;
 	padding: 10px 15px;
 	text-decoration: none;
-	font-size: 20px;
-	color: rgb(0, 0, 0);
-	background-color: transparent;
+	font-size: 18px;
+	color:white;
+	background: linear-gradient(to bottom, #0077B5, #004e7e);
 	border-radius: 5px;
 	transition: background-color 0.3s, color 0.3s;
-	max-width: 300px;
+	max-width: 200px;
+	box-shadow: 10px 15px 8px rgba(0, 0, 0, 0.5); 
 }
 
-.linkedin-button:hover {
-	background-color: transparent;
+.linkedin-button i {
+    margin-right: 5px; 
 }
 
 .grafico {
@@ -138,6 +169,11 @@ a:hover {
 		margin-right: 5%;
 		width: 90%;
 	}
+	
+	.container-logout {
+	width: 20%;
+
+ }
 
 
 }
