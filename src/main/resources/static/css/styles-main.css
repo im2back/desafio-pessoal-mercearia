@@ -14,8 +14,14 @@ body {
 
 h1 {
 	text-align: center;
-	color: #333;
-}
+	    color: rgb(0, 0, 0);
+	font-size: 55px;
+    background: linear-gradient(to right, #3498db, #2c3e50); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); 	    
+	}
 
 .HomePage-PearsonContainer {
 	text-align: center;
@@ -119,12 +125,13 @@ font-family:Verdana, Geneva, Tahoma, sans-serif
      	font-size: 20px;
 }
 
+
 @media screen and (max-width: 1080px) {
 	button {
 		font-size: 30px;
 	}	
 		h1 {
-		font-size: 70px;
+		font-size: 60px;
 	}
 
 }

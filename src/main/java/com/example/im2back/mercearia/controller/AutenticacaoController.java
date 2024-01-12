@@ -14,6 +14,7 @@ import com.example.im2back.mercearia.infra.exceptions.ServiceExceptions;
 import com.example.im2back.mercearia.infra.security.TokenService;
 import com.example.im2back.mercearia.model.usuario.DadosAutenticacao;
 import com.example.im2back.mercearia.model.usuario.Usuario;
+import com.example.im2back.mercearia.service.BlackListJWTService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,10 +29,15 @@ public class AutenticacaoController {
 
 	@Autowired
 	private TokenService tokenService;
+	
+	@Autowired
+	private BlackListJWTService blackListJWTService;
 
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
 		var token = request.getParameter("token");
+		blackListJWTService.saveToken(token);	
+
 		return "redirect:/login";
 	}
 
@@ -42,7 +48,7 @@ public class AutenticacaoController {
 
 	@PostMapping
 	public String login(@Valid DadosAutenticacao dados, Model model, HttpServletResponse response,HttpServletRequest request) {	
-
+		
 		var tokenAuthentication = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
 		Authentication authentication = null;
 		try {

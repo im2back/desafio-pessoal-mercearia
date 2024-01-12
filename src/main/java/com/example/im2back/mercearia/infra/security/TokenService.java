@@ -20,7 +20,7 @@ public class TokenService {
 
 	@Value("{api.security.token.secret}")
 	private String secret;
-
+	
 	public String gerarToken(Usuario usuario) {
 		try {
 			var algoritmo = Algorithm.HMAC256(secret);
@@ -38,9 +38,10 @@ public class TokenService {
 
 	public String getSubject(String tokenJWT)  {
 		
-		try {
+		try {						
 			var algoritmo = Algorithm.HMAC256(secret);
 			return JWT.require(algoritmo).withIssuer("API Caderneta Digital").build().verify(tokenJWT).getSubject();
+			
 		} 
 		catch (JWTVerificationException ex) {
 			throw new JWTExceptions("Token JWT inválido ou expirado!");

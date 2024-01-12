@@ -10,6 +10,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.example.im2back.mercearia.infra.exceptions.JWTExceptions;
 import com.example.im2back.mercearia.repositories.UsuarioRepository;
+import com.example.im2back.mercearia.service.BlackListJWTService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,14 +24,23 @@ public class SecurityFilter extends OncePerRequestFilter {
 
 	@Autowired
 	UsuarioRepository repository;
-
+	@Autowired 
+	BlackListJWTService blService;
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 
-		var tokenParametro = request.getParameter("token");
+		String tokenParametro = request.getParameter("token");
+				
 		if (tokenParametro != null) {
 			try {
+			
+				if(blService.findByToken(tokenParametro) == "invalido" ) {				
+					throw new JWTExceptions("Token inválido, faça login novamente!");
+				}
+				
+					
+				
 				var subject = tokenService.getSubject(tokenParametro);
 				var usuario = repository.findByLogin(subject);
 				var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());

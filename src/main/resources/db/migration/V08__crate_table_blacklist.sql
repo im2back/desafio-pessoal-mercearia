@@ -1,0 +1,4 @@
+CREATE TABLE tb_blacklist (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    token VARCHAR(300) 
+);

@@ -1,5 +1,5 @@
 .formulario-login {
-    height: 80%;
+    height: 60%;
     width: 16%;
     margin: 0px auto;
     padding: 20px;
@@ -12,14 +12,18 @@
      	justify-content: center;
      	align-items: center;
      	height: 50%;
+
      }
      
      .labelLogin{
 		display: block;
      	margin-bottom: 1px;
      	color: #333;
-     	font-size: 30px;
+     	font-size: 20px;
      	text-align: center;
+     	font-weight: bold;
+     	letter-spacing: 1px;
+     	
 	}
 	.inputLogin{
 		width: 100%;
@@ -35,7 +39,9 @@
      	background-color: #3498db;
      	color: #fff;
      	cursor: pointer;
-     	font-size: 20px;
+     	font-size: 18px;
+		width: 50%;
+     	
      }
 
     .inputSubmitLogin:hover {
@@ -124,5 +130,6 @@ input[type="submit"]:hover {
 	
 		.formulario-login{
      		width: 80%;
+     		height: 80%;
      	}
 }

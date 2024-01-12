@@ -55,13 +55,6 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 
 
-## Futuras implementações (Atualização de 09/01/2023)
-
-( 1 ) -------> Adicionar campo de pesquisa por nome do cliente ,na pagina onde listamos todos os clientes
-
-
-( 2 ) -------> Implementar sistema de black list para complementar o JWT (TOKEN).
-
 # Tecnologias utilizadas
 ## Back end
 - Linguagem : <a href="" target="_blank"><img loading="lazy" src="https://img.shields.io/badge/Java-blue.svg?style=flat&logo=coffeescript&logoColor=white" target="_blank"></a> <br>
@@ -94,6 +87,9 @@ Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 - Preferencialmente criar um usuário de [Login :root] e [Senha : Rtyfghvbn1*], pois o projeto
  ja esta configurado para conectar-se a essas credencias, mas você pode personalizar.
  -Iniciar o MySql na porta compativel a do arquivo .properties do projeto (3306).
+ # Criar a Database:
+ - CREATE DATABASE mercearia_api;
+ 
 ```
 
 ```bash
@@ -104,20 +100,39 @@ cd mercearia
 ./mvnw spring-boot:run
 ```
 
-```Criando-um-usuário:
+```CriandoUmUsuário
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
 👉 Poweshell: 
-mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', 'admin', 'admin');"
+mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');"
 
 Esse comando criará um um usuário com as seguintes credenciais: 
 Login :admin  
-senha: admin  
-Role : admin  (responsavel pelo controle de acesso, neste caso o admin tem acesso irrestrito)
+senha: 123456  
+Role : admin  (responsavel pelo controle de acesso, neste caso a ROLE ADMIN tem acesso irrestrito)
 
 # Agora basta acessar a url http://localhost:8080/login entrar com seu usuário e senha e utilizar a API.
-```   
+```
 
-# Autor
+```Ferramentas
+# Geração de notas :
+-O Path onde as notas geradas serão salvas esta definido como padrão para : C:\Users\{SEU_USUARIO_LOCAL}
+-O serviço de Gmail enviará as notas para o e-mail do cliente que foi cadastrado.
+
+# Controle de Roles :
+- A aplicação tem controle de ROLES. Há 2 tipos de usuarios ADMIN e USER sendo que o administrador tem acesso irrestrito
+e o USER pode ter seu acesso a recursos personalizado. Basta acessar a classe SecurityConfigurations e personalizar o acesso.
+
+#  O sistema possui a exclusão logica de tokens em casos de (logout) e exclusão logica de produtos, atentar-se para o acumulo de
+dados no banco. 
+
+# Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
+o método dataExpiracao().
+
+
+```  
+ 
+
+# Author
 
 Jefferson Richards Sena de souza
 https://www.linkedin.com/in/jefferson-richards-sena-de-souza-4110a3222/
