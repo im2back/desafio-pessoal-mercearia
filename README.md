@@ -75,12 +75,12 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 
 
-# Como executar o projeto clonando o repositário 
+# Como executar o projeto clonando o repositório 
 
-## Back end
 Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 
-MySql
+### MySql
+
 ```
 # Instalar o mysql versão 8.0.31 CE
 
@@ -93,7 +93,8 @@ MySql
  
 ```
 
-bash
+### bash
+
 ```
 # clonar repositório
 # entrar na pasta do projeto
@@ -102,7 +103,8 @@ cd mercearia
 ./mvnw spring-boot:run
 ```
 
-Criando um usuário
+### Criando um usuário
+
 ```
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
 👉 Poweshell: 
@@ -119,9 +121,11 @@ INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvw
 # Feito isso, um usuário com as seguintes credenciais será criado:
 # Login: admin
 # Senha: 123456
+# Agora você pode acessar o endpoint e navegar ---> http://localhost:8080/login
 ```
 
-Ferramentas
+### Ferramentas
+
 ```
 # Geração de notas :
 -O Path onde as notas geradas serão salvas esta definido como padrão para : C:\Users\{SEU_USUARIO_LOCAL}
@@ -137,12 +141,13 @@ dados no banco.
 # Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
 o método dataExpiracao().
 ```  
- # Como executar o projeto através de container docker :
+ # Como executar o projeto através de container's Docker :
  
- Execultar projeto através da imagem :
+## Execultar projeto através da imagem :
 ```
 #Pré-requisitos:
-Ter o docker instalado no seu computador.
+- Ter o docker instalado no seu computador.
+- Baixar o arquivo docker-compose.yml que está dentro desse repositório.
 
 
 # (1) - Executar o arquivo docker-compose.yml:
