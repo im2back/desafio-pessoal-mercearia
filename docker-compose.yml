@@ -16,12 +16,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: mercearia:latest
+    image: im2back/mercearia:utimate
     container_name: mercearia-api
     ports:
       - "8080:8080"
-    depends_on:
-      - mercearia-database
     networks:
       - mercearia-network
 

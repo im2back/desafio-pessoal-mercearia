@@ -75,12 +75,13 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 
 
-# Como executar o projeto
+# Como executar o projeto clonando o repositário 
 
 ## Back end
 Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
 
-```MySql
+MySql
+```
 # Instalar o mysql versão 8.0.31 CE
 
 #Criar seu usuário e senha
@@ -92,7 +93,8 @@ Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
  
 ```
 
-```bash
+bash
+```
 # clonar repositório
 # entrar na pasta do projeto
 cd mercearia
@@ -100,20 +102,27 @@ cd mercearia
 ./mvnw spring-boot:run
 ```
 
-```CriandoUmUsuário
+Criando um usuário
+```
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
 👉 Poweshell: 
-mysql -u root -pRtyfghvbn1* -D mercearia_api -e "INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');"
+# (4) - Criar um usuário para fazer login na API:
+# -  Abrir o Powershell e Logar no banco de dados
+mysql -u root -pRtyfghvbn1*
 
-Esse comando criará um um usuário com as seguintes credenciais: 
-Login :admin  
-senha: 123456  
-Role : admin  (responsavel pelo controle de acesso, neste caso a ROLE ADMIN tem acesso irrestrito)
+# - Selecionar a database da aplicação
+use mercearia_api;
 
-# Agora basta acessar a url http://localhost:8080/login entrar com seu usuário e senha e utilizar a API.
+# - Inserir um usuário
+INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');
+
+# Feito isso, um usuário com as seguintes credenciais será criado:
+# Login: admin
+# Senha: 123456
 ```
 
-```Ferramentas
+Ferramentas
+```
 # Geração de notas :
 -O Path onde as notas geradas serão salvas esta definido como padrão para : C:\Users\{SEU_USUARIO_LOCAL}
 -O serviço de Gmail enviará as notas para o e-mail do cliente que foi cadastrado.
@@ -127,10 +136,47 @@ dados no banco.
 
 # Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
 o método dataExpiracao().
-
-
 ```  
+ # Como executar o projeto através de container docker :
  
+ Execultar projeto através da imagem :
+```
+#Pré-requisitos:
+Ter o docker instalado no seu computador.
+
+
+# (1) - Executar o arquivo docker-compose.yml:
+docker-compose up --no-start
+# Esperar iniciar...
+
+
+# (2) - Iniciar o container do banco de dados:
+docker start mercearia_database
+# Esperar iniciar...
+
+
+# (3) - Iniciar o container da aplicação:
+docker start mercearia-api
+# Esperar iniciar...
+
+
+# (4) - Criar um usuário para fazer login na API:
+# -  Abrir o Powershell e Logar no banco de dados
+mysql -u root -pRtyfghvbn1*
+
+# - Selecionar a database da aplicação
+use mercearia_api;
+
+# - Inserir um usuário
+INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');
+
+# Feito isso, um usuário com as seguintes credenciais será criado:
+# Login: admin
+# Senha: 123456
+
+# Agora você pode acessar o endpoint e navegar ---> http://localhost:8080/login
+
+```
 
 # Author
 
