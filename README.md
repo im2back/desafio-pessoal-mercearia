@@ -10,31 +10,42 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 <br>
 
+## Layout da tela  de login
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/Tela_login.png)
+
+
+
 ## Layout da tela  principal da aplicação
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/89dc57ba-341d-42dd-bc28-905cf8427dae)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/Tela_principal.png)
 
 
 ## Layout da tela de cadastro de clientes
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/e700abf4-d263-4ee3-82a8-f8b7f17ec59d)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/cadastro_cliente.png)
 
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/4a67c4ba-8f5d-42fa-ad77-6675cd94f0f1)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/cadastro_cliente_feedback.png)
 
 
 
 ## Layout da tela de listar todos os clientes (somente informações importantes)
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/5952328a-71bf-4a50-9509-f6236b72cdae)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/listar_todos.png)
 
 <br>
 
 ## Detalhamento do cliente (todas as informações + Ações)
 
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/fb7520e4-aaef-4986-a5ee-eaab447e5901)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/detalhar_cliente.png)
+
+<br>
+
+## Registro de compra
+
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/Registar_compra.png)
 
 <br>
 
 ## Layout da tela de estatisticas
 
-![image](https://github.com/im2back/desafio-pessoal-mercearia/assets/117541466/d9134151-854f-407f-9806-a8c9b021291e)
+![image](https://raw.githubusercontent.com/im2back/desafio-pessoal-mercearia/main/prints_projeto/grafico.png)
 
 
 <br>
