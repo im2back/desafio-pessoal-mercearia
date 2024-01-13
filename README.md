@@ -127,18 +127,18 @@ INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvw
 ### Ferramentas
 
 ```
-# Geração de notas :
--O Path onde as notas geradas serão salvas esta definido como padrão para : C:\Users\{SEU_USUARIO_LOCAL}
--O serviço de Gmail enviará as notas para o e-mail do cliente que foi cadastrado.
+📄 Geração de notas :
+ - O Path onde as notas geradas serão salvas esta definido como padrão para : C:\Users\{SEU_USUARIO_LOCAL}
+ - O serviço de Gmail enviará as notas para o e-mail do cliente que foi cadastrado.
 
-# Controle de Roles :
+🔐 Controle de Roles :
 - A aplicação tem controle de ROLES. Há 2 tipos de usuarios ADMIN e USER sendo que o administrador tem acesso irrestrito
 e o USER pode ter seu acesso a recursos personalizado. Basta acessar a classe SecurityConfigurations e personalizar o acesso.
 
-#  O sistema possui a exclusão logica de tokens em casos de (logout) e exclusão logica de produtos, atentar-se para o acumulo de
+⚠️  O sistema possui a exclusão logica de tokens em casos de (logout) e exclusão logica de produtos, atentar-se para o acumulo de
 dados no banco. 
 
-# Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
+⚠️ Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
 o método dataExpiracao().
 ```  
  # Como executar o projeto através de container's Docker :
@@ -166,8 +166,9 @@ docker start mercearia-api
 
 
 # (4) - Criar um usuário para fazer login na API:
-# -  Abrir o Powershell e Logar no banco de dados
-mysql -u root -pRtyfghvbn1*
+# -  Abrir o Powershell e Logar no banco de dados 
+mysql -h 127.0.0.1 -P 3306 -u root -p
+-->Digitar a senha : Rtyfghvbn1*
 
 # - Selecionar a database da aplicação
 use mercearia_api;
