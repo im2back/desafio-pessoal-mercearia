@@ -77,29 +77,36 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 
 # Como executar o projeto clonando o repositório 
 
-Pré-requisitos: Java 17 , Mysql database versão 8.0.31 CE
+### Pré-requisitos: 
+✔️Java 17 
+✔️Mysql database versão 8.0.31 CE
+
 
 ### MySql
 
 ```
-# Instalar o mysql versão 8.0.31 CE
+✅ Instalar o mysql versão 8.0.31 CE
 
-#Criar seu usuário e senha
+✅ Criar seu usuário e senha
 - Preferencialmente criar um usuário de [Login :root] e [Senha : Rtyfghvbn1*], pois o projeto
  ja esta configurado para conectar-se a essas credencias, mas você pode personalizar.
- -Iniciar o MySql na porta compativel a do arquivo .properties do projeto (3306).
- # Criar a Database:
+-Iniciar o MySql na porta compativel a do arquivo .properties do projeto (3306).
+ 
+✅ Criar a Database:
  - CREATE DATABASE mercearia_api;
  
 ```
 
-### bash
+### Bash
 
 ```
-# clonar repositório
-# entrar na pasta do projeto
-cd mercearia
-# executar o projeto
+✅ Clonar repositório
+
+✅ Entrar na pasta do projeto clonado
+👉 Poweshell:
+- cd mercearia
+
+✅ executar o projeto
 ./mvnw spring-boot:run
 ```
 
@@ -107,21 +114,22 @@ cd mercearia
 
 ```
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
+
+✅ Criar um usuário para fazer login na API:
 👉 Poweshell: 
-# (4) - Criar um usuário para fazer login na API:
-# -  Abrir o Powershell e Logar no banco de dados
 mysql -u root -pRtyfghvbn1*
 
-# - Selecionar a database da aplicação
+✅ Selecionar a database da aplicação
 use mercearia_api;
 
-# - Inserir um usuário
+✅ Inserir um usuário
 INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');
 
 # Feito isso, um usuário com as seguintes credenciais será criado:
-# Login: admin
-# Senha: 123456
-# Agora você pode acessar o endpoint e navegar ---> http://localhost:8080/login
+🔒 Login: admin
+🔑 Senha: 123456
+
+🎉🥳 🎉🥳 Agora você pode acessar o endpoint e navegar 👉 http://localhost:8080/login
 ```
 
 ### Ferramentas
@@ -140,47 +148,52 @@ dados no banco.
 
 ⚠️ Os tokens estão configurados para expirar a cada 2 horas, para personalizar basta acessar a classe : TokenService e ajustar
 o método dataExpiracao().
-```  
+``` 
+<br> 
  # Como executar o projeto através de container's Docker :
  
 ## Execultar projeto através da imagem :
 ```
 #Pré-requisitos:
-- Ter o docker instalado no seu computador.
-- Baixar o arquivo docker-compose.yml que está dentro desse repositório.
+✔️ Ter o docker instalado no seu computador.
+✔️ Baixar o arquivo docker-compose.yml através do link abaixo 👇 👇 
+  https://drive.google.com/file/d/11OoiuY3xI_hGuP2o_8TLSRqfWA5b_tef/view?usp=sharing
 
 
-# (1) - Executar o arquivo docker-compose.yml:
+
+✅ Após baixar, acessar a pasta do arquivo docker-compose.yml
+👉 Poweshell:
 docker-compose up --no-start
 # Esperar iniciar...
 
 
-# (2) - Iniciar o container do banco de dados:
+✅ Iniciar o container do banco de dados:
 docker start mercearia_database
 # Esperar iniciar...
 
 
-# (3) - Iniciar o container da aplicação:
+✅ Iniciar o container da aplicação:
 docker start mercearia-api
 # Esperar iniciar...
 
 
-# (4) - Criar um usuário para fazer login na API:
-# -  Abrir o Powershell e Logar no banco de dados 
+✅ Criar um usuário para fazer login na API:
+👉 Poweshell:
+- Fazer login no banco de dados
 mysql -h 127.0.0.1 -P 3306 -u root -p
--->Digitar a senha : Rtyfghvbn1*
+Digitar a senha : Rtyfghvbn1*
 
-# - Selecionar a database da aplicação
+✅ Selecionar a database da aplicação
 use mercearia_api;
 
-# - Inserir um usuário
+✅ Inserir um usuário
 INSERT INTO usuarios (login, senha, role) VALUES ('admin', '$2a$10$EB/T/n7buVWvwuPsj5b1fO.mi.bizqStFRqtpbnSMi9Jw9NmCEmzi', 'ADMIN');
 
 # Feito isso, um usuário com as seguintes credenciais será criado:
-# Login: admin
-# Senha: 123456
+🔒 Login: admin
+🔑 Senha: 123456
 
-# Agora você pode acessar o endpoint e navegar ---> http://localhost:8080/login
+🎉🥳 🎉🥳 Agora você pode acessar o endpoint e navegar 👉 http://localhost:8080/login
 
 ```
 
