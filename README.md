@@ -162,9 +162,11 @@ dados no banco.
 o método dataExpiracao().
 ``` 
 <br> 
- # Como executar o projeto através de container's Docker :
+
+# Como executar o projeto através de container's Docker 
  
-## Execultar projeto através da imagem :
+## Executando projeto através da imagem :
+
 ```
 #Pré-requisitos:
 ✔️ Ter o docker instalado no seu computador.
