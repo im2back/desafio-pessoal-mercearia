@@ -127,7 +127,7 @@ Esta API foi concebida com o objetivo de simplificar o processo de registro das 
 ```
 # O sistema precisa de um usuário e senha previamente cadatrados para isso basta executar o seguinte comando:
 
-✅ Criar um usuário para fazer login na API:
+✅ Logando no banco de dados:
 👉 Poweshell: 
 mysql -u root -pRtyfghvbn1*
 
